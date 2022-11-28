@@ -1,0 +1,24 @@
+.container2{
+          width: 100%;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+          background-color: #eee;
+        }
+
+        .accordion2 {
+          background-color: #eee;
+          color: #444;
+          cursor: pointer;
+          padding: 18px;
+          width: 100%;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+          transition: 0.4s;
+        }
+        
+
+
+
+        

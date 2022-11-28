@@ -1,0 +1,136 @@
+.bitbot{
+          position: absolute;
+          width: 100wh;
+          height: 420px;
+          left: 15%;
+          top: 37%;
+}
+
+.placebid{
+          position: relative;
+          width: 458px;
+          height: 58px;
+          background: #fff;
+          color: #000;
+}
+
+.bitbox{
+          position: absolute;
+          width: 176px;
+          height: 68px;
+          left: 462px;
+          top: 388px;
+          background: #FFBE3E;
+          box-shadow: 8px 8px 0px #D33E3E;
+}
+
+.textbid{
+          position: relative;
+          left: 34%;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 36px;
+          line-height: 36px;
+          text-align: center;
+          letter-spacing: 0.1px;
+          color: #FFFFFF;
+}
+.textinput{
+          font-family: 'Montserrat';
+          font-style: italic;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 36px;
+          letter-spacing: 1.1px;
+          color: #D33E3E;
+}
+.textbit1 {
+          position: absolute;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 30px;
+          line-height: 36px;
+          letter-spacing: 0.1px;
+          color: #FFFFFF;
+          top:10;
+        }
+        .textbit2 {
+          position: absolute;
+          font-style: normal;
+          font-weight: 600;
+          top:10;
+          left: 147px;
+          font-size: 30px;
+          line-height: 36px;
+          letter-spacing: 0.1px;
+          color: #FFFFFF;
+        }
+.textbox{
+          position: absolute;
+          width: 325px;
+          height: 300px;
+          left: 226px;
+          top: 60px;
+
+          font-style: normal;
+          font-weight: 700;
+          line-height: 36px;
+          /* or 28% */
+
+          letter-spacing: 0.1px;
+
+          color: #FFFFFF;
+}
+.imgchecken{
+          position: relative;
+          width: 100vw;
+          height: 100vh;
+          left: 0;
+          top: 40px;
+}
+.imgposition{
+          position: absolute;
+          left: 5%;
+          top:3%;
+}
+.textokenid{
+          position: absolute;
+          right: 2%;
+          bottom: 17%;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 40px;
+          line-height: 36px;
+          /* identical to box height, or 90% */
+
+          letter-spacing: 0.1px;
+
+          color: #FFFFFF;
+}
+
+.bannerbox{
+          background-color: #D33E3E;
+          font-family: 'Kanit';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 48px;
+          letter-spacing: 0.1px;
+          color: #FFBE3E;
+          vertical-align: center;
+          text-align: center;
+          height: 144px;
+}
+
+.textbanner{
+          display: flex;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 48px;
+          line-height: 75%;
+          letter-spacing: 0.1px;
+          color: #FFBE3E;
+          position: absolute;
+          vertical-align: center;
+          text-align: center;
+          
+}
