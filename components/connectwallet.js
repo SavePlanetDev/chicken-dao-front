@@ -1,4 +1,5 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import styles from '../styles/Header.module.css'
 
 
 export default function Connectwallet() {
@@ -39,8 +40,8 @@ export default function Connectwallet() {
                               if (!connected) {
                               return (
                                         <div>
-                                                  <button onClick={openConnectModal} style={{ display: 'absolute', alignItems: 'center' ,background: 'none',borderStyle: 'none',top:'24px', right:'0', position:'absolute'}} type="button">
-                                                  <img src="connectimg.png" width="150px"></img>
+                                                  <button onClick={openConnectModal} className={styles.bottomconnect} type="button">
+                                                  <img src="connectimg.png" className={styles.bottomconnectimg}></img>
                                                   </button>
                                         </div>
                               
@@ -49,8 +50,8 @@ export default function Connectwallet() {
 
                               if (chain.unsupported) {
                               return (
-                              <div style={{ display: 'revert', alignItems: 'center',background:'#F02D2D' , height:'60px', width:'130px',filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',right:'10px', position:'absolute',top:'7%'}}>
-                              <button onClick={openChainModal} type="button" style={{ display: 'flex', alignItems: 'center',background:'#FFBE3E',height:'60px', width:'130px',right:'6px',position:'absolute',top:'-6px', borderStyle: 'none' }}>
+                              <div className={styles.wrongnetworkr}>
+                              <button onClick={openChainModal} type="button" className={styles.wrongnetworky}>
                                         Wrong network
                               </button>
                               </div>
@@ -59,10 +60,10 @@ export default function Connectwallet() {
 
                               return (
                               <div style={{ display: 'flex', gap: 12 }}>
-                              <div style={{ display: 'revert', alignItems: 'center',background:'#F02D2D' , height:'60px', width:'130px',filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',right:'160px', position:'absolute',top:'7%'}}>
+                              <div className={styles.chainbuttomr}>
                               <button
                                         onClick={openChainModal}
-                                        style={{ display: 'flex', alignItems: 'center',background:'#FFBE3E',height:'60px', width:'130px',right:'6px',position:'absolute',top:'-6px', borderStyle: 'none' }}
+                                        className={styles.chainbuttomy}
                                         type="button"
                               >
                                         {chain.hasIcon && (
@@ -91,8 +92,8 @@ export default function Connectwallet() {
                               </button>
                               </div>
                               
-                              <div style={{ display: 'revert', alignItems: 'center',background:'#F02D2D' , height:'60px', width:'130px',filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',right:'10px', position:'absolute',top:'7%'}}>
-                              <button onClick={openAccountModal} type="button" style={{ display: 'flex', alignItems: 'center',background:'#FFBE3E',height:'60px', width:'130px',right:'6px',position:'absolute',top:'-6px', borderStyle: 'none' }}>
+                              <div className={styles.addressbuttomr}>
+                              <button onClick={openAccountModal} type="button" className={styles.addressbuttomy}>
                                         {account.displayName}
                                         {account.displayBalance
                                         ? ` (${account.displayBalance})`

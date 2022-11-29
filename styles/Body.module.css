@@ -23,6 +23,28 @@
           background: #FFBE3E;
           box-shadow: 8px 8px 0px #D33E3E;
 }
+.bitbuttony{
+          display: flex;
+          align-items: center;
+          background:#FFBE3E;
+          height:60px;
+          width:150px;
+          right:6px;
+          position:absolute;
+          top:-6px;
+          border-style: none; 
+}
+.bitbuttonr{
+          display: revert;
+          align-items: center;
+          background:#F02D2D ;
+          height:60px;
+          width:150px;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          right:-6%;
+          position:absolute;
+          top:-3%;
+}
 
 .textbid{
           position: relative;
@@ -58,7 +80,7 @@
           position: absolute;
           font-style: normal;
           font-weight: 600;
-          top:10;
+          top:22%;
           left: 147px;
           font-size: 30px;
           line-height: 36px;
@@ -83,8 +105,6 @@
 }
 .imgchecken{
           position: relative;
-          width: 100vw;
-          height: 100vh;
           left: 0;
           top: 40px;
 }
@@ -92,6 +112,28 @@
           position: absolute;
           left: 5%;
           top:3%;
+          width:91%;
+}
+.imgbackbocky{
+          display: revert;
+          align-items: center;
+          background:rgba(255, 222, 5, 0.5) ;
+          height:710px;
+          width:604px;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          right:15%;
+          position:absolute;
+}
+.imgbackbockr{
+          display: flex;
+          align-items: center;
+          background:rgba(211, 62, 62, 0.5);
+          height:710px;
+          width:604px;
+          right:6px;
+          position:absolute;
+          top:-6px;
+          border-style: none;
 }
 .textokenid{
           position: absolute;
@@ -132,5 +174,915 @@
           position: absolute;
           vertical-align: center;
           text-align: center;
+          
+}
+
+
+@media screen and (max-width: 1600px) {
+          .imgchecken{
+                    position: relative;
+                    left: 0;
+                    top: 40px;
+          }
+          .imgposition{
+                    position: absolute;
+                    left: 5%;
+                    top:3%;
+                    width:91%;
+          }
+          .imgbackbocky{
+                    display: revert;
+                    align-items: center;
+                    background:rgba(255, 222, 5, 0.5) ;
+                    height:710px;
+                    width:604px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right:3%;
+                    position:absolute;
+          }
+          .imgbackbockr{
+                    display: flex;
+                    align-items: center;
+                    background:rgba(211, 62, 62, 0.5);
+                    height:710px;
+                    width:604px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+          .textokenid{
+                    position: absolute;
+                    right: 2%;
+                    bottom: 17%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 40px;
+                    line-height: 36px;
+                    /* identical to box height, or 90% */
+          
+                    letter-spacing: 0.1px;
+          
+                    color: #FFFFFF;
+          }
+          .bitbot{
+                    position: absolute;
+                    width: 100wh;
+                    height: 420px;
+                    left: 5%;
+                    top: 37%;
+          }
+          
+          .placebid{
+                    position: relative;
+                    width: 458px;
+                    height: 58px;
+                    background: #fff;
+                    color: #000;
+          }
+          
+          .bitbox{
+                    position: absolute;
+                    width: 176px;
+                    height: 68px;
+                    left: 462px;
+                    top: 388px;
+                    background: #FFBE3E;
+                    box-shadow: 8px 8px 0px #D33E3E;
+          }
+          
+          .textbid{
+                    position: relative;
+                    left: 34%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 36px;
+                    line-height: 36px;
+                    text-align: center;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+          }
+          .textinput{
+                    font-family: 'Montserrat';
+                    font-style: italic;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 36px;
+                    letter-spacing: 1.1px;
+                    color: #D33E3E;
+          }
+          .textbit1 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 30px;
+                    line-height: 36px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                    top:10;
+                  }
+                  .textbit2 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    top:22%;
+                    left: 147px;
+                    font-size: 30px;
+                    line-height: 36px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                  }
+          .textbox{
+                    position: absolute;
+                    width: 325px;
+                    height: 300px;
+                    left: 226px;
+                    top: 60px;
+          
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 36px;
+                    /* or 28% */
+          
+                    letter-spacing: 0.1px;
+          
+                    color: #FFFFFF;
+          }
+}
+@media screen and (max-width: 1200px) {
+          .imgchecken{
+                    position: relative;
+                    left: 0;
+                    top: 14%;
+          }
+          .imgposition{
+                    position: absolute;
+                    left: 5%;
+                    top:3%;
+                    width:91%;
+          }
+          .imgbackbocky{
+                    display: revert;
+                    align-items: center;
+                    background:rgba(255, 222, 5, 0.5) ;
+                    height:540px;
+                    width:444px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right:3%;
+                    position:absolute;
+          }
+          .imgbackbockr{
+                    display: flex;
+                    align-items: center;
+                    background:rgba(211, 62, 62, 0.5);
+                    height:540px;
+                    width:444px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+          .textokenid{
+                    position: absolute;
+                    right: 2%;
+                    bottom: 17%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 40px;
+                    line-height: 36px;
+                    /* identical to box height, or 90% */
+          
+                    letter-spacing: 0.1px;
+          
+                    color: #FFFFFF;
+          }
+          .bitbot{
+                    position: absolute;
+                    width: 100wh;
+                    height: 420px;
+                    left: 3%;
+                    top: 48%;
+          }
+          
+          .placebid{
+                    position: relative;
+                    width: 420px;
+                    height: 58px;
+                    background: #fff;
+                    color: #000;
+          }
+          
+          .bitbox{
+                    position: absolute;
+                    width: 176px;
+                    height: 68px;
+                    left: 462px;
+                    top: 388px;
+                    background: #FFBE3E;
+                    box-shadow: 8px 8px 0px #D33E3E;
+          }
+          
+          .textbid{
+                    position: relative;
+                    left: 34%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 36px;
+                    line-height: 36px;
+                    text-align: center;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+          }
+          .textinput{
+                    font-family: 'Montserrat';
+                    font-style: italic;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 36px;
+                    letter-spacing: 1.1px;
+                    color: #D33E3E;
+          }
+          .textbit1 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 36px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                    top:10;
+                  }
+                  .textbit2 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    top:22%;
+                    left: 117px;
+                    font-size: 24px;
+                    line-height: 24px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                  }
+          .textbox{
+                    position: absolute;
+                    width: 225px;
+                    height: 200px;
+                    left: 216px;
+                    top: 40px;
+                    font-size: 24px;
+          
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 33px;
+                    /* or 28% */
+          
+                    letter-spacing: 0.1px;
+          
+                    color: #FFFFFF;
+          }
+         
+                  
+                  .li {
+                    
+                    font-size: 2rem;
+                  }
+                  .spanx{
+                    font-size: 100px;
+                  }
+                  .h1 {
+                    text-align: center;
+                  }
+          
+}
+@media screen and (max-width: 960px) {
+          .imgchecken{
+                    position: relative;
+                    left: 0;
+                    top: 20%;
+          }
+          .imgposition{
+                    position: absolute;
+                    left: 5%;
+                    top:3%;
+                    width:91%;
+          }
+          .imgbackbocky{
+                    display: revert;
+                    align-items: center;
+                    background:rgba(255, 222, 5, 0.5) ;
+                    height:440px;
+                    width:344px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right:3%;
+                    position:absolute;
+          }
+          .imgbackbockr{
+                    display: flex;
+                    align-items: center;
+                    background:rgba(211, 62, 62, 0.5);
+                    height:440px;
+                    width:344px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+          .textokenid{
+                    position: absolute;
+                    right: 2%;
+                    bottom: 17%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 40px;
+                    line-height: 36px;
+                    /* identical to box height, or 90% */
+          
+                    letter-spacing: 0.1px;
+          
+                    color: #FFFFFF;
+          }
+          .bitbot{
+                    position: absolute;
+                    width: 100wh;
+                    height: 420px;
+                    left: 3%;
+                    top: 52%;
+          }
+          
+          .placebid{
+                    position: relative;
+                    width: 320px;
+                    height: 58px;
+                    background: #fff;
+                    color: #000;
+          }
+          
+          .bitbox{
+                    position: absolute;
+                    width: 176px;
+                    height: 68px;
+                    left: 462px;
+                    top: 388px;
+                    background: #FFBE3E;
+                    box-shadow: 8px 8px 0px #D33E3E;
+          }
+          
+          .textbid{
+                    position: relative;
+                    left: 34%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 36px;
+                    line-height: 36px;
+                    text-align: center;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+          }
+          .textinput{
+                    font-family: 'Montserrat';
+                    font-style: italic;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 36px;
+                    letter-spacing: 1.1px;
+                    color: #D33E3E;
+          }
+          .textbit1 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 36px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                    top:10;
+                  }
+                  .textbit2 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    top:22%;
+                    left: 117px;
+                    font-size: 24px;
+                    line-height: 24px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                  }
+                  .textbox{
+                    position: absolute;
+                    width: 225px;
+                    height: 200px;
+                    left: 176px;
+                    top: 27px;
+                    font-size: 24px;
+          
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 33px;
+                    /* or 28% */
+          
+                    letter-spacing: 0.1px;
+          
+                    color: #FFFFFF;
+          }
+         
+                  
+                  .li {
+                    
+                    font-size: 2rem;
+                  }
+                  .spanx{
+                    font-size: 50px;
+                  }
+                  .h1 {
+                    text-align: center;
+                  }
+                  .bannerbox{
+                    background-color: #D33E3E;
+                    font-family: 'Kanit';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 28px;
+                    letter-spacing: 0.1px;
+                    color: #FFBE3E;
+                    vertical-align: center;
+                    text-align: center;
+                    height: 84px;
+          }
+}
+@media screen and (max-width: 750px) {
+          .imgchecken{
+                    position: relative;
+                    left: 0;
+                    top: 40px;
+          }
+          .imgposition{
+                    position: absolute;
+                    left: 5%;
+                    top:3%;
+                    width:91%;
+          }
+          .imgbackbocky{
+                    display: revert;
+                    align-items: center;
+                    background:rgba(255, 222, 5, 0.5) ;
+                    height:440px;
+                    width:344px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    left: 25%;
+                    position:absolute;
+          }
+          .imgbackbockr{
+                    display: flex;
+                    align-items: center;
+                    background:rgba(211, 62, 62, 0.5);
+                    height:440px;
+                    width:344px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+          .textokenid{
+                    position: absolute;
+                    right: 2%;
+                    bottom: 17%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 40px;
+                    line-height: 36px;
+                    /* identical to box height, or 90% */
+          
+                    letter-spacing: 0.1px;
+          
+                    color: #FFFFFF;
+          }
+          .bitbot{
+                    position: absolute;
+                    width: 40wh;
+                    height: 420px;
+                    left: 25%;
+                    top: 85%;
+          }
+          
+          .placebid{
+                    position: relative;
+                    width: 320px;
+                    height: 58px;
+                    background: #fff;
+                    color: #000;
+          }
+          
+          .bitbox{
+                    position: absolute;
+                    width: 176px;
+                    height: 68px;
+                    left: 462px;
+                    top: 388px;
+                    background: #FFBE3E;
+                    box-shadow: 8px 8px 0px #D33E3E;
+          }
+          
+          .textbid{
+                    position: relative;
+                    left: 34%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 36px;
+                    line-height: 36px;
+                    text-align: center;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+          }
+          .textinput{
+                    font-family: 'Montserrat';
+                    font-style: italic;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 36px;
+                    letter-spacing: 1.1px;
+                    color: #D33E3E;
+          }
+          .textbit1 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 36px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                    top:10;
+                  }
+                  .textbit2 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    top:22%;
+                    left: 117px;
+                    font-size: 24px;
+                    line-height: 24px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                  }
+                  .textbox{
+                    position: absolute;
+                    width: 225px;
+                    height: 200px;
+                    left: 176px;
+                    top: 27px;
+                    font-size: 24px;
+          
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 33px;
+                    /* or 28% */
+          
+                    letter-spacing: 0.1px;
+          
+                    color: #FFFFFF;
+          }
+         
+                  
+                  .li {
+                    
+                    font-size: 2rem;
+                  }
+                  .spanx{
+                    font-size: 50px;
+                  }
+                  .h1 {
+                    text-align: center;
+                  }
+                  .bannerbox{
+                    background-color: #D33E3E;
+                    font-family: 'Kanit';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 22px;
+                    letter-spacing: 0.1px;
+                    color: #FFBE3E;
+                    vertical-align: center;
+                    text-align: center;
+                    height: 74px;
+          }
+}
+@media screen and (max-width: 560px) {
+          .imgchecken{
+                    position: relative;
+                    left: 0;
+                    top: 90px;
+          }
+          .imgposition{
+                    position: absolute;
+                    left: 5%;
+                    top:3%;
+                    width:91%;
+          }
+          .imgbackbocky{
+                    display: revert;
+                    align-items: center;
+                    background:rgba(255, 222, 5, 0.5) ;
+                    height:330px;
+                    width:274px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    left: 22%;
+                    position:absolute;
+          }
+          .imgbackbockr{
+                    display: flex;
+                    align-items: center;
+                    background:rgba(211, 62, 62, 0.5);
+                    height:330px;
+                    width:274px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+          .textokenid{
+                    position: absolute;
+                    right: 2%;
+                    bottom: 17%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 36px;
+                    /* identical to box height, or 90% */
+          
+                    letter-spacing: 0.1px;
+          
+                    color: #FFFFFF;
+          }
+          .bitbot{
+                    position: absolute;
+                    width: 40wh;
+                    height: 420px;
+                    left: 15%;
+                    top: 80%;
+          }
+          
+          .placebid{
+                    position: relative;
+                    width: 320px;
+                    height: 58px;
+                    background: #fff;
+                    color: #000;
+          }
+          
+          .bitbox{
+                    position: absolute;
+                    width: 176px;
+                    height: 68px;
+                    left: 462px;
+                    top: 388px;
+                    background: #FFBE3E;
+                    box-shadow: 8px 8px 0px #D33E3E;
+          }
+          
+          .textbid{
+                    position: relative;
+                    left: 34%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 36px;
+                    line-height: 36px;
+                    text-align: center;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+          }
+          .textinput{
+                    font-family: 'Montserrat';
+                    font-style: italic;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 36px;
+                    letter-spacing: 1.1px;
+                    color: #D33E3E;
+          }
+          .textbit1 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 36px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                    left: 36px;
+                    top:10;
+                  }
+                  .textbit2 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    top:15%;
+                    left: 207px;
+                    font-size: 18px;
+                    line-height: 24px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                  }
+                  .textbox{
+                    top: 20%;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    left: -27px;
+                    letter-spacing: 0.2px;
+          
+                    color: #FFFFFF;
+          }
+         
+                  
+                  .li {
+                    
+                    font-size: 18px;
+                    display: inline;
+                  }
+                  .spanx{
+                    font-size: 35px;
+                  }
+                  .bannerbox{
+                    background-color: #D33E3E;
+                    font-family: 'Kanit';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 18px;
+                    letter-spacing: 0.1px;
+                    color: #FFBE3E;
+                    vertical-align: center;
+                    text-align: center;
+                    height: 64px;
+          }
+          
+}
+@media screen and (max-width: 480px) {
+          .imgchecken{
+                    position: relative;
+                    left: 0;
+                    top: 10%;
+          }
+          .imgposition{
+                    position: absolute;
+                    left: 5%;
+                    top:3%;
+                    width:91%;
+          }
+          .imgbackbocky{
+                    display: revert;
+                    align-items: center;
+                    background:rgba(255, 222, 5, 0.5) ;
+                    height:260px;
+                    width:204px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    left: 22%;
+                    position:absolute;
+          }
+          .imgbackbockr{
+                    display: flex;
+                    align-items: center;
+                    background:rgba(211, 62, 62, 0.5);
+                    height:260px;
+                    width:204px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+          .textokenid{
+                    position: absolute;
+                    right: 2%;
+                    bottom: 17%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 36px;
+                    /* identical to box height, or 90% */
+          
+                    letter-spacing: 0.1px;
+          
+                    color: #FFFFFF;
+          }
+          .bitbot{
+                    position: absolute;
+                    width: 40wh;
+                    height: 420px;
+                    left: 15%;
+                    top: 80%;
+          }
+          
+          .placebid{
+                    position: relative;
+                    width: 260px;
+                    height: 38px;
+                    background: #fff;
+                    color: #000;
+          }
+          
+          .bitbox{
+                    position: absolute;
+                    width: 176px;
+                    height: 68px;
+                    left: 462px;
+                    top: 388px;
+                    background: #FFBE3E;
+                    box-shadow: 8px 8px 0px #D33E3E;
+          }
+          .bitbuttony{
+                    display: flex;
+                    align-items: center;
+                    background:#FFBE3E;
+                    height:45px;
+                    width:100px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none; 
+          }
+          .bitbuttonr{
+                    display: revert;
+                    align-items: center;
+                    background:#F02D2D ;
+                    height:45px;
+                    width:100px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right:-6%;
+                    position:absolute;
+                    top:-3%;
+          }
+          .textbid{
+                    position: relative;
+                    left: 34%;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 36px;
+                    text-align: center;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+          }
+          .textinput{
+                    font-family: 'Montserrat';
+                    font-style: italic;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 36px;
+                    letter-spacing: 1.1px;
+                    color: #D33E3E;
+          }
+          .textbit1 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 36px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                    left: 0;
+                    top:10;
+                  }
+                  .textbit2 {
+                    position: absolute;
+                    font-style: normal;
+                    font-weight: 600;
+                    top:44px;
+                    left: 172px;
+                    font-size: 18px;
+                    line-height: 24px;
+                    letter-spacing: 0.1px;
+                    color: #FFFFFF;
+                  }
+                  .textbox{
+                    top: 20%;
+                    left: -25%;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+          
+                    letter-spacing: 0.2px;
+          
+                    color: #FFFFFF;
+          }
+         
+                  
+                  .li {
+                    
+                    font-size: 18px;
+                    display: inline;
+                  }
+                  .spanx{
+                    font-size: 36px;
+                  }
+                  .bannerbox{
+                    background-color: #D33E3E;
+                    font-family: 'Kanit';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 18px;
+                    letter-spacing: 0.1px;
+                    color: #FFBE3E;
+                    vertical-align: center;
+                    text-align: center;
+                    height: 64px;
+          }
           
 }

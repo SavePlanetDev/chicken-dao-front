@@ -1,0 +1,374 @@
+.logo{
+          display: flex ;
+          background:#fff;
+}
+.logoimg{
+          left:-45px;
+          top:-13px;
+          position:relative;
+          width:300px;
+}
+.bottomconnect{
+          display: absolute;
+          align-items: center ;
+          background: none;
+          border-style: none;
+          top:24px;
+          right:0;
+          position:absolute;
+          
+}
+.bottomconnectimg{
+          width:150px;
+}
+.chainbuttomr{
+          display: revert;
+          align-items: center;
+          background:#F02D2D ;
+          height: 60px;
+          width: 130px;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          right: 160px;
+          position: absolute;
+          top: 7%;
+}
+.chainbuttomy{
+          display: flex;
+          align-items: center;
+          background:#FFBE3E;
+          height:60px;
+          width:130px;
+          right:6px;
+          position:absolute;
+          top:-6px;
+          border-style: none; 
+}
+.addressbuttomr{
+          display: revert;
+          align-items: center;
+          background:#F02D2D;
+          height:60px;
+          width:130px;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          right:10px;
+          position:absolute;
+          top:7%
+}
+.addressbuttomy{
+          display: flex;
+          align-items:center;
+          background:#FFBE3E;
+          font-size: 12px;
+          height:60px;
+          width:130px;
+          right:6px;
+          position:absolute;
+          top:-6px;
+          border-style: none;
+}
+.wrongnetworkr{
+          display: revert;
+          align-items: center;
+          background:#F02D2D;
+          height:60px;
+          width:130px;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          right:10px;
+          position:absolute;
+          top:7%
+}
+.wrongnetworky{
+          display: flex;
+          align-items:center;
+          background:#FFBE3E;
+          height:60px;
+          width:130px;
+          right:6px;
+          position:absolute;
+          top:-6px;
+          border-style: none;
+}
+
+@media screen and (max-width: 750px) {
+          .logo{
+                    display: flex ;
+                    background:#fff;
+          }
+          .logoimg{
+                    left:-25px;
+                    top:-13px;
+                    position:relative;
+                    width:200px;
+          }
+          .bottomconnect{
+                    display: absolute;
+                    align-items: center ;
+                    background: none;
+                    border-style: none;
+                    top:15px;
+                    right:20px;
+                    position:absolute;
+                    
+          }
+          .bottomconnectimg{
+                    width:100px;
+          }
+          .chainbuttomr{
+                    display: revert;
+                    align-items: center;
+                    background:#F02D2D ;
+                    height: 60px;
+                    width: 130px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right: 160px;
+                    position: absolute;
+                    top: 3%;
+          }
+          .chainbuttomy{
+                    display: flex;
+                    align-items: center;
+                    background:#FFBE3E;
+                    height:60px;
+                    width:130px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none; 
+          }
+          .addressbuttomr{
+                    display: revert;
+                    align-items: center;
+                    background:#F02D2D;
+                    height:60px;
+                    width:130px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right:10px;
+                    position:absolute;
+                    top:3%
+          }
+          .addressbuttomy{
+                    display: flex;
+                    align-items:center;
+                    background:#FFBE3E;
+                    font-size: 12px;
+                    height:60px;
+                    width:130px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+          .wrongnetworkr{
+                    display: revert;
+                    align-items: center;
+                    background:#F02D2D;
+                    height:60px;
+                    width:130px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right:10px;
+                    position:absolute;
+                    top:3%
+          }
+          .wrongnetworky{
+                    display: flex;
+                    align-items:center;
+                    background:#FFBE3E;
+                    font-size: 12px;
+                    height:60px;
+                    width:130px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+}
+@media screen and (max-width: 560px) {
+          .logo{
+                    display: flex ;
+                    background:#fff;
+          }
+          .logoimg{
+                    left:-25px;
+                    top:-13px;
+                    position:relative;
+                    width:150px;
+          }
+          .bottomconnect{
+                    display: absolute;
+                    align-items: center ;
+                    background: none;
+                    border-style: none;
+                    top:15px;
+                    right:20px;
+                    position:absolute;
+                    
+          }
+          .bottomconnectimg{
+                    width:70px;
+          }
+          .chainbuttomr{
+                    display: revert;
+                    align-items: center;
+                    background:#F02D2D ;
+                    height: 40px;
+                    width: 100px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right: 130px;
+                    position: absolute;
+                    top: 3%;
+          }
+          .chainbuttomy{
+                    display: flex;
+                    align-items: center;
+                    background:#FFBE3E;
+                    height: 40px;
+                    width: 100px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none; 
+          }
+          .addressbuttomr{
+                    display: revert;
+                    align-items: center;
+                    background:#F02D2D;
+                    height: 40px;
+                    width: 100px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right:10px;
+                    position:absolute;
+                    top:3%
+          }
+          .addressbuttomy{
+                    display: flex;
+                    align-items:center;
+                    background:#FFBE3E;
+                    font-size: 12px;
+                    height: 40px;
+                    width: 100px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+          .wrongnetworkr{
+                    display: revert;
+                    align-items: center;
+                    background:#F02D2D;
+                    height: 40px;
+                    width: 100px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right:10px;
+                    position:absolute;
+                    top:3%
+          }
+          .wrongnetworky{
+                    display: flex;
+                    align-items:center;
+                    background:#FFBE3E;
+                    font-size: 12px;
+                    height: 40px;
+                    width: 100px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+}
+@media screen and (max-width: 480px) {
+          .logo{
+                    display: flex ;
+                    background:#fff;
+          }
+          .logoimg{
+                    left:-25px;
+                    top:-13px;
+                    position:relative;
+                    width:150px;
+          }
+          .bottomconnect{
+                    display: absolute;
+                    align-items: center ;
+                    background: none;
+                    border-style: none;
+                    top:20px;
+                    right:20px;
+                    position:absolute;
+                    
+          }
+          .bottomconnectimg{
+                    width:50px;
+          }
+          .chainbuttomr{
+                    display: revert;
+                    align-items: center;
+                    background:#F02D2D ;
+                    height: 30px;
+                    width: 70px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right: 100px;
+                    position: absolute;
+                    top: 3%;
+          }
+          .chainbuttomy{
+                    display: flex;
+                    align-items: center;
+                    background:#FFBE3E;
+                    font-size: 8px;
+                    height: 30px;
+                    width: 70px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none; 
+          }
+          .addressbuttomr{
+                    display: revert;
+                    align-items: center;
+                    background:#F02D2D;
+                    height: 30px;
+                    width: 70px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right:10px;
+                    position:absolute;
+                    top:3%
+          }
+          .addressbuttomy{
+                    display: flex;
+                    align-items:center;
+                    background:#FFBE3E;
+                    font-size: 8px;
+                    height: 30px;
+                    width: 70px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+          .wrongnetworkr{
+                    display: revert;
+                    align-items: center;
+                    background:#F02D2D;
+                    height: 30px;
+                    width: 70px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                    right:10px;
+                    position:absolute;
+                    top:3%
+          }
+          .wrongnetworky{
+                    display: flex;
+                    align-items:center;
+                    background:#FFBE3E;
+                    height: 30px;
+                    width: 70px;
+                    right:6px;
+                    position:absolute;
+                    top:-6px;
+                    border-style: none;
+          }
+}
+
+
+
+        

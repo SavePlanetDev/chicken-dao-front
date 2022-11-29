@@ -1,12 +1,13 @@
 
 import Connectwallet from './connectwallet';
+import styles from '../styles/Header.module.css'
 
 export default function Header() {
           return (
             <div>
-                    <div style={{ display: 'flex' ,background:'#fff'}}>
+                    <div className={styles.logo}>
                               <div >
-                                        <img src = 'logochic.png' width="300px" style={{left:'-45px',top:'-13px',position:'relative'}}></img>
+                                        <img src = 'logochic.png' className={styles.logoimg}></img>
                                         
                               </div>
                               
