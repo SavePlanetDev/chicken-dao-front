@@ -1,12 +1,9 @@
-
-import Accordion from './accordion'
+import Accordion from "./accordion";
 
 export default function Footer() {
-
-       return (
-                    <div>
-                              <Accordion/>
-                    </div>
-
-          )
+  return (
+    <div>
+      <Accordion />
+    </div>
+  );
 }

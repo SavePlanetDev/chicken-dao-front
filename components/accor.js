@@ -5,32 +5,23 @@ const AccordionUI = ({ title, children, Id, Index, setIndex }) => {
   const handleSetIndex = (Id) => Index !== Id && setIndex(Id);
 
   return (
- <div className="body">
-    <div className="accordion">
-      <div
-        onClick={() => handleSetIndex(Id)}
-        >
-        <div className="flex group cursor-pointer">
-          <div className="frontacc">
-            {title}
+    <div className="body">
+      <div className="accordion">
+        <div onClick={() => handleSetIndex(Id)}>
+          <div className="flex group cursor-pointer">
+            <div className="frontacc">{title}</div>
+          </div>
+          <div className="icon">
+            {Index !== Id ? (
+              <HiArrowCircleDown style={{ width: "120%", height: "120%" }} />
+            ) : (
+              <HiX style={{ width: "100%", height: "100%" }} />
+            )}
           </div>
         </div>
-        <div className='icon'>
-          {Index !== Id ? (
-            <HiArrowCircleDown style={{ width:'120%',height:'120%' }} />
-          ) : (
-            <HiX style={{ width:'100%',height:'100%' }} />
-          )}
-        </div>
-      </div>
-      
 
-      {Index === Id && (
-        <div className="textboxx">
-          {children}
-        </div>
-      )}
-    </div>
+        {Index === Id && <div className="textboxx">{children}</div>}
+      </div>
     </div>
   );
 };

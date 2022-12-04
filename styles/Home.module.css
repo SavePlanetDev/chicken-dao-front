@@ -108,13 +108,12 @@
   margin-left: 0.5rem;
 }
 
-.bgimage{
-          background: url(../public/bodybackground.png) no-repeat center center ; 
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;
-
+.bgimage {
+  background: url(../public/bodybackground.png) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 @media (max-width: 600px) {
