@@ -120,12 +120,8 @@ export default function Body() {
             step={0.1}
             disabled={address !== undefined && currentTimer > 0 ? false : true}
             placeholder={
-              address == undefined || currentTimer <= 0
-                ? `${
-                    currentTimer <= 0
-                      ? "ยังไม่เปิดจ่ะ ..กุ๊ก !! 🐔"
-                      : "connect wallet ก่อนดิ๊ .. กุ๊ก !! 🐔"
-                  }`
+              address == undefined
+                ? `${"connect wallet ก่อนดิ๊ .. กุ๊ก !! 🐔"}`
                 : `at least ${(parseFloat(currentBid) + minimum).toFixed(
                     1
                   )} KUB`
@@ -140,7 +136,7 @@ export default function Body() {
               textAlign: "center",
             }}
           ></input>
-          {address == undefined || currentTimer <= 0 ? null : (
+          {address == undefined ? null : (
             <div className={styles.bitbuttonr}>
               {canSattle ? (
                 <button className={styles.bitbuttony} onClick={handleSattle}>
