@@ -48,27 +48,38 @@ export default function Body() {
   const { datated } = getBalance();
 
   useEffect(() => {
+    console.log({
+      tokenOK: uri.tokenURIOk,
+      bidded,
+      sattled,
+      baseUri,
+      bidAmount,
+      currentBid,
+    });
     if (!baseUri && uri.tokenURIOk) {
       parseTokenUri(uri.tokenURI);
     }
 
     if (bidded) {
+      console.log("bidded ! with : ", bidAmount);
       setCurrentBid(bidAmount.toString());
       setLoading(false);
     }
 
     if (canSattle && sattled) {
+      console.log("canSattle");
       setCurrentBid(0);
     }
 
     if (baseUri && sattled) {
+      console.log("baseURI");
       setLoading(false);
       parseTokenUri(baseUri);
       setCurrentTokenId(tokenId);
       setCurrentTimer(end);
       setCanSattle(false);
     }
-  }, [uri.tokenURIOk, bidded, sattled, baseUri]);
+  }, [uri.tokenURIOk, bidded, sattled, baseUri, bidAmount]);
 
   async function parseTokenUri(tokenUri) {
     if (tokenUri == "ipfs:://") return null;
