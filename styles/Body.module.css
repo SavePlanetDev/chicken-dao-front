@@ -104,7 +104,14 @@
   text-align: center;
   letter-spacing: 0.1px;
   color: #ffffff;
+  transition: all 0.2s;
 }
+
+.textbid:hover {
+  color: black;
+  cursor: pointer;
+}
+
 .textinput {
   font-family: "Montserrat";
   font-style: italic;

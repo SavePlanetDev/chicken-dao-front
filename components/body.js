@@ -67,17 +67,17 @@ export default function Body() {
     }
 
     if (canSattle && sattled) {
-      console.log("canSattle");
+      console.log("canSattle: setCurrentBIt to 0");
       setCurrentBid(0);
     }
 
     if (baseUri && sattled) {
-      console.log("baseURI");
-      setLoading(false);
+      console.log("set baseURI");
       parseTokenUri(baseUri);
       setCurrentTokenId(tokenId);
       setCurrentTimer(end);
       setCanSattle(false);
+      setLoading(false);
     }
   }, [uri.tokenURIOk, bidded, sattled, baseUri, bidAmount]);
 
@@ -99,6 +99,7 @@ export default function Body() {
     if (bid != null && bid >= parseFloat(bidAmount) + minimum) {
       setLoading(true);
       e.target.reset();
+      setCurrentBid(bid);
       placeBid({
         recklesslySetUnpreparedOverrides: {
           value: ethers.utils.parseEther(bid.toString()),
@@ -171,7 +172,7 @@ export default function Body() {
           <div className={styles.textbit1}>
             Current bid:{" "}
             <span style={{ color: "#00FF00", fontWeight: 800 }}>
-              {currentBid > 0 ? currentBid : 0.0}{" "}
+              {data.length > 0 ? data[data.length - 1].amounts : currentBid}{" "}
             </span>{" "}
             KUB
           </div>
