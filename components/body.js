@@ -55,6 +55,7 @@ export default function Body() {
       baseUri,
       bidAmount,
       currentBid,
+      data: data.length,
     });
     if (!baseUri && uri.tokenURIOk) {
       parseTokenUri(uri.tokenURI);
@@ -172,7 +173,7 @@ export default function Body() {
           <div className={styles.textbit1}>
             Current bid:{" "}
             <span style={{ color: "#00FF00", fontWeight: 800 }}>
-              {data.length > 0 ? data[data.length - 1].amounts : currentBid}{" "}
+              {currentBid > 0 ? currentBid : bidAmount}{" "}
             </span>{" "}
             KUB
           </div>
