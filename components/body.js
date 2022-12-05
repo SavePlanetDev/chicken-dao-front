@@ -40,9 +40,7 @@ export default function Body() {
 
   const { bidded, bidAmount } = EventBidded();
   const [currentBid, setCurrentBid] = useState(
-    data[data.length - 1].amounts > 0
-      ? data[data.length - 1].amounts
-      : bidAmount
+    data.length > 0 ? data[data.length - 1].amounts : bidAmount
   );
   const { sattled } = EventSattled();
   const { baseUri } = EventSetBaseUri();
@@ -120,10 +118,14 @@ export default function Body() {
             type="number"
             min={0.2}
             step={0.1}
-            disabled={address == undefined ? true : false}
+            disabled={address !== undefined && currentTimer > 0 ? false : true}
             placeholder={
-              address == undefined
-                ? "connect wallet ก่อนดิ๊!"
+              address == undefined || currentTimer <= 0
+                ? `${
+                    currentTimer <= 0
+                      ? "ยังไม่เปิดจ่ะ ..กุ๊ก !! 🐔"
+                      : "connect wallet ก่อนดิ๊ .. กุ๊ก !! 🐔"
+                  }`
                 : `at least ${(parseFloat(currentBid) + minimum).toFixed(
                     1
                   )} KUB`
@@ -138,7 +140,7 @@ export default function Body() {
               textAlign: "center",
             }}
           ></input>
-          {address == undefined ? null : (
+          {address == undefined || currentTimer <= 0 ? null : (
             <div className={styles.bitbuttonr}>
               {canSattle ? (
                 <button className={styles.bitbuttony} onClick={handleSattle}>
@@ -169,7 +171,7 @@ export default function Body() {
           <div className={styles.textbit2}>Time Left</div>
           <div className={styles.textbox}>
             <CountdownTimer
-              endtimeMs={currentTimer > 0 ? currentTimer : "n/a"}
+              endtimeMs={currentTimer > 0 ? currentTimer : "🐔"}
               setCanSattle={setCanSattle}
             />
           </div>
@@ -186,7 +188,7 @@ export default function Body() {
               )}
             </div>
             <div className={styles.textokenid}>
-              TokenID: {currentTokenId > 0 ? currentTokenId : "n/a"}
+              TokenID: {currentTokenId > 0 ? currentTokenId : "🐔"}
             </div>
           </div>
         </div>
