@@ -15,7 +15,7 @@ const AccordionUI = ({ title, children, Id, Index, setIndex }) => {
             {Index !== Id ? (
               <HiArrowCircleDown style={{ width: "120%", height: "120%" }} />
             ) : (
-              <HiX style={{ width: "100%", height: "100%" }} />
+              <HiX style={{ width: "0", height: "0" }} />
             )}
           </div>
         </div>

@@ -54,7 +54,7 @@ export default function Connectwallet() {
 
                 if (chain.unsupported) {
                   return (
-                    <div className={styles.wrongnetworkr}>
+                    <div className={styles.wrongnetworkr} style={{fontWeight: "1000",display:"flex"}}> 
                       <button
                         onClick={openChainModal}
                         type="button"
@@ -68,13 +68,13 @@ export default function Connectwallet() {
                 }
 
                 return (
-                  <div style={{ display: "flex", gap: 12 }}>
+                  <div style={{ display: "flex", gap: 12 ,fontWeight: "1000"}}>
                     <div className={styles.chainbuttomr}>
                       <button
                         onClick={openChainModal}
                         className={styles.chainbuttomy}
                         type="button"
-                        style={{fontWeight: "1000"}}
+                        style={{fontWeight: "1000",display: "flex"}}
                       >
                         {chain.hasIcon && (
                           <div
@@ -96,6 +96,7 @@ export default function Connectwallet() {
                                   width: 12,
                                   height: 12,
                                   alignItems: "center",
+                                  display: "flex"
                                   
                                 }}
                               />
@@ -106,12 +107,12 @@ export default function Connectwallet() {
                       </button>
                     </div>
 
-                    <div className={styles.addressbuttomr}>
+                    <div className={styles.addressbuttomr} style={{fontWeight: "1000",display:"flex"}}>
                       <button
                         onClick={openAccountModal}
                         type="button"
                         className={styles.addressbuttomy}
-                        style={{fontWeight: "1000"}}
+                        style={{fontWeight: "1000",display: "flex"}}
                       >
                         {account.displayName}
                         {account.displayBalance

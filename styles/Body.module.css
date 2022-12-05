@@ -22,7 +22,39 @@
   background: #ffbe3e;
   box-shadow: 8px 8px 0px #d33e3e;
 }
-
+.tedbox{
+          position: relative;
+          display: flex;
+          top: 15% ;
+          left:15%;
+          color:rgb(255, 255, 255);
+          background-Color:#fd0f0f;
+          height:50px;
+          width:420px;
+          border-style: none;
+}
+.tedbox2{
+          position: absolute;
+          display: flex;
+          top: -15% ;
+          left: -1%;
+          color:rgb(255, 255, 255);
+          /* background-Color:#ffbf3e; */
+          height:100%;
+          width:100%;
+          background-Color:#fdb20f;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 36px;
+          line-height: 36px;
+          align-items: center;
+}
+.tedtext{
+          text-align: center;
+          position: relative;
+          left: 10%;
+          
+}
 .bitbuttony {
   position: relative;
   display: flex;
@@ -217,6 +249,39 @@
     left: 0;
     top: 40px;
   }
+  .tedbox{
+          position: relative;
+          display: flex;
+          top: 25% ;
+          left:5%;
+          color:rgb(255, 255, 255);
+          background-Color:#fd0f0f;
+          height:50px;
+          width:420px;
+          border-style: none;
+}
+.tedbox2{
+          position: absolute;
+          display: flex;
+          top: -15% ;
+          left: -1%;
+          color:rgb(255, 255, 255);
+          /* background-Color:#ffbf3e; */
+          height:100%;
+          width:100%;
+          background-Color:#fdb20f;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 36px;
+          line-height: 36px;
+          align-items: center;
+}
+.tedtext{
+          text-align: center;
+          position: relative;
+          left: 10%;
+          
+}
   .imgposition {
     position: absolute;
     left: 5%;
@@ -360,6 +425,39 @@
     left: 0;
     top: 14%;
   }
+  .tedbox{
+          position: relative;
+          display: flex;
+          top: 10% ;
+          left:3%;
+          color:rgb(255, 255, 255);
+          background-Color:#fd0f0f;
+          height:50px;
+          width:420px;
+          border-style: none;
+}
+.tedbox2{
+          position: absolute;
+          display: flex;
+          top: -15% ;
+          left: -1%;
+          color:rgb(255, 255, 255);
+          /* background-Color:#ffbf3e; */
+          height:100%;
+          width:100%;
+          background-Color:#fdb20f;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 36px;
+          line-height: 36px;
+          align-items: center;
+}
+.tedtext{
+          text-align: center;
+          position: relative;
+          left: 10%;
+          
+}
   .imgposition {
     position: absolute;
     left: 5%;
@@ -522,8 +620,8 @@
   .h1 {
     text-align: center;
   }
-}
-.imgbackbockr {
+ 
+          .imgbackbockr {
           display: flex;
           align-items: center;
           background: #e4e4e481;
@@ -534,7 +632,39 @@
           top: -6px;
           border-style: none;
         }
+}
 @media screen and (max-width: 960px) {
+          .tedbox{
+                    position: relative;
+                    display: flex;
+                    top: 14% ;
+                    left:4%;
+                    color:rgb(255, 255, 255);
+                    background-Color:#fd0f0f;
+                    height:50px;
+                    width:320px;
+                    border-style: none;
+          }
+          .tedbox2{
+                    position: absolute;
+                    display: flex;
+                    top: -15% ;
+                    left: -1%;
+                    color:rgb(255, 255, 255);
+                    /* background-Color:#ffbf3e; */
+                    height:100%;
+                    width:100%;
+                    background-Color:#fdb20f;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 28px;
+                    line-height: 36px;
+                    align-items: center;
+          }
+          .tedtext{
+                    text-align: center;
+                    position: relative;
+          }          
   .imgchecken {
     position: relative;
     left: 0;
@@ -702,6 +832,37 @@
     left: 0;
     top: 40px;
   }
+  .tedbox{
+          position: relative;
+          display: flex;
+          top: 7% ;
+          left:32%;
+          color:rgb(255, 255, 255);
+          background-Color:#fd0f0f;
+          height:40px;
+          width:260px;
+          border-style: none;
+}
+.tedbox2{
+          position: absolute;
+          display: flex;
+          top: -15% ;
+          left: -1%;
+          color:rgb(255, 255, 255);
+          /* background-Color:#ffbf3e; */
+          height:100%;
+          width:100%;
+          background-Color:#fdb20f;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 23px;
+          line-height: 36px;
+          align-items: center;
+}
+.tedtext{
+          text-align: center;
+          position: relative;
+}  
   .imgposition {
     position: absolute;
     left: 5%;
@@ -857,6 +1018,37 @@
     left: 0;
     top: 90px;
   }
+  .tedbox{
+          position: relative;
+          display: flex;
+          top: 8% ;
+          left: 23%;
+          color:rgb(255, 255, 255);
+          background-Color:#fd0f0f;
+          height:40px;
+          width:260px;
+          border-style: none;
+}
+.tedbox2{
+          position: absolute;
+          display: flex;
+          top: -15% ;
+          left: -1%;
+          color:rgb(255, 255, 255);
+          /* background-Color:#ffbf3e; */
+          height:100%;
+          width:100%;
+          background-Color:#fdb20f;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 23px;
+          line-height: 36px;
+          align-items: center;
+}
+.tedtext{
+          text-align: center;
+          position: relative;
+} 
   .imgposition {
     position: absolute;
     left: 5%;
@@ -1012,6 +1204,37 @@
     left: 0;
     top: 10%;
   }
+  .tedbox{
+          position: relative;
+          display: flex;
+          top: 10% ;
+          left: 24%;
+          color:rgb(255, 255, 255);
+          background-Color:#fd0f0f;
+          height:40px;
+          width:220px;
+          border-style: none;
+}
+.tedbox2{
+          position: absolute;
+          display: flex;
+          top: -15% ;
+          left: -1%;
+          color:rgb(255, 255, 255);
+          /* background-Color:#ffbf3e; */
+          height:100%;
+          width:100%;
+          background-Color:#fdb20f;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 36px;
+          align-items: center;
+}
+.tedtext{
+          text-align: center;
+          position: relative;
+} 
   .imgposition {
     position: absolute;
     left: 5%;
@@ -1035,7 +1258,7 @@
     width: 254px;
     right: 6px;
     position: absolute;
-    top: 20%;
+    top: 8%;
     border-style: none;
   }
   .textokenid {

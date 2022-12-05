@@ -6,7 +6,7 @@ import { ethers } from "ethers";
 import { getAllBids } from "../blockchain/contracts/auction/auction.view";
 import { getTokenURI } from "../blockchain/contracts/nft/nft.view";
 import CountdownTimer from "./countdown";
-
+import { getBalance } from "../blockchain/contracts/executor/executor.view";
 import {
   EventBidded,
   EventNewBid,
@@ -42,6 +42,7 @@ export default function Body() {
   const { sattled } = EventSattled();
   const { baseUri } = EventSetBaseUri();
   const { tokenId, end } = EventNewBid();
+  const { datated } = getBalance();
 
   useEffect(() => {
     if (!baseUri && uri.tokenURIOk) {
@@ -97,7 +98,16 @@ export default function Body() {
 
   return (
     <div style={{ height: "100vh", width: "100vw" }} className={style.bgimage}>
+
+          <div className={styles.tedbox}>
+          <div className={styles.tedbox2}>
+                    <span className={styles.tedtext}> Treasury : {`${datated.formatted} ${datated.symbol}`} </span>
+          </div>    
+          </div>         
+          
+          
       <div className={styles.bitbot}>
+          
         <form onSubmit={handleSubmit}>
           <input
             type="number"

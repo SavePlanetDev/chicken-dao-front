@@ -7,7 +7,7 @@ function getBalance() {
   });
 
   return {
-    data: data == undefined ? 0 : data,
+          datated: data == undefined ? 0 : data,
     isError,
     isLoading,
   };
