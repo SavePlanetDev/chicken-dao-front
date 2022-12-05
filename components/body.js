@@ -90,7 +90,6 @@ export default function Body() {
     if (bid != null && bid >= parseFloat(bidAmount) + minimum) {
       setLoading(true);
       e.target.reset();
-      setCurrentBid(bid);
       placeBid({
         recklesslySetUnpreparedOverrides: {
           value: ethers.utils.parseEther(bid.toString()),
@@ -125,9 +124,9 @@ export default function Body() {
             placeholder={
               address == undefined
                 ? "connect wallet ก่อนดิ๊!"
-                : `next bid at least ${(
-                    parseFloat(currentBid) + minimum
-                  ).toFixed(1)} kub`
+                : `at least ${(parseFloat(currentBid) + minimum).toFixed(
+                    1
+                  )} KUB`
             }
             className={styles.placebid}
             onChange={(e) => handleBid(setBid, e)}
@@ -154,12 +153,18 @@ export default function Body() {
           )}
         </form>
         <div className={styles.textbit3}>
-          **บิตเริ่มต้นมากกว่า 2
-          แล้วบิตถัดไปต้องมากกว่าบิตปัจจุบันแล้วบวกเพิ่มอีก 2**
+          **บิตเริ่มต้นมากกว่า{" "}
+          <span style={{ color: "#00FF00" }}>{minimum}</span> KUB
+          แล้วบิตถัดไปต้องมากกว่าบิตปัจจุบันแล้วบวกเพิ่มอีก{" "}
+          <span style={{ color: "#00FF00" }}>{minimum}</span> KUB **
         </div>
         <div>
           <div className={styles.textbit1}>
-            Current bid: {currentBid > 0 ? currentBid : 0.0} Kub
+            Current bid:{" "}
+            <span style={{ color: "#00FF00", fontWeight: 800 }}>
+              {currentBid > 0 ? currentBid : 0.0}{" "}
+            </span>{" "}
+            KUB
           </div>
           <div className={styles.textbit2}>Time Left</div>
           <div className={styles.textbox}>
