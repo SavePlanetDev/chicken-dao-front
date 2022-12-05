@@ -107,12 +107,11 @@ export default function Body() {
             className={styles.placebid}
             onChange={(e) => handleBid(setBid, e)}
             style={{
-            color:"red",
-            fontWeight: "900",
-            fontSize: "18px",
-            lineHeight: "36px",
-            textAlign: "center"
-
+              color: "red",
+              fontWeight: "900",
+              fontSize: "18px",
+              lineHeight: "36px",
+              textAlign: "center",
             }}
           ></input>
           <div className={styles.bitbuttonr}>
@@ -127,7 +126,10 @@ export default function Body() {
             )}
           </div>
         </form>
-        <div className={styles.textbit3}>**บิตเริ่มต้นมากกว่า 2.5 แล้วบิตถัดไปต้องมากกว่าบิตปัจจุบันแล้วบวกเพิ่มอีก 2.5**</div>
+        <div className={styles.textbit3}>
+          **บิตเริ่มต้นมากกว่า 2.5
+          แล้วบิตถัดไปต้องมากกว่าบิตปัจจุบันแล้วบวกเพิ่มอีก 2.5**
+        </div>
         <div>
           <div className={styles.textbit1}>
             Current bid: {currentBid > 0 ? currentBid : 0.0} Kub
