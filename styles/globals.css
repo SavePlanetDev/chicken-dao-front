@@ -26,9 +26,9 @@ input::placeholder {
   line-height: 36px;
   left: 10%;
   position: relative;
-
+  text-align: left;
   letter-spacing: 1.1px;
-
+ 
   color: #d33e3e;
 }
 li {

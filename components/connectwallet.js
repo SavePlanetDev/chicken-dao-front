@@ -59,6 +59,7 @@ export default function Connectwallet() {
                         onClick={openChainModal}
                         type="button"
                         className={styles.wrongnetworky}
+                        style={{fontWeight: "1000",display:"flex"}}
                       >
                         Wrong network
                       </button>
@@ -73,6 +74,7 @@ export default function Connectwallet() {
                         onClick={openChainModal}
                         className={styles.chainbuttomy}
                         type="button"
+                        style={{fontWeight: "1000"}}
                       >
                         {chain.hasIcon && (
                           <div
@@ -83,6 +85,7 @@ export default function Connectwallet() {
                               borderRadius: 999,
                               overflow: "hidden",
                               marginRight: 4,
+                              
                             }}
                           >
                             {chain.iconUrl && (
@@ -93,6 +96,7 @@ export default function Connectwallet() {
                                   width: 12,
                                   height: 12,
                                   alignItems: "center",
+                                  
                                 }}
                               />
                             )}
@@ -107,6 +111,7 @@ export default function Connectwallet() {
                         onClick={openAccountModal}
                         type="button"
                         className={styles.addressbuttomy}
+                        style={{fontWeight: "1000"}}
                       >
                         {account.displayName}
                         {account.displayBalance

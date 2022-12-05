@@ -95,11 +95,19 @@ export default function Body() {
             placeholder="place bid"
             className={styles.placebid}
             onChange={(e) => handleBid(setBid, e)}
+            style={{
+            color:"red",
+            fontWeight: "900",
+            fontSize: "18px",
+            lineHeight: "36px",
+            textAlign: "center"
+
+            }}
           ></input>
           <div className={styles.bitbuttonr}>
             {canSattle ? (
               <button className={styles.bitbuttony} onClick={handleSattle}>
-                <p className={styles.textbid}>Sattle</p>
+                <p className={styles.sattletext}>Sattle</p>
               </button>
             ) : (
               <button type="submit" className={styles.bitbuttony}>
@@ -108,6 +116,7 @@ export default function Body() {
             )}
           </div>
         </form>
+        <div className={styles.textbit3}>**บิตเริ่มต้นมากกว่า 2.5 แล้วบิตถัดไปต้องมากกว่าบิตปัจจุบันแล้วบวกเพิ่มอีก 2.5**</div>
         <div>
           <div className={styles.textbit1}>
             Current bid:{" "}
