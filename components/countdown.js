@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
+import styles from "../styles/Body.module.css";
 
 const defaultRemainingTime = {
   seconds: "00",
@@ -25,22 +26,16 @@ function CountdownTimer({ endtimeMs, setCanSattle }) {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "right",
-        fontSize: "30px",
-      }}
+    <div className={styles.textbox}
     >
       {/* <span>{remainingTime.days}</span>
       <span>days</span> */}
-      <span>{remainingTime.hours}</span>
-      <span>hours</span>
-      <span>{remainingTime.minutes}</span>
-      <span>minutes</span>
-      <span>{remainingTime.seconds}</span>
-      <span>seconds</span>
+      <span className={styles.timenun}>{remainingTime.hours}<span className={styles.timetext}>hr</span></span>
+      
+      <span className={styles.timenun}>{remainingTime.minutes}<span className={styles.timetext}>min</span></span>
+      
+      <span className={styles.timenun}>{remainingTime.seconds}<span className={styles.timetext}>sec</span></span>
+      
     </div>
   );
 }

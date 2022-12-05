@@ -1,16 +1,16 @@
 .bitbot {
-  position: absolute;
-  height: 420px;
+  display: inline-flex;
+  position: relative;
   left: 15%;
-  top: 37%;
+  top: 27%;
 }
 
 .placebid {
   position: relative;
-  width: 458px;
+  width: 428px;
   height: 58px;
-  background: #fff;
-  color: #000;
+  
+            
 }
 
 .bitbox {
@@ -24,6 +24,7 @@
 }
 
 .bitbuttony {
+  position: relative;
   display: flex;
   align-items: center;
   background: #ffbe3e;
@@ -34,6 +35,18 @@
   top: -6px;
   border-style: none;
 }
+.sattletext{
+          position: relative;
+          left: 14%;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 36px;
+          line-height: 36px;
+          text-align: center;
+          letter-spacing: 0.1px;
+          color: #ffffff;
+}
+
 
 .bitbuttonr {
   display: revert;
@@ -42,9 +55,9 @@
   height: 60px;
   width: 150px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  right: -6%;
+  right: -10%;
   position: absolute;
-  top: -3%;
+  top: -30%;
 }
 
 .textbid {
@@ -70,6 +83,8 @@
 .textbit1 {
   position: absolute;
   font-style: normal;
+  top: 125%;
+  left: 0;
   font-weight: 600;
   font-size: 30px;
   line-height: 36px;
@@ -81,33 +96,53 @@
   position: absolute;
   font-style: normal;
   font-weight: 600;
-  top: 22%;
+  top: 180%;
   left: 147px;
   font-size: 30px;
   line-height: 36px;
   letter-spacing: 0.1px;
   color: #ffffff;
 }
+.textbit3{
+          position: absolute;
+          font-style: normal;
+          font-weight: 600;
+          top: 276%;
+          left: 5%;
+          width: 60%;
+          font-size: 12px;
+          letter-spacing: 0.1px;
+          color: #f9f9f9;
+}
 .textbox {
   position: absolute;
   width: 325px;
   height: 300px;
-  left: 226px;
-  top: 60px;
-
+  left: 146px;
+  top: 38px;
+  display: flex;
+        flex-direction: column;
+        text-align: left;
+        font-size: 30px;
+          
   font-style: normal;
   font-weight: 700;
-  line-height: 36px;
+  line-height: 52px;
   /* or 28% */
-
-  letter-spacing: 0.1px;
+  
+  letter-spacing: 1px;
 
   color: #ffffff;
 }
+.timenun{
+          font-size: 84px;
+}
+.timetext{
+          font-size: 30px;
+}
 .imgchecken {
   position: relative;
-  left: 0;
-  top: 40px;
+  display: flex;
 }
 .imgposition {
   position: absolute;
@@ -116,9 +151,8 @@
   width: 91%;
 }
 .imgbackbocky {
-  display: revert;
   align-items: center;
-  background: rgba(255, 222, 5, 0.5);
+  
   height: 710px;
   width: 604px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -128,8 +162,8 @@
 .imgbackbockr {
   display: flex;
   align-items: center;
-  background: rgba(211, 62, 62, 0.5);
-  height: 710px;
+  background: #e4e4e481;
+  height: 640px;
   width: 604px;
   right: 6px;
   position: absolute;
@@ -138,16 +172,16 @@
 }
 .textokenid {
   position: absolute;
-  right: 2%;
-  bottom: 17%;
+  bottom: 5%;
   font-style: normal;
-  font-weight: 700;
-  font-size: 40px;
+  font-weight: 1000;
+  right: 26px;
+  font-size: 32px;
   line-height: 36px;
   /* identical to box height, or 90% */
-
   letter-spacing: 0.1px;
-
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgb(255, 0, 0);
   color: #ffffff;
 }
 
@@ -192,7 +226,6 @@
   .imgbackbocky {
     display: revert;
     align-items: center;
-    background: rgba(255, 222, 5, 0.5);
     height: 710px;
     width: 604px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -202,8 +235,8 @@
   .imgbackbockr {
     display: flex;
     align-items: center;
-    background: rgba(211, 62, 62, 0.5);
-    height: 710px;
+    background: #e4e4e481;
+    height: 640px;
     width: 604px;
     right: 6px;
     position: absolute;
@@ -211,27 +244,25 @@
     border-style: none;
   }
   .textokenid {
-    position: absolute;
-    right: 2%;
-    bottom: 17%;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 36px;
-    /* identical to box height, or 90% */
-
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+          position: absolute;
+          bottom: 5%;
+          font-style: normal;
+          font-weight: 1000;
+          right: 26px;
+          font-size: 32px;
+          line-height: 36px;
+          /* identical to box height, or 90% */
+          letter-spacing: 0.1px;
+          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-color: rgb(255, 0, 0);
+          color: #ffffff;
   }
   .bitbot {
-    position: absolute;
-    width: 100wh;
-    height: 420px;
+    display: inline-flex;
+    position: relative;
     left: 5%;
     top: 37%;
   }
-
   .placebid {
     position: relative;
     width: 458px;
@@ -239,7 +270,6 @@
     background: #fff;
     color: #000;
   }
-
   .bitbox {
     position: absolute;
     width: 176px;
@@ -249,7 +279,6 @@
     background: #ffbe3e;
     box-shadow: 8px 8px 0px #d33e3e;
   }
-
   .textbid {
     position: relative;
     left: 34%;
@@ -271,41 +300,58 @@
     color: #d33e3e;
   }
   .textbit1 {
-    position: absolute;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 36px;
-    letter-spacing: 0.1px;
-    color: #ffffff;
-    top: 10;
+  position: absolute;
+  font-style: normal;
+  top: 125%;
+  left: 0;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: 0.1px;
+  color: #ffffff;
+  top: 10;
   }
   .textbit2 {
-    position: absolute;
-    font-style: normal;
-    font-weight: 600;
-    top: 22%;
-    left: 147px;
-    font-size: 30px;
-    line-height: 36px;
-    letter-spacing: 0.1px;
-    color: #ffffff;
+  position: absolute;
+  font-style: normal;
+  font-weight: 600;
+  top: 180%;
+  left: 147px;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: 0.1px;
+  color: #ffffff;
   }
+  .textbit3{
+          position: absolute;
+          font-style: normal;
+          font-weight: 600;
+          top: 276%;
+          left: 5%;
+          width: 50%;
+          font-size: 12px;
+          letter-spacing: 0.1px;
+          color: #f9f9f9;
+}
   .textbox {
-    position: absolute;
-    width: 325px;
-    height: 300px;
-    left: 226px;
-    top: 60px;
+  position: absolute;
+  width: 325px;
+  height: 300px;
+  left: 146px;
+  top: 38px;
+  display: flex;
+        flex-direction: column;
+        text-align: left;
+        font-size: 30px;
+          
+  font-style: normal;
+  font-weight: 700;
+  line-height: 52px;
+  /* or 28% */
+  
+  letter-spacing: 1px;
 
-    font-style: normal;
-    font-weight: 700;
-    line-height: 36px;
-    /* or 28% */
-
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+  color: #ffffff;
   }
 }
 @media screen and (max-width: 1200px) {
@@ -323,7 +369,6 @@
   .imgbackbocky {
     display: revert;
     align-items: center;
-    background: rgba(255, 222, 5, 0.5);
     height: 540px;
     width: 444px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -333,8 +378,8 @@
   .imgbackbockr {
     display: flex;
     align-items: center;
-    background: rgba(211, 62, 62, 0.5);
-    height: 540px;
+    background: #ffbf3ebc;
+    height: 440px;
     width: 444px;
     right: 6px;
     position: absolute;
@@ -342,18 +387,18 @@
     border-style: none;
   }
   .textokenid {
-    position: absolute;
-    right: 2%;
-    bottom: 17%;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 36px;
-    /* identical to box height, or 90% */
-
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+          position: absolute;
+          bottom: 5%;
+          font-style: normal;
+          font-weight: 1000;
+          right: 26px;
+          font-size: 32px;
+          line-height: 36px;
+          /* identical to box height, or 90% */
+          letter-spacing: 0.1px;
+          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-color: rgb(255, 0, 0);
+          color: #ffffff;
   }
   .bitbot {
     position: absolute;
@@ -402,10 +447,13 @@
     color: #d33e3e;
   }
   .textbit1 {
+
     position: absolute;
     font-style: normal;
+    top: 15%;
+    left: 0;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 36px;
     letter-spacing: 0.1px;
     color: #ffffff;
@@ -415,30 +463,55 @@
     position: absolute;
     font-style: normal;
     font-weight: 600;
-    top: 22%;
+    top: 24%;
     left: 117px;
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 30px;
+    line-height: 36px;
     letter-spacing: 0.1px;
     color: #ffffff;
   }
+  .textbit3{
+          position: absolute;
+          font-style: normal;
+          font-weight: 600;
+          top: 35%;
+          left: 5%;
+          width: 50%;
+          font-size: 12px;
+          letter-spacing: 0.1px;
+          color: #f9f9f9;
+}
   .textbox {
-    position: absolute;
-    width: 225px;
-    height: 200px;
-    left: 216px;
-    top: 40px;
-    font-size: 24px;
-
-    font-style: normal;
-    font-weight: 700;
-    line-height: 33px;
-    /* or 28% */
-
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+          position: absolute;
+          width: 325px;
+          height: 300px;
+          left: 146px;
+          top: 38px;
+          display: flex;
+                flex-direction: column;
+                text-align: left;
+                font-size: 30px;
+                  
+          font-style: normal;
+          font-weight: 700;
+          line-height: 52px;
+          /* or 28% */
+          
+          letter-spacing: 1px;
+        
+          color: #ffffff;
   }
+  .bitbuttonr {
+          display: revert;
+          align-items: center;
+          background: #f02d2d;
+          height: 60px;
+          width: 150px;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          right: -16%;
+          position: absolute;
+          top:-5%;
+        }
 
   .li {
     font-size: 2rem;
@@ -450,6 +523,17 @@
     text-align: center;
   }
 }
+.imgbackbockr {
+          display: flex;
+          align-items: center;
+          background: #e4e4e481;
+          height: 540px;
+          width: 504px;
+          right: 6px;
+          position: absolute;
+          top: -6px;
+          border-style: none;
+        }
 @media screen and (max-width: 960px) {
   .imgchecken {
     position: relative;
@@ -465,7 +549,6 @@
   .imgbackbocky {
     display: revert;
     align-items: center;
-    background: rgba(255, 222, 5, 0.5);
     height: 440px;
     width: 344px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -473,33 +556,34 @@
     position: absolute;
   }
   .imgbackbockr {
-    display: flex;
-    align-items: center;
-    background: rgba(211, 62, 62, 0.5);
-    height: 440px;
-    width: 344px;
-    right: 6px;
-    position: absolute;
-    top: -6px;
-    border-style: none;
-  }
+          display: flex;
+          align-items: center;
+          background: #e4e4e481;
+          height: 420px;
+          width: 384px;;
+          right: 6px;
+          position: absolute;
+          top: -6px;
+          border-style: none;
+        }
+
   .textokenid {
-    position: absolute;
-    right: 2%;
-    bottom: 17%;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 36px;
-    /* identical to box height, or 90% */
-
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+          position: absolute;
+          bottom: 5%;
+          font-style: normal;
+          font-weight: 1000;
+          right: 26px;
+          font-size: 32px;
+          line-height: 36px;
+          /* identical to box height, or 90% */
+          letter-spacing: 0.1px;
+          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-color: rgb(255, 0, 0);
+          color: #ffffff;
+          
   }
   .bitbot {
     position: absolute;
-    width: 100wh;
     height: 420px;
     left: 3%;
     top: 52%;
@@ -565,23 +649,31 @@
     color: #ffffff;
   }
   .textbox {
-    position: absolute;
-    width: 225px;
-    height: 200px;
-    left: 176px;
-    top: 27px;
-    font-size: 24px;
-
-    font-style: normal;
-    font-weight: 700;
-    line-height: 33px;
-    /* or 28% */
-
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+          position: absolute;
+          width: 325px;
+          height: 300px;
+          left: 116px;
+          top: 35px;
+          display: flex;
+                flex-direction: column;
+                text-align: left;
+                font-size: 30px;
+                  
+          font-style: normal;
+          font-weight: 700;
+          line-height: 37px;
+          /* or 28% */
+          
+          letter-spacing: 1px;
+        
+          color: #ffffff;
   }
-
+  .timenun{
+          font-size: 58px;
+}
+  .timetext{
+          font-size: 24px;
+}
   .li {
     font-size: 2rem;
   }
@@ -619,9 +711,6 @@
   .imgbackbocky {
     display: revert;
     align-items: center;
-    background: rgba(255, 222, 5, 0.5);
-    height: 440px;
-    width: 344px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     left: 25%;
     position: absolute;
@@ -629,27 +718,28 @@
   .imgbackbockr {
     display: flex;
     align-items: center;
-    background: rgba(211, 62, 62, 0.5);
-    height: 440px;
+    background: #e4e4e481;
+    height: 390px;
     width: 344px;
     right: 6px;
     position: absolute;
-    top: -6px;
+    
+    top:16%;
     border-style: none;
   }
   .textokenid {
-    position: absolute;
-    right: 2%;
-    bottom: 17%;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 36px;
-    /* identical to box height, or 90% */
-
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+          position: absolute;
+          bottom: 5%;
+          font-style: normal;
+          font-weight: 1000;
+          right: 26px;
+          font-size: 28px;
+          line-height: 36px;
+          /* identical to box height, or 90% */
+          letter-spacing: 0.1px;
+          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-color: rgb(255, 0, 0);
+          color: #ffffff;
   }
   .bitbot {
     position: absolute;
@@ -719,21 +809,24 @@
     color: #ffffff;
   }
   .textbox {
-    position: absolute;
-    width: 225px;
-    height: 200px;
-    left: 176px;
-    top: 27px;
-    font-size: 24px;
-
-    font-style: normal;
-    font-weight: 700;
-    line-height: 33px;
-    /* or 28% */
-
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+          position: absolute;
+          width: 125px;
+          height: 300px;
+          left: 116px;
+          top: 35px;
+          display: flex;
+                flex-direction: column;
+                text-align: left;
+                font-size: 30px;
+                  
+          font-style: normal;
+          font-weight: 700;
+          line-height: 37px;
+          /* or 28% */
+          
+          letter-spacing: 1px;
+        
+          color: #ffffff;
   }
 
   .li {
@@ -773,7 +866,6 @@
   .imgbackbocky {
     display: revert;
     align-items: center;
-    background: rgba(255, 222, 5, 0.5);
     height: 330px;
     width: 274px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -783,27 +875,28 @@
   .imgbackbockr {
     display: flex;
     align-items: center;
-    background: rgba(211, 62, 62, 0.5);
-    height: 330px;
-    width: 274px;
+    background: #e4e4e481;
+    height: 360px;
+    width: 304px;
     right: 6px;
+    left: -6%;
     position: absolute;
-    top: -6px;
+    top: 10%;
     border-style: none;
   }
   .textokenid {
-    position: absolute;
-    right: 2%;
-    bottom: 17%;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 36px;
-    /* identical to box height, or 90% */
-
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+          position: absolute;
+          bottom: 5%;
+          font-style: normal;
+          font-weight: 1000;
+          right: 26px;
+          font-size: 32px;
+          line-height: 36px;
+          /* identical to box height, or 90% */
+          letter-spacing: 0.1px;
+          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-color: rgb(255, 0, 0);
+          color: #ffffff;
   }
   .bitbot {
     position: absolute;
@@ -850,38 +943,47 @@
     line-height: 36px;
     letter-spacing: 1.1px;
     color: #d33e3e;
+    
   }
   .textbit1 {
     position: absolute;
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 24px;
     line-height: 36px;
     letter-spacing: 0.1px;
     color: #ffffff;
-    left: 36px;
-    top: 10;
+    left: 0;
+    top: 15%;
   }
   .textbit2 {
     position: absolute;
     font-style: normal;
     font-weight: 600;
-    top: 15%;
-    left: 207px;
-    font-size: 18px;
+    top: 24%;
+    left: 20;
+    font-size: 24px;
     line-height: 24px;
     letter-spacing: 0.1px;
     color: #ffffff;
   }
   .textbox {
-    top: 20%;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    left: -27px;
-    letter-spacing: 0.2px;
-
-    color: #ffffff;
+          position: absolute;
+          left: 116px;
+          top: 35px;
+          display: flex;
+                flex-direction: column;
+                text-align: left;
+                font-size: 30px;
+                  
+          font-style: normal;
+          font-weight: 700;
+          line-height: 37px;
+          /* or 28% */
+          
+          letter-spacing: 1px;
+        
+          color: #ffffff;
   }
 
   .li {
@@ -919,7 +1021,6 @@
   .imgbackbocky {
     display: revert;
     align-items: center;
-    background: rgba(255, 222, 5, 0.5);
     height: 260px;
     width: 204px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -929,34 +1030,34 @@
   .imgbackbockr {
     display: flex;
     align-items: center;
-    background: rgba(211, 62, 62, 0.5);
-    height: 260px;
-    width: 204px;
+    background: #e4e4e481;
+    height: 290px;
+    width: 254px;
     right: 6px;
     position: absolute;
-    top: -6px;
+    top: 20%;
     border-style: none;
   }
   .textokenid {
-    position: absolute;
-    right: 2%;
-    bottom: 17%;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 36px;
-    /* identical to box height, or 90% */
-
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+          position: absolute;
+          bottom: 7%;
+          font-style: normal;
+          font-weight: 1000;
+          right: 10px;
+          font-size: 16px;
+          line-height: 36px;
+          /* identical to box height, or 90% */
+          letter-spacing: 0.1px;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: rgb(255, 0, 0);
+          color: #ffffff;
   }
   .bitbot {
     position: absolute;
     width: 40wh;
     height: 420px;
     left: 15%;
-    top: 80%;
+    
   }
 
   .placebid {
@@ -998,6 +1099,17 @@
     position: absolute;
     top: -3%;
   }
+  .sattletext{
+          position: relative;
+          left: 14%;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 36px;
+          text-align: center;
+          letter-spacing: 0.1px;
+          color: #ffffff;
+}
   .textbid {
     position: relative;
     left: 34%;
@@ -1027,7 +1139,7 @@
     letter-spacing: 0.1px;
     color: #ffffff;
     left: 0;
-    top: 10;
+    top: 37px;
   }
   .textbit2 {
     position: absolute;
@@ -1040,17 +1152,42 @@
     letter-spacing: 0.1px;
     color: #ffffff;
   }
+  .textbit3{
+          position: absolute;
+          font-style: normal;
+          font-weight: 600;
+          top: 30%;
+          left: 5%;
+          width: 100%;
+          font-size: 12px;
+          letter-spacing: 0.1px;
+          color: #f9f9f9;
+}
   .textbox {
-    top: 20%;
-    left: -25%;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-
-    letter-spacing: 0.2px;
-
-    color: #ffffff;
+          position: absolute;
+          left: -5px;
+          top: 35px;
+          display: flex;
+                flex-direction: row;
+                text-align: left;
+                font-size: 24px;
+                  
+          font-style: normal;
+          font-weight: 700;
+          line-height: 37px;
+          /* or 28% */
+          
+          letter-spacing: 1px;
+        
+          color: #ffffff;
+    
   }
+  .timenun{
+          font-size: 48px;
+}
+  .timetext{
+          font-size: 22px;
+}
 
   .li {
     font-size: 18px;
