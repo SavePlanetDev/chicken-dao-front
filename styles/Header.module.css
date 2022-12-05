@@ -67,25 +67,23 @@
   border-style: none;
 }
 .wrongnetworkr {
-  display: revert;
+  display: flex;
   align-items: center;
   background: #f02d2d;
   height: 60px;
   width: 130px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   right: 10px;
-  position: absolute;
   top: 7%;
 }
 .wrongnetworky {
-  
+  position: relative;
   display: flex;
   align-items: center;
   background: #ffbe3e;
   height: 60px;
   width: 130px;
   right: 6px;
-  position: absolute;
   top: -6px;
   border-style: none;
 }
@@ -159,25 +157,24 @@
     border-style: none;
   }
   .wrongnetworkr {
-    display: revert;
+    display: flex;
     align-items: center;
     background: #f02d2d;
     height: 60px;
     width: 130px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     right: 10px;
-    position: absolute;
     top: 3%;
   }
   .wrongnetworky {
-    display: flex;
+          position: relative;
+          display: flex;
     align-items: center;
     background: #ffbe3e;
     font-size: 12px;
     height: 60px;
     width: 130px;
     right: 6px;
-    position: absolute;
     top: -6px;
     border-style: none;
   }
@@ -251,25 +248,24 @@
     border-style: none;
   }
   .wrongnetworkr {
-    display: revert;
+    display: flex;
     align-items: center;
     background: #f02d2d;
     height: 40px;
     width: 100px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     right: 10px;
-    position: absolute;
     top: 3%;
   }
   .wrongnetworky {
-    display: flex;
+          position: relative;
+          display: flex;
     align-items: center;
     background: #ffbe3e;
     font-size: 12px;
     height: 40px;
     width: 100px;
     right: 6px;
-    position: absolute;
     top: -6px;
     border-style: none;
   }
@@ -298,7 +294,7 @@
     width: 50px;
   }
   .chainbuttomr {
-    display: revert;
+    display: flex;
     align-items: center;
     background: #f02d2d;
     height: 30px;
@@ -344,24 +340,22 @@
     border-style: none;
   }
   .wrongnetworkr {
-    display: revert;
+    display: flex;
     align-items: center;
     background: #f02d2d;
     height: 30px;
     width: 70px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     right: 10px;
-    position: absolute;
     top: 3%;
   }
   .wrongnetworky {
-    display: flex;
+    position: relative;
     align-items: center;
     background: #ffbe3e;
     height: 30px;
     width: 70px;
     right: 6px;
-    position: absolute;
     top: -6px;
     border-style: none;
   }
