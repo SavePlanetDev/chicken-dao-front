@@ -5,7 +5,7 @@ import { ethers } from "ethers";
 
 export function EventBidded() {
   const [bidded, setBidded] = useState(false);
-  const [bidAmount, setBidAmount] = useState(false);
+  const [bidAmount, setBidAmount] = useState(0);
 
   useContractEvent({
     address,

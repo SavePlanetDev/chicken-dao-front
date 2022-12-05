@@ -2,8 +2,8 @@ import styles from "../styles/Body.module.css";
 import { getBalance } from "../blockchain/contracts/executor/executor.view";
 
 export default function Banner() {
-  const { datated } = getBalance();
-  console.log(datated);
+  // const { datated } = getBalance();
+  // console.log(datated);
   return (
     <div>
       <div className={styles.bannerbox}>
@@ -15,8 +15,6 @@ export default function Banner() {
       <div style={{ display: "flex" }}>
         <img src="banner.png" width="100%"></img>
       </div>
-
-
     </div>
   );
 }

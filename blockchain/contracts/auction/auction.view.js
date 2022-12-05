@@ -37,7 +37,7 @@ function parseBidsData(bids = []) {
     };
   });
 
-  console.log("bid data", bidData);
+  // console.log("bid data", bidData);
   return bidData;
 }
 

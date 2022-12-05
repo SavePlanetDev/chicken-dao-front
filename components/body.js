@@ -7,25 +7,25 @@ import { getAllBids } from "../blockchain/contracts/auction/auction.view";
 import { getTokenURI } from "../blockchain/contracts/nft/nft.view";
 import CountdownTimer from "./countdown";
 import { getBalance } from "../blockchain/contracts/executor/executor.view";
+import { useAccount } from "wagmi";
 import {
   EventBidded,
   EventNewBid,
   EventSattled,
 } from "../blockchain/contracts/auction/auction.event";
 import { EventSetBaseUri } from "../blockchain/contracts/nft/nft.event";
-
 import axios from "axios";
+
 import LoadingPage from "./loading";
 
 export default function Body() {
+  const minimum = 0.2;
+  const { address } = useAccount();
   const [canSattle, setCanSattle] = useState(false);
   const [img, setImg] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const { data } = getAllBids();
-  const [currentBid, setCurrentBid] = useState(
-    data.length > 0 ? data[data.length - 1].amounts : 0
-  );
   const [currentTokenId, setCurrentTokenId] = useState(
     data.length > 0 ? data[data.length - 1].tokenId : 0
   );
@@ -39,6 +39,11 @@ export default function Body() {
   const uri = getTokenURI(data.length > 0 ? data[data.length - 1].tokenId : 0);
 
   const { bidded, bidAmount } = EventBidded();
+  const [currentBid, setCurrentBid] = useState(
+    data[data.length - 1].amounts > 0
+      ? data[data.length - 1].amounts
+      : bidAmount
+  );
   const { sattled } = EventSattled();
   const { baseUri } = EventSetBaseUri();
   const { tokenId, end } = EventNewBid();
@@ -46,7 +51,6 @@ export default function Body() {
 
   useEffect(() => {
     if (!baseUri && uri.tokenURIOk) {
-      console.log("Case 1");
       parseTokenUri(uri.tokenURI);
     }
 
@@ -55,14 +59,16 @@ export default function Body() {
       setLoading(false);
     }
 
-    if (baseUri) {
-      console.log("Case 2");
+    if (canSattle && sattled) {
+      setCurrentBid(0);
+    }
+
+    if (baseUri && sattled) {
       setLoading(false);
       parseTokenUri(baseUri);
       setCurrentTokenId(tokenId);
       setCurrentTimer(end);
       setCanSattle(false);
-      setCurrentBid(0);
     }
   }, [uri.tokenURIOk, bidded, sattled, baseUri]);
 
@@ -81,8 +87,10 @@ export default function Body() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (bid != null && bid > 2.5) {
+    if (bid != null && bid >= parseFloat(bidAmount) + minimum) {
       setLoading(true);
+      e.target.reset();
+      setCurrentBid(bid);
       placeBid({
         recklesslySetUnpreparedOverrides: {
           value: ethers.utils.parseEther(bid.toString()),
@@ -98,22 +106,29 @@ export default function Body() {
 
   return (
     <div style={{ height: "100vh", width: "100vw" }} className={style.bgimage}>
+      <div className={styles.tedbox}>
+        <div className={styles.tedbox2}>
+          <span className={styles.tedtext}>
+            {" "}
+            Treasury : {`${datated.formatted} ${datated.symbol}`}{" "}
+          </span>
+        </div>
+      </div>
 
-          <div className={styles.tedbox}>
-          <div className={styles.tedbox2}>
-                    <span className={styles.tedtext}> Treasury : {`${datated.formatted} ${datated.symbol}`} </span>
-          </div>    
-          </div>         
-          
-          
       <div className={styles.bitbot}>
-          
         <form onSubmit={handleSubmit}>
           <input
             type="number"
-            min={2.5}
-            step={0.01}
-            placeholder="place bid"
+            min={0.2}
+            step={0.1}
+            disabled={address == undefined ? true : false}
+            placeholder={
+              address == undefined
+                ? "connect wallet ก่อนดิ๊!"
+                : `next bid at least ${(
+                    parseFloat(currentBid) + minimum
+                  ).toFixed(1)} kub`
+            }
             className={styles.placebid}
             onChange={(e) => handleBid(setBid, e)}
             style={{
@@ -124,21 +139,23 @@ export default function Body() {
               textAlign: "center",
             }}
           ></input>
-          <div className={styles.bitbuttonr}>
-            {canSattle ? (
-              <button className={styles.bitbuttony} onClick={handleSattle}>
-                <p className={styles.sattletext}>Sattle</p>
-              </button>
-            ) : (
-              <button type="submit" className={styles.bitbuttony}>
-                <p className={styles.textbid}>bid</p>
-              </button>
-            )}
-          </div>
+          {address == undefined ? null : (
+            <div className={styles.bitbuttonr}>
+              {canSattle ? (
+                <button className={styles.bitbuttony} onClick={handleSattle}>
+                  <p className={styles.sattletext}>Sattle</p>
+                </button>
+              ) : (
+                <button type="submit" className={styles.bitbuttony}>
+                  <p className={styles.textbid}>bid</p>
+                </button>
+              )}
+            </div>
+          )}
         </form>
         <div className={styles.textbit3}>
-          **บิตเริ่มต้นมากกว่า 2.5
-          แล้วบิตถัดไปต้องมากกว่าบิตปัจจุบันแล้วบวกเพิ่มอีก 2.5**
+          **บิตเริ่มต้นมากกว่า 2
+          แล้วบิตถัดไปต้องมากกว่าบิตปัจจุบันแล้วบวกเพิ่มอีก 2**
         </div>
         <div>
           <div className={styles.textbit1}>
