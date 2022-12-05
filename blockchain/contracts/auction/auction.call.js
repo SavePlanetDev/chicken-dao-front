@@ -17,7 +17,7 @@ function PlaceBid() {
 
   return {
     placeBid: write,
-    isError,
+    placeBidError: isError,
     isSuccess,
   };
 }
@@ -32,8 +32,7 @@ function sattle() {
 
   return {
     sattleAuction: write,
-    isError,
-    isSuccess,
+    sattleError: isError,
   };
 }
 

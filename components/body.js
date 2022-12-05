@@ -9,51 +9,66 @@ import CountdownTimer from "./countdown";
 
 import {
   EventBidded,
+  EventNewBid,
   EventSattled,
 } from "../blockchain/contracts/auction/auction.event";
 import { EventSetBaseUri } from "../blockchain/contracts/nft/nft.event";
 
 import axios from "axios";
+import LoadingPage from "./loading";
 
 export default function Body() {
-  const [bid, setBid] = useState(0);
   const [canSattle, setCanSattle] = useState(false);
   const [img, setImg] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const { data } = getAllBids();
+  const [currentBid, setCurrentBid] = useState(
+    data.length > 0 ? data[data.length - 1].amounts : 0
+  );
+  const [currentTokenId, setCurrentTokenId] = useState(
+    data.length > 0 ? data[data.length - 1].tokenId : 0
+  );
+  const [currentTimer, setCurrentTimer] = useState(
+    data.length > 0 ? data[data.length - 1].endAt : 0
+  );
+
+  const [bid, setBid] = useState(0);
   const { placeBid } = PlaceBid(bid);
   const { sattleAuction } = sattle();
-  const { data } = getAllBids();
   const uri = getTokenURI(data.length > 0 ? data[data.length - 1].tokenId : 0);
 
-  const { bidded } = EventBidded();
+  const { bidded, bidAmount } = EventBidded();
   const { sattled } = EventSattled();
   const { baseUri } = EventSetBaseUri();
+  const { tokenId, end } = EventNewBid();
 
   useEffect(() => {
     if (!baseUri && uri.tokenURIOk) {
+      console.log("Case 1");
       parseTokenUri(uri.tokenURI);
     }
 
     if (bidded) {
-      setLoading(false);
-    }
-
-    if (sattled) {
+      setCurrentBid(bidAmount.toString());
       setLoading(false);
     }
 
     if (baseUri) {
-      console.log("baseUri: ", baseUri);
+      console.log("Case 2");
+      setLoading(false);
       parseTokenUri(baseUri);
+      setCurrentTokenId(tokenId);
+      setCurrentTimer(end);
+      setCanSattle(false);
+      setCurrentBid(0);
     }
   }, [uri.tokenURIOk, bidded, sattled, baseUri]);
 
   async function parseTokenUri(tokenUri) {
+    if (tokenUri == "ipfs:://") return null;
     const response = await axios.get(tokenUri);
-    console.log(response);
     const { image } = response.data;
-    console.log(image);
     setImg(image);
     return image;
   }
@@ -65,8 +80,8 @@ export default function Body() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setLoading(true);
     if (bid != null && bid > 2.5) {
+      setLoading(true);
       placeBid({
         recklesslySetUnpreparedOverrides: {
           value: ethers.utils.parseEther(bid.toString()),
@@ -78,10 +93,6 @@ export default function Body() {
   function handleSattle() {
     setLoading(true);
     sattleAuction();
-  }
-
-  if (loading) {
-    return <div>Loading ...</div>;
   }
 
   return (
@@ -110,13 +121,12 @@ export default function Body() {
         </form>
         <div>
           <div className={styles.textbit1}>
-            Current bid:{" "}
-            {data.length > 0 ? data[data.length - 1].amounts : "n/a"} Kub
+            Current bid: {currentBid > 0 ? currentBid : 0.0} Kub
           </div>
           <div className={styles.textbit2}>Time Left</div>
           <div className={styles.textbox}>
             <CountdownTimer
-              endtimeMs={data.length > 0 ? data[data.length - 1].endAt : "n/a"}
+              endtimeMs={currentTimer > 0 ? currentTimer : "n/a"}
               setCanSattle={setCanSattle}
             />
           </div>
@@ -133,12 +143,13 @@ export default function Body() {
               )}
             </div>
             <div className={styles.textokenid}>
-              TokenID: {data.length > 0 ? data[data.length - 1].tokenId : "n/a"}
+              TokenID: {currentTokenId > 0 ? currentTokenId : "n/a"}
             </div>
           </div>
         </div>
       </div>
       <div></div>
+      {loading ? <LoadingPage /> : null}
     </div>
   );
 }

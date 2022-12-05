@@ -88,6 +88,31 @@ export const abi = [
     inputs: [
       {
         indexed: true,
+        internalType: "uint256",
+        name: "bidId",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "start",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "end",
+        type: "uint256",
+      },
+    ],
+    name: "NewBid",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
         internalType: "address",
         name: "previousOwner",
         type: "address",
@@ -332,6 +357,68 @@ export const abi = [
   },
   {
     inputs: [],
+    name: "getLatestBid",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "bidder",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "amounts",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "tokenId",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "start",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "end",
+            type: "uint256",
+          },
+          {
+            components: [
+              {
+                internalType: "address",
+                name: "bidder",
+                type: "address",
+              },
+              {
+                internalType: "uint256",
+                name: "amounts",
+                type: "uint256",
+              },
+            ],
+            internalType: "struct ChickenDAOAuctionHouse.Bidder[]",
+            name: "bidders",
+            type: "tuple[]",
+          },
+          {
+            internalType: "bool",
+            name: "ended",
+            type: "bool",
+          },
+        ],
+        internalType: "struct ChickenDAOAuctionHouse.Bid",
+        name: "",
+        type: "tuple",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "minimumBid",
     outputs: [
       {
@@ -544,4 +631,4 @@ export const abi = [
   },
 ];
 
-export const address = "0x4a7a27B45C7201D9E963932925B6eeed34C01888";
+export const address = "0xdFF5AE3ffd242CF4E9e46563ef4777EA6573504F";
