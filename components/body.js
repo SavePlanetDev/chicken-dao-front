@@ -84,7 +84,8 @@ export default function Body() {
     //   canSattle,
     // });
 
-    if ((!baseUri, uri.tokenURIOk)) {
+    if (!baseUri && uri.tokenURIOk) {
+      console.log("PARSE BASE URI");
       parseTokenUri(uri.tokenURI);
     }
 
@@ -113,9 +114,7 @@ export default function Body() {
     if (end > 0) {
       console.log("eneded");
       setCurrentTimer(end);
-      setCurrentBid(0);
-    } else if (latestBidLoaded) {
-      console.log("new state");
+    } else if (latestBidLoaded && end <= 0) {
       setCurrentTokenId(latestBid[0].tokenId);
       setCurrentTimer(latestBid[0].endAt);
       setCurrentBid(latestBid[0].amounts);
@@ -135,7 +134,7 @@ export default function Body() {
     const response = await axios.get(tokenUri);
     const { image } = response.data;
     setImg(image);
-    // return image;
+    return image;
   }
 
   function handleBid(fn, e) {
