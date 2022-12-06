@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.15",
     "@rainbow-me/rainbowkit": "^0.8.0",
+    "@wagmi/core": "^0.7.9",
     "axios": "^1.2.0",
     "dayjs": "^1.11.6",
     "eslint": "8.28.0",

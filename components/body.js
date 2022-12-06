@@ -20,51 +20,44 @@ import axios from "axios";
 
 import LoadingPage from "./loading";
 
-export default function Body() {
-  const { latestBid, latestBidLoaded } = getLatestBid();
+export default function Body({ props }) {
+  console.log(props);
   const minimum = 0.2;
   const { address } = useAccount();
   const [canSattle, setCanSattle] = useState(false);
   const [img, setImg] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const { data } = getAllBids();
-  const [currentTokenId, setCurrentTokenId] = useState(
-    !latestBidLoaded ? 0 : latestBid[0].tokenId
-  );
-  const [currentTimer, setCurrentTimer] = useState(
-    !latestBidLoaded ? 0 : latestBid[0].endAt
-  );
+  const [currentTokenId, setCurrentTokenId] = useState(props.latest.tokenId);
+  const [currentTimer, setCurrentTimer] = useState(props.latest.endAt);
 
   const [bid, setBid] = useState(0);
   const { placeBid } = PlaceBid(bid);
   const { sattleAuction } = sattle();
-  const uri = getTokenURI(!latestBidLoaded ? 0 : latestBid[0].tokenId);
+  const uri = getTokenURI(props.latest.tokenId);
 
   const { bidded, bidAmount, setBidded } = EventBidded();
-  const [currentBid, setCurrentBid] = useState(
-    !latestBidLoaded ? 0 : latestBid[0].amounts
-  );
+  const [currentBid, setCurrentBid] = useState(props.latest.amounts);
   const { sattled, setSattled } = EventSattled();
   const { baseUri } = EventSetBaseUri();
   const { tokenId, end } = EventNewBid();
-  const { datated } = getBalance();
-  console.log({
-    img,
-    uri,
-    lastest: latestBid[0],
-    loaded: latestBidLoaded,
-    tokenOK: uri.tokenURIOk,
-    currentTimer,
-    bidded,
-    sattled,
-    baseUri,
-    bidAmount,
-    currentBid,
-    data: data.length,
-    newBidEvent: end,
-    canSattle,
-  });
+
+  // console.log({
+  //   stateImage: img,
+  //   hookImage: uri,
+  //   lastest: latestBid[0],
+  //   loaded: latestBidLoaded,
+  //   tokenOK: uri.tokenURIOk,
+  //   currentTimer,
+  //   bidded,
+  //   sattled,
+  //   baseUri,
+  //   bidAmount,
+  //   currentBid,
+  //   data: data.length,
+  //   newBidEvent: end,
+  //   canSattle,
+  // });
 
   useEffect(() => {
     // console.log({
@@ -85,25 +78,32 @@ export default function Body() {
     // });
 
     if (!baseUri && uri.tokenURIOk) {
-      console.log("PARSE BASE URI");
+      console.log(
+        "เซต base uri จากการ load getTokenUri hook: \n",
+        uri.tokenURI
+      );
       parseTokenUri(uri.tokenURI);
     }
 
     if (bidded) {
-      console.log("bidded ! with : ", bidAmount);
+      console.log("มีคน bid ที่ amount :", bidAmount.toString());
       setCurrentBid(bidAmount.toString());
       setLoading(false);
       setBidded(false);
     }
 
     if (canSattle && sattled) {
-      console.log("canSattle: setCurrentBid to 0");
+      console.log("หมดเวลา สามารถที่จะ sattle ได้", { currentBid, canSattle });
       setCurrentBid(0);
       setCanSattle(false);
     }
 
     if (baseUri && sattled) {
-      console.log("sattled and set base uri");
+      console.log("sattle เรียบร้อย ทำการ mint -> setbase uri", {
+        baseUri,
+        tokenId,
+        end,
+      });
       parseTokenUri(baseUri);
       setCurrentTokenId(tokenId);
       setCurrentTimer(end);
@@ -112,22 +112,15 @@ export default function Body() {
     }
 
     if (end > 0) {
-      console.log("eneded");
+      console.log("sattle แล้วตอนจบ set timer เป็น อันใหม่");
       setCurrentTimer(end);
-    } else if (latestBidLoaded && end <= 0) {
-      setCurrentTokenId(latestBid[0].tokenId);
-      setCurrentTimer(latestBid[0].endAt);
-      setCurrentBid(latestBid[0].amounts);
+    } else if (end <= 0 && !bidded && !sattled) {
+      console.log("refresh หน้าจอ get last props มา");
+      setCurrentTokenId(props.latest.tokenId);
+      setCurrentTimer(props.latest.endAt);
+      setCurrentBid(props.latest.amounts);
     }
-  }, [
-    uri.tokenURIOk,
-    bidded,
-    sattled,
-    baseUri,
-    bidAmount,
-    end,
-    latestBidLoaded,
-  ]);
+  }, [uri.tokenURIOk, bidded, sattled, baseUri, bidAmount, end]);
 
   async function parseTokenUri(tokenUri) {
     if (tokenUri == "ipfs:://") return null;
@@ -167,7 +160,7 @@ export default function Body() {
         <div className={styles.tedbox2}>
           <span className={styles.tedtext}>
             {" "}
-            Treasury : {`${datated.formatted} ${datated.symbol}`}{" "}
+            Treasury : {`${props.treasury} KUB`}{" "}
           </span>
         </div>
       </div>
