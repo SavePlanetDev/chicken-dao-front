@@ -167,8 +167,8 @@
     top: 3%;
   }
   .wrongnetworky {
-          position: relative;
-          display: flex;
+    position: relative;
+    display: flex;
     align-items: center;
     background: #ffbe3e;
     font-size: 12px;
@@ -213,6 +213,7 @@
     position: absolute;
     top: 3%;
   }
+
   .chainbuttomy {
     display: flex;
     align-items: center;
@@ -224,6 +225,7 @@
     top: -6px;
     border-style: none;
   }
+
   .addressbuttomr {
     display: revert;
     align-items: center;
@@ -235,6 +237,7 @@
     position: absolute;
     top: 3%;
   }
+
   .addressbuttomy {
     display: flex;
     align-items: center;
@@ -247,6 +250,7 @@
     top: -6px;
     border-style: none;
   }
+
   .wrongnetworkr {
     display: flex;
     align-items: center;
@@ -258,8 +262,8 @@
     top: 3%;
   }
   .wrongnetworky {
-          position: relative;
-          display: flex;
+    position: relative;
+    display: flex;
     align-items: center;
     background: #ffbe3e;
     font-size: 12px;

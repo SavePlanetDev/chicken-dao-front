@@ -27,10 +27,11 @@
   left: 15%;
   color: rgb(255, 255, 255);
   background-color: #fd0f0f;
-  height: 50px;
-  width: 420px;
+  height: 60px;
+  width: 435px;
   border-style: none;
 }
+
 .tedbox2 {
   position: absolute;
   display: flex;
@@ -47,6 +48,7 @@
   line-height: 36px;
   align-items: center;
 }
+
 .tedtext {
   text-align: center;
   position: relative;
@@ -265,8 +267,8 @@
     left: 5%;
     color: rgb(255, 255, 255);
     background-color: #fd0f0f;
-    height: 50px;
-    width: 420px;
+    height: 60px;
+    width: 460px;
     border-style: none;
   }
   .tedbox2 {
@@ -288,7 +290,7 @@
   .tedtext {
     text-align: center;
     position: relative;
-    left: 10%;
+    left: 15%;
   }
   .imgposition {
     position: absolute;
@@ -841,11 +843,11 @@
     position: relative;
     display: flex;
     top: 7%;
-    left: 32%;
+    left: 25%;
     color: rgb(255, 255, 255);
     background-color: #fd0f0f;
-    height: 40px;
-    width: 260px;
+    height: 50px;
+    width: 340px;
     border-style: none;
   }
   .tedbox2 {
@@ -860,13 +862,14 @@
     background-color: #fdb20f;
     font-style: normal;
     font-weight: 700;
-    font-size: 23px;
+    font-size: 26px;
     line-height: 36px;
     align-items: center;
   }
   .tedtext {
     text-align: center;
     position: relative;
+    left: 50px;
   }
   .imgposition {
     position: absolute;
@@ -1027,11 +1030,11 @@
     position: relative;
     display: flex;
     top: 8%;
-    left: 23%;
+    left: 19%;
     color: rgb(255, 255, 255);
     background-color: #fd0f0f;
-    height: 40px;
-    width: 260px;
+    height: 50px;
+    width: 310px;
     border-style: none;
   }
   .tedbox2 {
@@ -1053,6 +1056,7 @@
   .tedtext {
     text-align: center;
     position: relative;
+    left: 50px;
   }
   .imgposition {
     position: absolute;
@@ -1212,11 +1216,11 @@
     position: relative;
     display: flex;
     top: 10%;
-    left: 24%;
+    left: 20%;
     color: rgb(255, 255, 255);
     background-color: #fd0f0f;
-    height: 40px;
-    width: 220px;
+    height: 44px;
+    width: 251px;
     border-style: none;
   }
   .tedbox2 {
@@ -1231,13 +1235,14 @@
     background-color: #fdb20f;
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 36px;
     align-items: center;
   }
   .tedtext {
     text-align: center;
     position: relative;
+    left: 34px;
   }
   .imgposition {
     position: absolute;

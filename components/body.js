@@ -5,7 +5,7 @@ import { PlaceBid, sattle } from "../blockchain/contracts/auction/auction.call";
 import { ethers } from "ethers";
 import { getTokenURI } from "../blockchain/contracts/nft/nft.view";
 import CountdownTimer from "./countdown";
-import { useAccount } from "wagmi";
+import { useAccount, useProvider } from "wagmi";
 
 import {
   EventBidded,
@@ -28,8 +28,8 @@ export default function Body({ props }) {
   const [currentTimer, setCurrentTimer] = useState(props.latest.endAt);
 
   const [bid, setBid] = useState(0);
-  const { placeBid } = PlaceBid(bid);
-  const { sattleAuction } = sattle();
+  const { placeBid, placeBidError } = PlaceBid(bid);
+  const { sattleAuction, sattleError } = sattle();
   const uri = getTokenURI(props.latest.tokenId);
 
   const { bidded, bidAmount, setBidded } = EventBidded();
@@ -39,6 +39,7 @@ export default function Body({ props }) {
   const { tokenId, end } = EventNewBid();
 
   useEffect(() => {
+    console.log({ placeBidError, sattleError });
     if (!baseUri && uri.tokenURIOk) {
       // console.log(
       //   "เซต base uri จากการ load getTokenUri hook: \n",
@@ -81,7 +82,24 @@ export default function Body({ props }) {
       setCurrentTokenId(tokenId);
       parseTokenUri(baseUri);
     }
-  }, [uri.tokenURIOk, bidded, sattled, baseUri, bidAmount, end]);
+
+    if (placeBidError) {
+      setLoading(false);
+    }
+
+    if (sattleError) {
+      setLoading(false);
+    }
+  }, [
+    uri.tokenURIOk,
+    bidded,
+    sattled,
+    baseUri,
+    bidAmount,
+    end,
+    placeBidError,
+    sattleError,
+  ]);
 
   async function parseTokenUri(tokenUri) {
     if (tokenUri == "ipfs:://") return null;
