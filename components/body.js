@@ -91,6 +91,7 @@ export default function Body() {
     if (bidded) {
       console.log("bidded ! with : ", bidAmount);
       setCurrentBid(bidAmount.toString());
+      setImg(img);
       setLoading(false);
       setBidded(false);
     }
@@ -99,7 +100,6 @@ export default function Body() {
       console.log("canSattle: setCurrentBid to 0");
       setCurrentBid(0);
       setCanSattle(false);
-      setImg(undefined);
     }
 
     if (baseUri && sattled) {
@@ -113,6 +113,7 @@ export default function Body() {
 
     if (end > 0) {
       setCurrentTimer(end);
+      setCurrentBid(0);
     } else if (latestBidLoaded) {
       setCurrentTokenId(latestBid[0].tokenId);
       setCurrentTimer(latestBid[0].endAt);
