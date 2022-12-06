@@ -30,20 +30,20 @@ export default function Body() {
 
   const { data } = getAllBids();
   const [currentTokenId, setCurrentTokenId] = useState(
-    latestBid.length > 0 ? latestBid[0].tokenId : 0
+    !latestBidLoaded ? 0 : latestBid[0].tokenId
   );
   const [currentTimer, setCurrentTimer] = useState(
-    latestBid.length > 0 ? latestBid[0].endAt : 0
+    !latestBidLoaded ? 0 : latestBid[0].endAt
   );
 
   const [bid, setBid] = useState(0);
   const { placeBid } = PlaceBid(bid);
   const { sattleAuction } = sattle();
-  const uri = getTokenURI(latestBid.length > 0 ? latestBid[0].tokenId : 0);
+  const uri = getTokenURI(!latestBidLoaded ? 0 : latestBid[0].tokenId);
 
   const { bidded, bidAmount, setBidded } = EventBidded();
   const [currentBid, setCurrentBid] = useState(
-    latestBid.length > 0 ? latestBid[0].amounts : 0
+    !latestBidLoaded ? 0 : latestBid[0].amounts
   );
   const { sattled, setSattled } = EventSattled();
   const { baseUri } = EventSetBaseUri();
@@ -113,11 +113,20 @@ export default function Body() {
 
     if (end > 0) {
       setCurrentTimer(end);
-    } else {
+    } else if (latestBidLoaded) {
+      setCurrentTokenId(latestBid[0].tokenId);
       setCurrentTimer(latestBid[0].endAt);
       setCurrentBid(latestBid[0].amounts);
     }
-  }, [uri.tokenURIOk, bidded, sattled, baseUri, bidAmount, end]);
+  }, [
+    uri.tokenURIOk,
+    bidded,
+    sattled,
+    baseUri,
+    bidAmount,
+    end,
+    latestBidLoaded,
+  ]);
 
   async function parseTokenUri(tokenUri) {
     if (tokenUri == "ipfs:://") return null;
