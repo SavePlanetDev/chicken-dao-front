@@ -49,24 +49,41 @@ export default function Body() {
   const { baseUri } = EventSetBaseUri();
   const { tokenId, end } = EventNewBid();
   const { datated } = getBalance();
+  console.log({
+    img,
+    uri,
+    lastest: latestBid[0],
+    loaded: latestBidLoaded,
+    tokenOK: uri.tokenURIOk,
+    currentTimer,
+    bidded,
+    sattled,
+    baseUri,
+    bidAmount,
+    currentBid,
+    data: data.length,
+    newBidEvent: end,
+    canSattle,
+  });
 
   useEffect(() => {
-    console.log({
-      img,
-      uri,
-      lastest: latestBid[0],
-      loaded: latestBidLoaded,
-      tokenOK: uri.tokenURIOk,
-      currentTimer,
-      bidded,
-      sattled,
-      baseUri,
-      bidAmount,
-      currentBid,
-      data: data.length,
-      newBidEvent: end,
-      canSattle,
-    });
+    // console.log({
+    //   img,
+    //   uri,
+    //   lastest: latestBid[0],
+    //   loaded: latestBidLoaded,
+    //   tokenOK: uri.tokenURIOk,
+    //   currentTimer,
+    //   bidded,
+    //   sattled,
+    //   baseUri,
+    //   bidAmount,
+    //   currentBid,
+    //   data: data.length,
+    //   newBidEvent: end,
+    //   canSattle,
+    // });
+
     if (uri.tokenURIOk) {
       parseTokenUri(uri.tokenURI);
     }
@@ -94,7 +111,12 @@ export default function Body() {
       setLoading(false);
     }
 
-    end > 0 ? setCurrentTimer(end) : setCurrentTimer(latestBid[0].endAt);
+    if (end > 0) {
+      setCurrentTimer(end);
+    } else {
+      setCurrentTimer(latestBid[0].endAt);
+      setCurrentBid(latestBid[0].amounts);
+    }
   }, [uri.tokenURIOk, bidded, sattled, baseUri, bidAmount, end]);
 
   async function parseTokenUri(tokenUri) {
@@ -149,11 +171,9 @@ export default function Body() {
             placeholder={
               address == undefined
                 ? `${"connect wallet ก่อนดิ๊ .. กุ๊ก !! 🐔"}`
-                : `at least ${(
-                    parseFloat(
-                      `${end > 0 ? currentBid : latestBid[0].amounts}`
-                    ) + minimum
-                  ).toFixed(1)} KUB`
+                : `at least ${(parseFloat(currentBid) + minimum).toFixed(
+                    1
+                  )} KUB`
             }
             className={styles.placebid}
             onChange={(e) => handleBid(setBid, e)}
@@ -189,14 +209,14 @@ export default function Body() {
           <div className={styles.textbit1}>
             Current bid:{" "}
             <span style={{ color: "#00FF00", fontWeight: 800 }}>
-              {end > 0 ? currentBid : latestBid[0].amounts}{" "}
+              {currentBid}{" "}
             </span>{" "}
             KUB
           </div>
           <div className={styles.textbit2}>Time Left</div>
           <div className={styles.textbox}>
             <CountdownTimer
-              endtimeMs={end > 0 ? end : latestBid[0].endAt}
+              endtimeMs={end > 0 ? end : currentTimer}
               setCanSattle={setCanSattle}
             />
           </div>
