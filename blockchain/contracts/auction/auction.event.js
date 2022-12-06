@@ -1,4 +1,4 @@
-import { useContractEvent } from "wagmi";
+import { useContractEvent, useContractRead } from "wagmi";
 import { useState } from "react";
 import { abi, address } from "./auction.abi";
 import { ethers } from "ethers";
@@ -15,6 +15,7 @@ export function EventBidded() {
       console.log(
         `[${bidId}] tokenId: ${tokenId} has new bid with ${currentBid}`
       );
+
       const parsedAmounts = ethers.utils.formatEther(currentBid);
       setBidAmount(parsedAmounts);
       setBidded(true);
@@ -24,6 +25,8 @@ export function EventBidded() {
   return {
     bidded,
     bidAmount,
+    setBidded,
+    setBidAmount,
   };
 }
 
@@ -43,6 +46,7 @@ export function EventSattled() {
 
   return {
     sattled,
+    setSattled,
   };
 }
 

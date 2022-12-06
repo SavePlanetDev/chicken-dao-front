@@ -26,16 +26,23 @@ function CountdownTimer({ endtimeMs, setCanSattle }) {
   }
 
   return (
-    <div className={styles.textbox}
-    >
+    <div className={styles.textbox}>
       {/* <span>{remainingTime.days}</span>
       <span>days</span> */}
-      <span className={styles.timenun}>{remainingTime.hours}<span className={styles.timetext}>hr</span></span>
-      
-      <span className={styles.timenun}>{remainingTime.minutes}<span className={styles.timetext}>min</span></span>
-      
-      <span className={styles.timenun}>{remainingTime.seconds}<span className={styles.timetext}>sec</span></span>
-      
+      <span className={styles.timenun}>
+        {remainingTime.hours}
+        <span className={styles.timetext}>hr</span>
+      </span>
+
+      <span className={styles.timenun}>
+        {remainingTime.minutes}
+        <span className={styles.timetext}>min</span>
+      </span>
+
+      <span className={styles.timenun}>
+        {remainingTime.seconds}
+        <span className={styles.timetext}>sec</span>
+      </span>
     </div>
   );
 }

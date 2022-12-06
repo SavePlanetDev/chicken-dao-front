@@ -1314,6 +1314,11 @@
     top: -6px;
     border-style: none;
   }
+
+  .bitbuttony:hover {
+    cursor: pointer;
+  }
+
   .bitbuttonr {
     display: revert;
     align-items: center;

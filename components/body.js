@@ -7,7 +7,9 @@ import { getAllBids } from "../blockchain/contracts/auction/auction.view";
 import { getTokenURI } from "../blockchain/contracts/nft/nft.view";
 import CountdownTimer from "./countdown";
 import { getBalance } from "../blockchain/contracts/executor/executor.view";
+import { getLatestBid } from "../blockchain/contracts/auction/auction.view";
 import { useAccount } from "wagmi";
+
 import {
   EventBidded,
   EventNewBid,
@@ -19,6 +21,7 @@ import axios from "axios";
 import LoadingPage from "./loading";
 
 export default function Body() {
+  const { latestBid, latestBidLoaded } = getLatestBid();
   const minimum = 0.2;
   const { address } = useAccount();
   const [canSattle, setCanSattle] = useState(false);
@@ -26,38 +29,39 @@ export default function Body() {
   const [loading, setLoading] = useState(false);
 
   const { data } = getAllBids();
-  const [currentTokenId, setCurrentTokenId] = useState(
-    data.length > 0 ? data[data.length - 1].tokenId : 0
-  );
-  const [currentTimer, setCurrentTimer] = useState(
-    data.length > 0 ? data[data.length - 1].endAt : 0
-  );
+  const [currentTokenId, setCurrentTokenId] = useState(latestBid[0].tokenId);
+  const [currentTimer, setCurrentTimer] = useState(latestBid[0].endAt);
 
   const [bid, setBid] = useState(0);
   const { placeBid } = PlaceBid(bid);
   const { sattleAuction } = sattle();
-  const uri = getTokenURI(data.length > 0 ? data[data.length - 1].tokenId : 0);
+  const uri = getTokenURI(latestBid[0].tokenId);
 
-  const { bidded, bidAmount } = EventBidded();
-  const [currentBid, setCurrentBid] = useState(
-    data.length > 0 ? data[data.length - 1].amounts : bidAmount
-  );
-  const { sattled } = EventSattled();
+  const { bidded, bidAmount, setBidded } = EventBidded();
+  const [currentBid, setCurrentBid] = useState(latestBid[0].amounts);
+  const { sattled, setSattled } = EventSattled();
   const { baseUri } = EventSetBaseUri();
   const { tokenId, end } = EventNewBid();
   const { datated } = getBalance();
 
   useEffect(() => {
     console.log({
+      img,
+      uri,
+      lastest: latestBid[0],
+      loaded: latestBidLoaded,
       tokenOK: uri.tokenURIOk,
+      currentTimer,
       bidded,
       sattled,
       baseUri,
       bidAmount,
       currentBid,
       data: data.length,
+      newBidEvent: end,
+      canSattle,
     });
-    if (!baseUri && uri.tokenURIOk) {
+    if (uri.tokenURIOk) {
       parseTokenUri(uri.tokenURI);
     }
 
@@ -65,29 +69,34 @@ export default function Body() {
       console.log("bidded ! with : ", bidAmount);
       setCurrentBid(bidAmount.toString());
       setLoading(false);
+      setBidded(false);
     }
 
     if (canSattle && sattled) {
-      console.log("canSattle: setCurrentBIt to 0");
+      console.log("canSattle: setCurrentBid to 0");
       setCurrentBid(0);
+      setCanSattle(false);
+      setImg(undefined);
     }
 
     if (baseUri && sattled) {
-      console.log("set baseURI");
+      console.log("sattled and set base uri");
       parseTokenUri(baseUri);
       setCurrentTokenId(tokenId);
       setCurrentTimer(end);
-      setCanSattle(false);
+      setSattled(false);
       setLoading(false);
     }
-  }, [uri.tokenURIOk, bidded, sattled, baseUri, bidAmount]);
+
+    end > 0 ? setCurrentTimer(end) : setCurrentTimer(latestBid[0].endAt);
+  }, [uri.tokenURIOk, bidded, sattled, baseUri, bidAmount, end]);
 
   async function parseTokenUri(tokenUri) {
     if (tokenUri == "ipfs:://") return null;
     const response = await axios.get(tokenUri);
     const { image } = response.data;
     setImg(image);
-    return image;
+    // return image;
   }
 
   function handleBid(fn, e) {
@@ -100,7 +109,6 @@ export default function Body() {
     if (bid != null && bid >= parseFloat(bidAmount) + minimum) {
       setLoading(true);
       e.target.reset();
-      setCurrentBid(bid);
       placeBid({
         recklesslySetUnpreparedOverrides: {
           value: ethers.utils.parseEther(bid.toString()),
@@ -131,13 +139,15 @@ export default function Body() {
             type="number"
             min={0.2}
             step={0.1}
-            disabled={address !== undefined && currentTimer > 0 ? false : true}
+            disabled={address !== undefined ? false : true}
             placeholder={
               address == undefined
                 ? `${"connect wallet ก่อนดิ๊ .. กุ๊ก !! 🐔"}`
-                : `at least ${(parseFloat(currentBid) + minimum).toFixed(
-                    1
-                  )} KUB`
+                : `at least ${(
+                    parseFloat(
+                      `${end > 0 ? currentBid : latestBid[0].amounts}`
+                    ) + minimum
+                  ).toFixed(1)} KUB`
             }
             className={styles.placebid}
             onChange={(e) => handleBid(setBid, e)}
@@ -173,14 +183,14 @@ export default function Body() {
           <div className={styles.textbit1}>
             Current bid:{" "}
             <span style={{ color: "#00FF00", fontWeight: 800 }}>
-              {currentBid > 0 ? currentBid : bidAmount}{" "}
+              {end > 0 ? currentBid : latestBid[0].amounts}{" "}
             </span>{" "}
             KUB
           </div>
           <div className={styles.textbit2}>Time Left</div>
           <div className={styles.textbox}>
             <CountdownTimer
-              endtimeMs={currentTimer > 0 ? currentTimer : "🐔"}
+              endtimeMs={end > 0 ? end : latestBid[0].endAt}
               setCanSattle={setCanSattle}
             />
           </div>
@@ -196,9 +206,7 @@ export default function Body() {
                 <img src={img} className={styles.imgposition} />
               )}
             </div>
-            <div className={styles.textokenid}>
-              TokenID: {currentTokenId > 0 ? currentTokenId : "🐔"}
-            </div>
+            <div className={styles.textokenid}>TokenID: {currentTokenId}</div>
           </div>
         </div>
       </div>

@@ -16,6 +16,23 @@ function getAllBids() {
   };
 }
 
+function getLatestBid() {
+  const { data, isSuccess } = useContractRead({
+    address,
+    abi,
+    functionName: "getLatestBid",
+  });
+
+  const parsed = data == undefined ? [] : parseBidsData([data]);
+  // const parsed = parseBidsData([data]);
+  // console.log(parsed);
+
+  return {
+    latestBid: parsed,
+    latestBidLoaded: isSuccess,
+  };
+}
+
 function parseBidsData(bids = []) {
   if (bids.length <= 0) {
     return [];
@@ -41,4 +58,4 @@ function parseBidsData(bids = []) {
   return bidData;
 }
 
-export { getAllBids };
+export { getAllBids, getLatestBid };
