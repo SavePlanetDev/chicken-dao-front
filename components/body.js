@@ -157,6 +157,7 @@ export default function Body() {
 
   function handleSattle() {
     setLoading(true);
+    setCurrentBid(0);
     sattleAuction();
   }
 
