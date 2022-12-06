@@ -29,16 +29,22 @@ export default function Body() {
   const [loading, setLoading] = useState(false);
 
   const { data } = getAllBids();
-  const [currentTokenId, setCurrentTokenId] = useState(latestBid[0].tokenId);
-  const [currentTimer, setCurrentTimer] = useState(latestBid[0].endAt);
+  const [currentTokenId, setCurrentTokenId] = useState(
+    latestBid.length > 0 ? latestBid[0].tokenId : 0
+  );
+  const [currentTimer, setCurrentTimer] = useState(
+    latestBid.length > 0 ? latestBid[0].endAt : 0
+  );
 
   const [bid, setBid] = useState(0);
   const { placeBid } = PlaceBid(bid);
   const { sattleAuction } = sattle();
-  const uri = getTokenURI(latestBid[0].tokenId);
+  const uri = getTokenURI(latestBid.length > 0 ? latestBid[0].tokenId : 0);
 
   const { bidded, bidAmount, setBidded } = EventBidded();
-  const [currentBid, setCurrentBid] = useState(latestBid[0].amounts);
+  const [currentBid, setCurrentBid] = useState(
+    latestBid.length > 0 ? latestBid[0].amounts : 0
+  );
   const { sattled, setSattled } = EventSattled();
   const { baseUri } = EventSetBaseUri();
   const { tokenId, end } = EventNewBid();
