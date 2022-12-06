@@ -3,11 +3,8 @@ import styles from "../styles/Body.module.css";
 import { useEffect, useState } from "react";
 import { PlaceBid, sattle } from "../blockchain/contracts/auction/auction.call";
 import { ethers } from "ethers";
-import { getAllBids } from "../blockchain/contracts/auction/auction.view";
 import { getTokenURI } from "../blockchain/contracts/nft/nft.view";
 import CountdownTimer from "./countdown";
-import { getBalance } from "../blockchain/contracts/executor/executor.view";
-import { getLatestBid } from "../blockchain/contracts/auction/auction.view";
 import { useAccount } from "wagmi";
 
 import {
@@ -21,7 +18,6 @@ import axios from "axios";
 import LoadingPage from "./loading";
 
 export default function Body({ props }) {
-  console.log(props);
   const minimum = 0.2;
   const { address } = useAccount();
   const [canSattle, setCanSattle] = useState(false);
@@ -42,68 +38,34 @@ export default function Body({ props }) {
   const { baseUri } = EventSetBaseUri();
   const { tokenId, end } = EventNewBid();
 
-  // console.log({
-  //   stateImage: img,
-  //   hookImage: uri,
-  //   lastest: latestBid[0],
-  //   loaded: latestBidLoaded,
-  //   tokenOK: uri.tokenURIOk,
-  //   currentTimer,
-  //   bidded,
-  //   sattled,
-  //   baseUri,
-  //   bidAmount,
-  //   currentBid,
-  //   data: data.length,
-  //   newBidEvent: end,
-  //   canSattle,
-  // });
-
   useEffect(() => {
-    // console.log({
-    //   img,
-    //   uri,
-    //   lastest: latestBid[0],
-    //   loaded: latestBidLoaded,
-    //   tokenOK: uri.tokenURIOk,
-    //   currentTimer,
-    //   bidded,
-    //   sattled,
-    //   baseUri,
-    //   bidAmount,
-    //   currentBid,
-    //   data: data.length,
-    //   newBidEvent: end,
-    //   canSattle,
-    // });
-
     if (!baseUri && uri.tokenURIOk) {
-      console.log(
-        "เซต base uri จากการ load getTokenUri hook: \n",
-        uri.tokenURI
-      );
+      // console.log(
+      //   "เซต base uri จากการ load getTokenUri hook: \n",
+      //   uri.tokenURI
+      // );
       parseTokenUri(uri.tokenURI);
     }
 
     if (bidded) {
-      console.log("มีคน bid ที่ amount :", bidAmount.toString());
+      // console.log("มีคน bid ที่ amount :", bidAmount.toString());
       setCurrentBid(bidAmount.toString());
       setLoading(false);
       setBidded(false);
     }
 
     if (canSattle && sattled) {
-      console.log("หมดเวลา สามารถที่จะ sattle ได้", { currentBid, canSattle });
+      // console.log("หมดเวลา สามารถที่จะ sattle ได้", { currentBid, canSattle });
       setCurrentBid(0);
       setCanSattle(false);
     }
 
     if (baseUri && sattled) {
-      console.log("sattle เรียบร้อย ทำการ mint -> setbase uri", {
-        baseUri,
-        tokenId,
-        end,
-      });
+      // console.log("sattle เรียบร้อย ทำการ mint -> setbase uri", {
+      //   baseUri,
+      //   tokenId,
+      //   end,
+      // });
       parseTokenUri(baseUri);
       setCurrentTokenId(tokenId);
       setCurrentTimer(end);
@@ -112,19 +74,13 @@ export default function Body({ props }) {
     }
 
     if (end > 0) {
-      console.log("sattle แล้วตอนจบ set timer เป็น อันใหม่");
-      console.log("baseURI-old", baseUri.tokenURI);
-      console.log("baseURI", baseUri);
+      // console.log("sattle แล้วตอนจบ set timer เป็น อันใหม่");
+      // console.log("baseURI-old", baseUri.tokenURI);
+      // console.log("baseURI", baseUri);
       setCurrentTimer(end);
       setCurrentTokenId(tokenId);
       parseTokenUri(baseUri);
     }
-    // else if (end <= 0 && !bidded && !sattled) {
-    //   console.log("refresh หน้าจอ get last props มา");
-    //   setCurrentTokenId(props.latest.tokenId);
-    //   setCurrentTimer(props.latest.endAt);
-    //   setCurrentBid(props.latest.amounts);
-    // }
   }, [uri.tokenURIOk, bidded, sattled, baseUri, bidAmount, end]);
 
   async function parseTokenUri(tokenUri) {

@@ -26,7 +26,7 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps() {
   const provider = new ethers.providers.JsonRpcProvider(
     bitkub_testnet.rpcUrls.default
   );
@@ -49,11 +49,14 @@ export async function getServerSideProps(context) {
   const balance = await provider.getBalance(executorAbi.address);
   const balanceEth = ethers.utils.formatEther(balance);
 
+  console.log("regenerate");
+
   return {
     props: {
       latest,
       // all: parsedAllBids,
       treasury: balanceEth,
     },
+    revalidate: 10,
   };
 }
