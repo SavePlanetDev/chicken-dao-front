@@ -116,13 +116,15 @@ export default function Body({ props }) {
       console.log("baseURI-old", baseUri.tokenURI);
       console.log("baseURI", baseUri);
       setCurrentTimer(end);
+      setCurrentTokenId(tokenId);
       parseTokenUri(baseUri);
-    } else if (end <= 0 && !bidded && !sattled) {
-      console.log("refresh หน้าจอ get last props มา");
-      setCurrentTokenId(props.latest.tokenId);
-      setCurrentTimer(props.latest.endAt);
-      setCurrentBid(props.latest.amounts);
     }
+    // else if (end <= 0 && !bidded && !sattled) {
+    //   console.log("refresh หน้าจอ get last props มา");
+    //   setCurrentTokenId(props.latest.tokenId);
+    //   setCurrentTimer(props.latest.endAt);
+    //   setCurrentBid(props.latest.amounts);
+    // }
   }, [uri.tokenURIOk, bidded, sattled, baseUri, bidAmount, end]);
 
   async function parseTokenUri(tokenUri) {
