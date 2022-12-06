@@ -41,9 +41,9 @@ export async function getServerSideProps(context) {
   const parsed = parseBidsData([lastestBid]);
   const latest = parsed[0];
 
-  //all auctions
-  const allBids = await aucitonContract.getAllBids();
-  const parsedAllBids = parseBidsData(allBids);
+  // //all auctions
+  // const allBids = await aucitonContract.getAllBids();
+  // const parsedAllBids = parseBidsData(allBids);
 
   //treasury balance
   const balance = await provider.getBalance(executorAbi.address);
@@ -52,7 +52,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       latest,
-      all: parsedAllBids,
+      // all: parsedAllBids,
       treasury: balanceEth,
     },
   };

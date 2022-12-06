@@ -113,7 +113,10 @@ export default function Body({ props }) {
 
     if (end > 0) {
       console.log("sattle แล้วตอนจบ set timer เป็น อันใหม่");
+      console.log("baseURI-old", baseUri.tokenURI);
+      console.log("baseURI", baseUri);
       setCurrentTimer(end);
+      parseTokenUri(baseUri);
     } else if (end <= 0 && !bidded && !sattled) {
       console.log("refresh หน้าจอ get last props มา");
       setCurrentTokenId(props.latest.tokenId);
