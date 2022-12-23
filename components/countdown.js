@@ -9,12 +9,12 @@ const defaultRemainingTime = {
   days: "00",
 };
 
-function CountdownTimer({ endtimeMs, setCanSattle }) {
+function CountdownTimer({ endtimeMs, setCanSettle }) {
   const [remainingTime, setRemainingTime] = useState(defaultRemainingTime);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      updateRemainingTime(endtimeMs, setCanSattle);
+      updateRemainingTime(endtimeMs, setCanSettle);
     }, 1000);
 
     return () => clearInterval(intervalId);
@@ -47,12 +47,12 @@ function CountdownTimer({ endtimeMs, setCanSattle }) {
   );
 }
 
-function getRemainingTimeUntilMsTimestamp(timestampMs, setCanSattle) {
+function getRemainingTimeUntilMsTimestamp(timestampMs, setCanSettle) {
   const timestampDayjs = dayjs(timestampMs * 1000);
   const nowDayjs = dayjs();
 
   if (timestampDayjs.isBefore(nowDayjs)) {
-    setCanSattle(true);
+    setCanSettle(true);
     return {
       seconds: "00",
       minutes: "00",

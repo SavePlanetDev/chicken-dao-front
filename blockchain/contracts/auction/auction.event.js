@@ -6,14 +6,15 @@ import { ethers } from "ethers";
 export function EventBidded() {
   const [bidded, setBidded] = useState(false);
   const [bidAmount, setBidAmount] = useState(0);
+  const [bidder, setBidder] = useState("0x000000000000000000000000000000");
 
   useContractEvent({
     address,
     abi,
     eventName: "Bidded",
-    listener(bidId, previousBid, currentBid, tokenId) {
+    listener(bidId, bidder, previousBid, currentBid, tokenId) {
       console.log(
-        `[${bidId}] tokenId: ${tokenId} has new bid with ${currentBid}`
+        `[${bidder}] has new bid on tokenId: ${tokenId} with ${currentBid}`
       );
 
       const parsedAmounts = ethers.utils.formatEther(currentBid);
@@ -25,28 +26,33 @@ export function EventBidded() {
   return {
     bidded,
     bidAmount,
+    bidder,
     setBidded,
     setBidAmount,
+    setBidder,
   };
 }
 
-export function EventSattled() {
-  const [sattled, setSattled] = useState(false);
+export function EventSettled() {
+  const [settled, setSettled] = useState(false);
+  const [winner, setWinner] = useState(false);
   useContractEvent({
     address,
     abi,
-    eventName: "Sattled",
+    eventName: "Settled",
     listener(bidId, bidder, amount) {
       console.log(
-        `[${bidId.toString()}] ${bidder.toString()} is sattle with ${amount.toString()}`
+        `[${bidId.toString()}] ${bidder.toString()} is settle with ${amount.toString()}`
       );
-      setSattled(true);
+      setSettled(true);
+      setWinner(bidder.toString());
     },
   });
 
   return {
-    sattled,
-    setSattled,
+    settled,
+    winner,
+    setSettled,
   };
 }
 

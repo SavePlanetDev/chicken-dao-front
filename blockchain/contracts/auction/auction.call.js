@@ -22,18 +22,18 @@ function PlaceBid() {
   };
 }
 
-function sattle() {
+function settle() {
   const { write, isError, isSuccess } = useContractWrite({
     mode: "recklesslyUnprepared",
     address,
     abi,
-    functionName: "sattle",
+    functionName: "settle",
   });
 
   return {
-    sattleAuction: write,
-    sattleError: isError,
+    settleAuction: write,
+    settleError: isError,
   };
 }
 
-export { PlaceBid, sattle };
+export { PlaceBid, settle };

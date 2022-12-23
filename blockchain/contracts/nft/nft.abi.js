@@ -1,577 +1,1029 @@
 export const abi = [
   {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_admin",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "_auction",
+        type: "address",
+      },
+    ],
+    stateMutability: "nonpayable",
     type: "constructor",
-    stateMutability: "nonpayable",
-    inputs: [
-      { type: "address", name: "_admin", internalType: "address" },
-      { type: "address", name: "_auction", internalType: "address" },
-    ],
   },
   {
-    type: "event",
-    name: "Approval",
+    anonymous: false,
     inputs: [
       {
-        type: "address",
-        name: "owner",
-        internalType: "address",
         indexed: true,
+        internalType: "address",
+        name: "owner",
+        type: "address",
       },
       {
-        type: "address",
+        indexed: true,
+        internalType: "address",
         name: "approved",
-        internalType: "address",
-        indexed: true,
+        type: "address",
       },
       {
-        type: "uint256",
-        name: "tokenId",
-        internalType: "uint256",
         indexed: true,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
       },
     ],
-    anonymous: false,
+    name: "Approval",
+    type: "event",
   },
   {
-    type: "event",
-    name: "ApprovalForAll",
+    anonymous: false,
     inputs: [
       {
-        type: "address",
+        indexed: true,
+        internalType: "address",
         name: "owner",
-        internalType: "address",
-        indexed: true,
+        type: "address",
       },
       {
-        type: "address",
+        indexed: true,
+        internalType: "address",
         name: "operator",
-        internalType: "address",
-        indexed: true,
-      },
-      { type: "bool", name: "approved", internalType: "bool", indexed: false },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "DelegateChanged",
-    inputs: [
-      {
         type: "address",
-        name: "delegator",
-        internalType: "address",
-        indexed: true,
       },
       {
-        type: "address",
-        name: "fromDelegate",
-        internalType: "address",
-        indexed: true,
-      },
-      {
-        type: "address",
-        name: "toDelegate",
-        internalType: "address",
-        indexed: true,
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "DelegateVotesChanged",
-    inputs: [
-      {
-        type: "address",
-        name: "delegate",
-        internalType: "address",
-        indexed: true,
-      },
-      {
-        type: "uint256",
-        name: "previousBalance",
-        internalType: "uint256",
         indexed: false,
-      },
-      {
-        type: "uint256",
-        name: "newBalance",
-        internalType: "uint256",
-        indexed: false,
+        internalType: "bool",
+        name: "approved",
+        type: "bool",
       },
     ],
-    anonymous: false,
+    name: "ApprovalForAll",
+    type: "event",
   },
   {
-    type: "event",
-    name: "Minted",
     inputs: [
       {
-        type: "address",
-        name: "minter",
         internalType: "address",
-        indexed: true,
+        name: "to",
+        type: "address",
       },
       {
-        type: "uint256",
+        internalType: "uint256",
         name: "tokenId",
-        internalType: "uint256",
-        indexed: false,
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "RoleAdminChanged",
-    inputs: [
-      { type: "bytes32", name: "role", internalType: "bytes32", indexed: true },
-      {
-        type: "bytes32",
-        name: "previousAdminRole",
-        internalType: "bytes32",
-        indexed: true,
-      },
-      {
-        type: "bytes32",
-        name: "newAdminRole",
-        internalType: "bytes32",
-        indexed: true,
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "RoleGranted",
-    inputs: [
-      { type: "bytes32", name: "role", internalType: "bytes32", indexed: true },
-      {
-        type: "address",
-        name: "account",
-        internalType: "address",
-        indexed: true,
-      },
-      {
-        type: "address",
-        name: "sender",
-        internalType: "address",
-        indexed: true,
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "RoleRevoked",
-    inputs: [
-      { type: "bytes32", name: "role", internalType: "bytes32", indexed: true },
-      {
-        type: "address",
-        name: "account",
-        internalType: "address",
-        indexed: true,
-      },
-      {
-        type: "address",
-        name: "sender",
-        internalType: "address",
-        indexed: true,
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "SetBaseUri",
-    inputs: [
-      {
         type: "uint256",
-        name: "tokenId",
-        internalType: "uint256",
-        indexed: false,
-      },
-      {
-        type: "string",
-        name: "baseUri",
-        internalType: "string",
-        indexed: false,
       },
     ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "Transfer",
-    inputs: [
-      { type: "address", name: "from", internalType: "address", indexed: true },
-      { type: "address", name: "to", internalType: "address", indexed: true },
-      {
-        type: "uint256",
-        name: "tokenId",
-        internalType: "uint256",
-        indexed: true,
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "bytes32", name: "", internalType: "bytes32" }],
-    name: "ADMIN_ROLE",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "bytes32", name: "", internalType: "bytes32" }],
-    name: "DEFAULT_ADMIN_ROLE",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "bytes32", name: "", internalType: "bytes32" }],
-    name: "DOMAIN_SEPARATOR",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "bytes32", name: "", internalType: "bytes32" }],
-    name: "MINTER_ROLE",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
     name: "approve",
-    inputs: [
-      { type: "address", name: "to", internalType: "address" },
-      { type: "uint256", name: "tokenId", internalType: "uint256" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "balanceOf",
-    inputs: [{ type: "address", name: "owner", internalType: "address" }],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
     outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_tokenId",
+        type: "uint256",
+      },
+    ],
     name: "burn",
-    inputs: [{ type: "uint256", name: "_tokenId", internalType: "uint256" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
+    inputs: [
+      {
+        internalType: "address",
+        name: "delegatee",
+        type: "address",
+      },
+    ],
     name: "delegate",
-    inputs: [{ type: "address", name: "delegatee", internalType: "address" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
+    inputs: [
+      {
+        internalType: "address",
+        name: "delegatee",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "nonce",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "expiry",
+        type: "uint256",
+      },
+      {
+        internalType: "uint8",
+        name: "v",
+        type: "uint8",
+      },
+      {
+        internalType: "bytes32",
+        name: "r",
+        type: "bytes32",
+      },
+      {
+        internalType: "bytes32",
+        name: "s",
+        type: "bytes32",
+      },
+    ],
     name: "delegateBySig",
-    inputs: [
-      { type: "address", name: "delegatee", internalType: "address" },
-      { type: "uint256", name: "nonce", internalType: "uint256" },
-      { type: "uint256", name: "expiry", internalType: "uint256" },
-      { type: "uint8", name: "v", internalType: "uint8" },
-      { type: "bytes32", name: "r", internalType: "bytes32" },
-      { type: "bytes32", name: "s", internalType: "bytes32" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "address", name: "", internalType: "address" }],
-    name: "delegates",
-    inputs: [{ type: "address", name: "account", internalType: "address" }],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
     outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "delegator",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "fromDelegate",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "toDelegate",
+        type: "address",
+      },
+    ],
+    name: "DelegateChanged",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "delegate",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "previousBalance",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "newBalance",
+        type: "uint256",
+      },
+    ],
+    name: "DelegateVotesChanged",
+    type: "event",
+  },
+  {
+    inputs: [],
     name: "deleteDefaultRoyalty",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "address", name: "", internalType: "address" }],
-    name: "getApproved",
-    inputs: [{ type: "uint256", name: "tokenId", internalType: "uint256" }],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "getCurrentTokenId",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "getPastTotalSupply",
-    inputs: [{ type: "uint256", name: "blockNumber", internalType: "uint256" }],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "getPastVotes",
-    inputs: [
-      { type: "address", name: "account", internalType: "address" },
-      { type: "uint256", name: "blockNumber", internalType: "uint256" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "bytes32", name: "", internalType: "bytes32" }],
-    name: "getRoleAdmin",
-    inputs: [{ type: "bytes32", name: "role", internalType: "bytes32" }],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "getVotes",
-    inputs: [{ type: "address", name: "account", internalType: "address" }],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
     outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
     name: "grantRole",
-    inputs: [
-      { type: "bytes32", name: "role", internalType: "bytes32" },
-      { type: "address", name: "account", internalType: "address" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "bool", name: "", internalType: "bool" }],
-    name: "hasRole",
-    inputs: [
-      { type: "bytes32", name: "role", internalType: "bytes32" },
-      { type: "address", name: "account", internalType: "address" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "bool", name: "", internalType: "bool" }],
-    name: "isApprovedForAll",
-    inputs: [
-      { type: "address", name: "owner", internalType: "address" },
-      { type: "address", name: "operator", internalType: "address" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "bool", name: "", internalType: "bool" }],
-    name: "isCompleted",
-    inputs: [{ type: "uint256", name: "_tokenId", internalType: "uint256" }],
-  },
-  {
-    type: "function",
-    stateMutability: "payable",
     outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "mint",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "string", name: "", internalType: "string" }],
-    name: "name",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "nonces",
-    inputs: [{ type: "address", name: "owner", internalType: "address" }],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "address", name: "", internalType: "address" }],
-    name: "ownerOf",
-    inputs: [{ type: "uint256", name: "tokenId", internalType: "uint256" }],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
     outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "minter",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "Minted",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
     name: "renounceRole",
-    inputs: [
-      { type: "bytes32", name: "role", internalType: "bytes32" },
-      { type: "address", name: "account", internalType: "address" },
-    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
     name: "resetTokenRoyalty",
-    inputs: [{ type: "uint256", name: "tokenId", internalType: "uint256" }],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
     outputs: [],
-    name: "revokeRole",
-    inputs: [
-      { type: "bytes32", name: "role", internalType: "bytes32" },
-      { type: "address", name: "account", internalType: "address" },
-    ],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "revokeRole",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
-    stateMutability: "view",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        indexed: true,
+        internalType: "bytes32",
+        name: "previousAdminRole",
+        type: "bytes32",
+      },
+      {
+        indexed: true,
+        internalType: "bytes32",
+        name: "newAdminRole",
+        type: "bytes32",
+      },
+    ],
+    name: "RoleAdminChanged",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
+    ],
+    name: "RoleGranted",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
+    ],
+    name: "RoleRevoked",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "safeTransferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+      {
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
+      },
+    ],
+    name: "safeTransferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "operator",
+        type: "address",
+      },
+      {
+        internalType: "bool",
+        name: "approved",
+        type: "bool",
+      },
+    ],
+    name: "setApprovalForAll",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_tokenId",
+        type: "uint256",
+      },
+      {
+        internalType: "string",
+        name: "_baseUri",
+        type: "string",
+      },
+    ],
+    name: "setBaseUri",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "string",
+        name: "baseUri",
+        type: "string",
+      },
+    ],
+    name: "SetBaseUri",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "receiver",
+        type: "address",
+      },
+      {
+        internalType: "uint96",
+        name: "feeNumerator",
+        type: "uint96",
+      },
+    ],
+    name: "setDefaultRoyalty",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+      {
+        internalType: "address",
+        name: "receiver",
+        type: "address",
+      },
+      {
+        internalType: "uint96",
+        name: "feeNumerator",
+        type: "uint96",
+      },
+    ],
+    name: "setTokenRoyalty",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "Transfer",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "transferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "ADMIN_ROLE",
     outputs: [
-      { type: "address", name: "", internalType: "address" },
-      { type: "uint256", name: "", internalType: "uint256" },
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+    ],
+    name: "balanceOf",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "DEFAULT_ADMIN_ROLE",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "delegates",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "DOMAIN_SEPARATOR",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "getApproved",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getCurrentTokenId",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "blockNumber",
+        type: "uint256",
+      },
+    ],
+    name: "getPastTotalSupply",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "blockNumber",
+        type: "uint256",
+      },
+    ],
+    name: "getPastVotes",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+    ],
+    name: "getRoleAdmin",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "getVotes",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "hasRole",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "operator",
+        type: "address",
+      },
+    ],
+    name: "isApprovedForAll",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "isCompleted",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "MINTER_ROLE",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "name",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+    ],
+    name: "nonces",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "ownerOf",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_tokenId",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_salePrice",
+        type: "uint256",
+      },
     ],
     name: "royaltyInfo",
-    inputs: [
-      { type: "uint256", name: "_tokenId", internalType: "uint256" },
-      { type: "uint256", name: "_salePrice", internalType: "uint256" },
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
-    name: "safeTransferFrom",
-    inputs: [
-      { type: "address", name: "from", internalType: "address" },
-      { type: "address", name: "to", internalType: "address" },
-      { type: "uint256", name: "tokenId", internalType: "uint256" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
-    name: "safeTransferFrom",
-    inputs: [
-      { type: "address", name: "from", internalType: "address" },
-      { type: "address", name: "to", internalType: "address" },
-      { type: "uint256", name: "tokenId", internalType: "uint256" },
-      { type: "bytes", name: "data", internalType: "bytes" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
-    name: "setApprovalForAll",
-    inputs: [
-      { type: "address", name: "operator", internalType: "address" },
-      { type: "bool", name: "approved", internalType: "bool" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
-    name: "setBaseUri",
-    inputs: [
-      { type: "uint256", name: "_tokenId", internalType: "uint256" },
-      { type: "string", name: "_baseUri", internalType: "string" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
-    name: "setDefaultRoyalty",
-    inputs: [
-      { type: "address", name: "receiver", internalType: "address" },
-      { type: "uint96", name: "feeNumerator", internalType: "uint96" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
-    name: "setTokenRoyalty",
-    inputs: [
-      { type: "uint256", name: "tokenId", internalType: "uint256" },
-      { type: "address", name: "receiver", internalType: "address" },
-      { type: "uint96", name: "feeNumerator", internalType: "uint96" },
-    ],
-  },
-  {
-    type: "function",
     stateMutability: "view",
-    outputs: [{ type: "bool", name: "", internalType: "bool" }],
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes4",
+        name: "interfaceId",
+        type: "bytes4",
+      },
+    ],
     name: "supportsInterface",
-    inputs: [{ type: "bytes4", name: "interfaceId", internalType: "bytes4" }],
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "string", name: "", internalType: "string" }],
+    inputs: [],
     name: "symbol",
-    inputs: [],
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "index",
+        type: "uint256",
+      },
+    ],
     name: "tokenByIndex",
-    inputs: [{ type: "uint256", name: "index", internalType: "uint256" }],
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+    inputs: [
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "index",
+        type: "uint256",
+      },
+    ],
     name: "tokenOfOwnerByIndex",
-    inputs: [
-      { type: "address", name: "owner", internalType: "address" },
-      { type: "uint256", name: "index", internalType: "uint256" },
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
+    stateMutability: "view",
+    type: "function",
   },
   {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "string", name: "", internalType: "string" }],
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_tokenId",
+        type: "uint256",
+      },
+    ],
     name: "tokenURI",
-    inputs: [{ type: "uint256", name: "_tokenId", internalType: "uint256" }],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "totalSupply",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
-    name: "transferFrom",
-    inputs: [
-      { type: "address", name: "from", internalType: "address" },
-      { type: "address", name: "to", internalType: "address" },
-      { type: "uint256", name: "tokenId", internalType: "uint256" },
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
     ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "totalSupply",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
   },
 ];
 
-export const address = "0x7A30316054A41C5066c4aAE37d08F604918fAE4d";
+export const address = "0xBD494E6b53F0cB3eD8Cc549d31cD03884818a00b";

@@ -2,6 +2,7 @@ import Header from "../components/header";
 import Body from "../components/body";
 import Footer from "../components/footer";
 import Banner from "../components/banner";
+import PausePage from "../components/pause";
 
 import { ethers } from "ethers";
 import { bitkub_mainnet, bitkub_testnet } from "../blockchain/chain";
@@ -15,7 +16,7 @@ export default function Home(props) {
       <div>
         <div>
           <Header />
-          <Body props={props} />
+          {props.paused ? <PausePage /> : <Body props={props} />}
         </div>
         <div>
           <Banner />
@@ -30,11 +31,15 @@ export async function getStaticProps() {
   const provider = new ethers.providers.JsonRpcProvider(
     bitkub_testnet.rpcUrls.default
   );
+
   const aucitonContract = new ethers.Contract(
     auctionAbi.address,
     auctionAbi.abi,
     provider
   );
+
+  //isAuctionPaused
+  const paused = await aucitonContract.paused();
 
   //latest auction information
   const lastestBid = await aucitonContract.getLatestBid();
@@ -49,13 +54,14 @@ export async function getStaticProps() {
   const balance = await provider.getBalance(executorAbi.address);
   const balanceEth = ethers.utils.formatEther(balance);
 
-  console.log("regenerate");
+  // console.log("regenerate");
 
   return {
     props: {
       latest,
       // all: parsedAllBids,
       treasury: balanceEth,
+      paused,
     },
     revalidate: 10,
   };

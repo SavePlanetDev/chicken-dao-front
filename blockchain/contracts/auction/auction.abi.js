@@ -62,6 +62,12 @@ export const abi = [
         type: "uint256",
       },
       {
+        indexed: true,
+        internalType: "address",
+        name: "bidder",
+        type: "address",
+      },
+      {
         indexed: false,
         internalType: "uint256",
         name: "previousBid",
@@ -89,7 +95,7 @@ export const abi = [
       {
         indexed: true,
         internalType: "uint256",
-        name: "bidId",
+        name: "tokenId",
         type: "uint256",
       },
       {
@@ -174,7 +180,7 @@ export const abi = [
         type: "uint256",
       },
     ],
-    name: "Sattled",
+    name: "Settled",
     type: "event",
   },
   {
@@ -311,6 +317,79 @@ export const abi = [
         internalType: "uint256",
         name: "",
         type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "from",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "to",
+        type: "uint256",
+      },
+    ],
+    name: "getBatchBids",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "bidder",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "amounts",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "tokenId",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "start",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "end",
+            type: "uint256",
+          },
+          {
+            components: [
+              {
+                internalType: "address",
+                name: "bidder",
+                type: "address",
+              },
+              {
+                internalType: "uint256",
+                name: "amounts",
+                type: "uint256",
+              },
+            ],
+            internalType: "struct ChickenDAOAuctionHouse.Bidder[]",
+            name: "bidders",
+            type: "tuple[]",
+          },
+          {
+            internalType: "bool",
+            name: "ended",
+            type: "bool",
+          },
+        ],
+        internalType: "struct ChickenDAOAuctionHouse.Bid[]",
+        name: "",
+        type: "tuple[]",
       },
     ],
     stateMutability: "view",
@@ -525,13 +604,6 @@ export const abi = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "sattle",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
     inputs: [
       {
         internalType: "uint256",
@@ -598,6 +670,13 @@ export const abi = [
   },
   {
     inputs: [],
+    name: "settle",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "start",
     outputs: [],
     stateMutability: "payable",
@@ -631,4 +710,4 @@ export const abi = [
   },
 ];
 
-export const address = "0xCB01Ae81bBd0d6F759bC1865B5264624b6Ecf9C5";
+export const address = "0x27A307d577E0845a2e8f5a4017b2c93b4625C59A";

@@ -1,262 +1,713 @@
 export const abi = [
   {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_dev",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "_treasury",
+        type: "address",
+      },
+    ],
+    stateMutability: "nonpayable",
     type: "constructor",
-    stateMutability: "nonpayable",
-    inputs: [
-      { type: "address", name: "admin_", internalType: "address" },
-      { type: "uint256", name: "delay_", internalType: "uint256" },
-    ],
   },
   {
-    type: "event",
-    name: "CancelTransaction",
+    anonymous: false,
     inputs: [
       {
-        type: "bytes32",
-        name: "txHash",
-        internalType: "bytes32",
         indexed: true,
-      },
-      {
-        type: "address",
-        name: "target",
-        internalType: "address",
-        indexed: true,
-      },
-      {
-        type: "uint256",
-        name: "value",
         internalType: "uint256",
-        indexed: false,
-      },
-      {
-        type: "string",
-        name: "signature",
-        internalType: "string",
-        indexed: false,
-      },
-      { type: "bytes", name: "data", internalType: "bytes", indexed: false },
-      { type: "uint256", name: "eta", internalType: "uint256", indexed: false },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "ExecuteTransaction",
-    inputs: [
-      {
-        type: "bytes32",
-        name: "txHash",
-        internalType: "bytes32",
-        indexed: true,
-      },
-      {
-        type: "address",
-        name: "target",
-        internalType: "address",
-        indexed: true,
-      },
-      {
+        name: "bidId",
         type: "uint256",
-        name: "value",
+      },
+      {
+        indexed: false,
         internalType: "uint256",
-        indexed: false,
-      },
-      {
-        type: "string",
-        name: "signature",
-        internalType: "string",
-        indexed: false,
-      },
-      { type: "bytes", name: "data", internalType: "bytes", indexed: false },
-      { type: "uint256", name: "eta", internalType: "uint256", indexed: false },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "NewAdmin",
-    inputs: [
-      {
-        type: "address",
-        name: "newAdmin",
-        internalType: "address",
-        indexed: true,
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "NewDelay",
-    inputs: [
-      {
+        name: "tokenId",
         type: "uint256",
-        name: "newDelay",
+      },
+      {
+        indexed: false,
         internalType: "uint256",
-        indexed: true,
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "NewPendingAdmin",
-    inputs: [
-      {
-        type: "address",
-        name: "newPendingAdmin",
-        internalType: "address",
-        indexed: true,
-      },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "QueueTransaction",
-    inputs: [
-      {
-        type: "bytes32",
-        name: "txHash",
-        internalType: "bytes32",
-        indexed: true,
-      },
-      {
-        type: "address",
-        name: "target",
-        internalType: "address",
-        indexed: true,
-      },
-      {
+        name: "start",
         type: "uint256",
-        name: "value",
-        internalType: "uint256",
-        indexed: false,
       },
       {
-        type: "string",
-        name: "signature",
-        internalType: "string",
         indexed: false,
+        internalType: "uint256",
+        name: "end",
+        type: "uint256",
       },
-      { type: "bytes", name: "data", internalType: "bytes", indexed: false },
-      { type: "uint256", name: "eta", internalType: "uint256", indexed: false },
+      {
+        indexed: false,
+        internalType: "address",
+        name: "bidder",
+        type: "address",
+      },
     ],
-    anonymous: false,
+    name: "AuctionStarted",
+    type: "event",
   },
   {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "GRACE_PERIOD",
     inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "MAXIMUM_DELAY",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "MINIMUM_DELAY",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
+    name: "bid",
     outputs: [],
-    name: "acceptAdmin",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "address", name: "", internalType: "address" }],
-    name: "admin",
-    inputs: [],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
-    name: "cancelTransaction",
-    inputs: [
-      { type: "address", name: "target", internalType: "address" },
-      { type: "uint256", name: "value", internalType: "uint256" },
-      { type: "string", name: "signature", internalType: "string" },
-      { type: "bytes", name: "data", internalType: "bytes" },
-      { type: "uint256", name: "eta", internalType: "uint256" },
-    ],
-  },
-  {
-    type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
-    name: "delay",
-    inputs: [],
-  },
-  {
-    type: "function",
     stateMutability: "payable",
-    outputs: [{ type: "bytes", name: "", internalType: "bytes" }],
-    name: "executeTransaction",
-    inputs: [
-      { type: "address", name: "target", internalType: "address" },
-      { type: "uint256", name: "value", internalType: "uint256" },
-      { type: "string", name: "signature", internalType: "string" },
-      { type: "bytes", name: "data", internalType: "bytes" },
-      { type: "uint256", name: "eta", internalType: "uint256" },
-    ],
+    type: "function",
   },
   {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "bidId",
+        type: "uint256",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "bidder",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "previousBid",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "currentBid",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "Bidded",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "start",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "end",
+        type: "uint256",
+      },
+    ],
+    name: "NewBid",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "operator",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "_tokenId",
+        type: "uint256",
+      },
+      {
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
+      },
+    ],
+    name: "onERC721Received",
+    outputs: [
+      {
+        internalType: "bytes4",
+        name: "",
+        type: "bytes4",
+      },
+    ],
+    stateMutability: "nonpayable",
     type: "function",
-    stateMutability: "view",
-    outputs: [{ type: "address", name: "", internalType: "address" }],
-    name: "pendingAdmin",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "previousOwner",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "OwnershipTransferred",
+    type: "event",
+  },
+  {
     inputs: [],
-  },
-  {
-    type: "function",
+    name: "pause",
+    outputs: [],
     stateMutability: "nonpayable",
-    outputs: [{ type: "bytes32", name: "", internalType: "bytes32" }],
-    name: "queueTransaction",
-    inputs: [
-      { type: "address", name: "target", internalType: "address" },
-      { type: "uint256", name: "value", internalType: "uint256" },
-      { type: "string", name: "signature", internalType: "string" },
-      { type: "bytes", name: "data", internalType: "bytes" },
-      { type: "uint256", name: "eta", internalType: "uint256" },
-    ],
+    type: "function",
   },
   {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
+      },
+    ],
+    name: "Received",
+    type: "event",
+  },
+  {
+    inputs: [],
+    name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
+  },
+  {
+    inputs: [],
+    name: "resume",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_period",
+        type: "uint256",
+      },
+    ],
+    name: "setAuctionPeriod",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_dev",
+        type: "address",
+      },
+    ],
+    name: "setDevAddress",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_bidAmounts",
+        type: "uint256",
+      },
+    ],
+    name: "setMinimumBid",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "contract INFT",
+        name: "_nft",
+        type: "address",
+      },
+    ],
+    name: "setNFTAddress",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "settle",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "bidId",
+        type: "uint256",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "bidder",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "Settled",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_treasury",
+        type: "address",
+      },
+    ],
+    name: "setTreasuryAddress",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "start",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "auctionPeriod",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
     stateMutability: "view",
-    outputs: [{ type: "bool", name: "", internalType: "bool" }],
-    name: "queuedTransactions",
-    inputs: [{ type: "bytes32", name: "", internalType: "bytes32" }],
+    type: "function",
   },
   {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
-    name: "setDelay",
-    inputs: [{ type: "uint256", name: "delay_", internalType: "uint256" }],
-  },
-  {
-    type: "function",
-    stateMutability: "nonpayable",
-    outputs: [],
-    name: "setPendingAdmin",
     inputs: [
-      { type: "address", name: "pendingAdmin_", internalType: "address" },
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
+    name: "bids",
+    outputs: [
+      {
+        internalType: "address",
+        name: "bidder",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amounts",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "start",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "end",
+        type: "uint256",
+      },
+      {
+        internalType: "bool",
+        name: "ended",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
   },
-  { type: "receive", stateMutability: "payable" },
+  {
+    inputs: [],
+    name: "getAllBids",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "bidder",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "amounts",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "tokenId",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "start",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "end",
+            type: "uint256",
+          },
+          {
+            components: [
+              {
+                internalType: "address",
+                name: "bidder",
+                type: "address",
+              },
+              {
+                internalType: "uint256",
+                name: "amounts",
+                type: "uint256",
+              },
+            ],
+            internalType: "struct ChickenDAOAuctionHouse.Bidder[]",
+            name: "bidders",
+            type: "tuple[]",
+          },
+          {
+            internalType: "bool",
+            name: "ended",
+            type: "bool",
+          },
+        ],
+        internalType: "struct ChickenDAOAuctionHouse.Bid[]",
+        name: "",
+        type: "tuple[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getBalance",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "from",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "to",
+        type: "uint256",
+      },
+    ],
+    name: "getBatchBids",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "bidder",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "amounts",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "tokenId",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "start",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "end",
+            type: "uint256",
+          },
+          {
+            components: [
+              {
+                internalType: "address",
+                name: "bidder",
+                type: "address",
+              },
+              {
+                internalType: "uint256",
+                name: "amounts",
+                type: "uint256",
+              },
+            ],
+            internalType: "struct ChickenDAOAuctionHouse.Bidder[]",
+            name: "bidders",
+            type: "tuple[]",
+          },
+          {
+            internalType: "bool",
+            name: "ended",
+            type: "bool",
+          },
+        ],
+        internalType: "struct ChickenDAOAuctionHouse.Bid[]",
+        name: "",
+        type: "tuple[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getCurrentBidId",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getCurrentTimestamp",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getCurrentTokenId",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getLatestBid",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "bidder",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "amounts",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "tokenId",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "start",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "end",
+            type: "uint256",
+          },
+          {
+            components: [
+              {
+                internalType: "address",
+                name: "bidder",
+                type: "address",
+              },
+              {
+                internalType: "uint256",
+                name: "amounts",
+                type: "uint256",
+              },
+            ],
+            internalType: "struct ChickenDAOAuctionHouse.Bidder[]",
+            name: "bidders",
+            type: "tuple[]",
+          },
+          {
+            internalType: "bool",
+            name: "ended",
+            type: "bool",
+          },
+        ],
+        internalType: "struct ChickenDAOAuctionHouse.Bid",
+        name: "",
+        type: "tuple",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "minimumBid",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "nft",
+    outputs: [
+      {
+        internalType: "contract INFT",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "owner",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "paused",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "started",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
 ];
 
 export const address = "0x65bd87B08A159C59c53D070a763713632881840F";
