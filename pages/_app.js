@@ -13,7 +13,7 @@ import {
 } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
-import { bitkub_testnet } from "../blockchain/chain";
+import { bitkub_testnet, bitkub_mainnet } from "../blockchain/chain";
 
 const myTheme = merge(darkTheme(), {
   colors: {
@@ -27,7 +27,7 @@ const myTheme = merge(darkTheme(), {
 });
 
 const { chains, provider } = configureChains(
-  [bitkub_testnet],
+  [bitkub_testnet, bitkub_mainnet],
   [publicProvider()]
 );
 

@@ -29,7 +29,7 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const provider = new ethers.providers.JsonRpcProvider(
-    bitkub_testnet.rpcUrls.default
+    bitkub_mainnet.rpcUrls.default
   );
 
   const aucitonContract = new ethers.Contract(
