@@ -18,7 +18,7 @@ import axios from "axios";
 import LoadingPage from "./loading";
 
 export default function Body({ props }) {
-  const minimum = 0.2;
+  const minimum = 2;
   const { address } = useAccount();
   const [canSettle, setCanSettle] = useState(false);
   const [img, setImg] = useState(null);
