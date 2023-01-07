@@ -16,7 +16,7 @@ class MyDocument extends Document {
             rel="stylesheet"
             crossOrigin="true"
           />
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/logochictab.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"

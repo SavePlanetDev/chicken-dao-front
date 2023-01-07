@@ -8,7 +8,7 @@ export default function Banner() {
     <div>
       <div className={styles.bannerbox}>
         <div style={{ position: "relative", top: "27%" }}>
-          ชั่วโมงละตัว ไปตลอดจนกว่า KUB จะเจ๊ง !
+          วันละ 2 ตัว ไปตลอดจนกว่า KUB จะเจ๊ง !
         </div>
       </div>
 
