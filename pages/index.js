@@ -5,7 +5,7 @@ import Banner from "../components/banner";
 import PausePage from "../components/pause";
 
 import { ethers } from "ethers";
-import { bitkub_mainnet} from "../blockchain/chain";
+import { bitkub_mainnet } from "../blockchain/chain";
 import * as auctionAbi from "../blockchain/contracts/auction/auction.abi";
 import * as executorAbi from "../blockchain/contracts/executor/executor.abi";
 import { parseBidsData } from "../blockchain/utils/bids.parser";

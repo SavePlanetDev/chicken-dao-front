@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Header.module.css";
 import what from "../public/what_btn.png";
 
-export default function Header() {
+export default function PrivilageHeader() {
   return (
     <div>
       <title>Chicken-DAO</title>
@@ -12,11 +12,7 @@ export default function Header() {
           <img src="logochic.png" className={styles.logoimg}></img>
         </div>
         <div
-          style={{
-            alignSelf: "center",
-            paddingRight: "30px",
-            display: "flex",
-          }}
+          style={{ alignSelf: "center", paddingRight: "30px", display: "flex" }}
         >
           <Connectwallet />
         </div>

@@ -91,6 +91,7 @@
 @media screen and (max-width: 750px) {
   .logo {
     display: flex;
+    justify-content: space-between;
     background: #fff;
   }
   .logoimg {
@@ -110,6 +111,11 @@
   }
   .bottomconnectimg {
     width: 100px;
+  }
+
+  .pbtn {
+    width: 100px;
+    height: 79.66px;
   }
   .chainbuttomr {
     display: revert;
@@ -182,6 +188,7 @@
 @media screen and (max-width: 560px) {
   .logo {
     display: flex;
+    justify-content: space-between;
     background: #fff;
   }
   .logoimg {
@@ -277,6 +284,7 @@
 @media screen and (max-width: 480px) {
   .logo {
     display: flex;
+    justify-content: space-between;
     background: #fff;
   }
   .logoimg {
@@ -362,5 +370,9 @@
     right: 6px;
     top: -6px;
     border-style: none;
+  }
+
+  .pbtn {
+    width: 50px;
   }
 }
