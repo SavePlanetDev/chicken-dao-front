@@ -1,7 +1,5 @@
 import Connectwallet from "./connectwallet";
-import Image from "next/image";
 import styles from "../styles/Header.module.css";
-import what from "../public/what_btn.png";
 
 export default function Header() {
   return (

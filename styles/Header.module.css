@@ -113,10 +113,6 @@
     width: 100px;
   }
 
-  .pbtn {
-    width: 100px;
-    height: 79.66px;
-  }
   .chainbuttomr {
     display: revert;
     align-items: center;
@@ -370,9 +366,5 @@
     right: 6px;
     top: -6px;
     border-style: none;
-  }
-
-  .pbtn {
-    width: 50px;
   }
 }

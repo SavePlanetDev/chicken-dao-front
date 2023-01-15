@@ -6,6 +6,7 @@ import { ethers } from "ethers";
 import { getTokenURI } from "../blockchain/contracts/nft/nft.view";
 import CountdownTimer from "./countdown";
 import { useAccount, useProvider } from "wagmi";
+import Button from "./button";
 
 import {
   EventBidded,
@@ -212,6 +213,9 @@ export default function Body({ props }) {
           <span style={{ color: "#00FF00" }}>{minimum}</span> KUB
           แล้วบิตถัดไปต้องมากกว่าบิตปัจจุบันแล้วบวกเพิ่มอีก{" "}
           <span style={{ color: "#00FF00" }}>{minimum}</span> KUB **
+          <Button>
+            <span>ปุ่มอะไร !?</span>
+          </Button>
         </div>
         <div>
           <div className={styles.textbit1}>
