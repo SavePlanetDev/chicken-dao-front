@@ -1,0 +1,33 @@
+.nftContainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  gap: 20px;
+  background: url(../public/bodybackground.png) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.imageBox {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  z-index: 0;
+}
+
+.imageBox::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  z-index: -1;
+  background-color: red;
+}
+
+.imageBox:hover {
+  cursor: pointer;
+}
