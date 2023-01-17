@@ -1,16 +1,15 @@
 import Connectwallet from "./connectwallet";
-import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Header.module.css";
-import what from "../public/what_btn.png";
 
 export default function PrivilageHeader() {
   return (
     <div>
       <title>Chicken-DAO</title>
       <div className={styles.logo}>
-        <div>
+        <Link href="/">
           <img src="logochic.png" className={styles.logoimg}></img>
-        </div>
+        </Link>
         <div
           style={{ alignSelf: "center", paddingRight: "30px", display: "flex" }}
         >

@@ -1,0 +1,24 @@
+.imageBox {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  z-index: 0;
+  transition: all 0.2s;
+  /* box-shadow: 4px 4px 0px orangered; */
+}
+
+@media screen and (min-width: 750px) {
+  .imageBox {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    z-index: 0;
+    transition: all 0.2s;
+    /* box-shadow: 4px 4px 0px orangered; */
+  }
+
+  .imageBox:hover {
+    box-shadow: 5px 5px 0x orangered;
+    cursor: pointer;
+  }
+}

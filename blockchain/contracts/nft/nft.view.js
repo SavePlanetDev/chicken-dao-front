@@ -23,6 +23,8 @@ function getTokenURI(tokenId) {
 }
 
 function getBalanceOf(owner) {
+  if (!owner) return { balance: 0 };
+  console.log("กระเป๋าที่เชื่อมต่อ : ", owner);
   const { data, isSuccess } = useContractRead({
     address,
     abi,
@@ -60,7 +62,7 @@ function getTokenTokenIdsByIndexes(owner, balance) {
   });
 
   let output = data && data.pages[0].map((m) => m.toString());
-  console.log(output);
+  console.log("output ของ function get tokenIds: ", output);
 
   return {
     tokens: output.length <= 0 ? [] : output,
@@ -68,36 +70,43 @@ function getTokenTokenIdsByIndexes(owner, balance) {
 }
 
 function getTokenURIs(tokenIds = []) {
+  console.log(tokenIds.length);
   if (tokenIds.length <= 0) {
+    console.log("zero length");
     return {
       uris: [],
     };
-  }
-  const { data, isError, isLoading } = useContractInfiniteReads({
-    cacheKey: "data",
-    contracts() {
-      return tokenIds.map((token) => {
-        const args = [BigNumber.from(token)];
-        return {
-          address,
-          abi,
-          functionName: "tokenURI",
-          args,
-        };
+  } else {
+    try {
+      const { data, isError, isLoading } = useContractInfiniteReads({
+        cacheKey: "data",
+        contracts() {
+          const data = tokenIds.map((token) => {
+            const args = [BigNumber.from(token)];
+            return {
+              address,
+              abi,
+              functionName: "tokenURI",
+              args,
+            };
+          });
+          return data;
+        },
+        // select: async (data) => {
+        //   const dataFromPage = data.pages[0];
+        //   const uri = await Promise.all(
+        //     dataFromPage.map(async (d) => await axios(d))
+        //   );
+        //   return uri.data;
+        // },
       });
-    },
-    // select: async (data) => {
-    //   const dataFromPage = data.pages[0];
-    //   const uri = await Promise.all(
-    //     dataFromPage.map(async (d) => await axios(d))
-    //   );
-    //   return uri.data;
-    // },
-  });
-
-  return {
-    uris: data.length <= 0 ? [] : data.pages[0],
-  };
+      return {
+        uris: data == undefined ? [] : data.pages[0],
+      };
+    } catch (e) {
+      console.log("error", e);
+    }
+  }
 }
 
 export { getTokenURI, getBalanceOf, getTokenTokenIdsByIndexes, getTokenURIs };

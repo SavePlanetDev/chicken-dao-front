@@ -1,78 +1,63 @@
 import PrivilageHeader from "../components/privilage.header";
+import PleaseConnectWallet from "../components/please.connnect.wallet";
+import NftContainer from "../components/nftcontainer";
+import NftImageList from "../components/nftImageList";
+import PrivilageTitle from "../components/privilage.title";
+import PrivilageCard from "../components/privilage.card";
 import styles from "../styles/Privilage.module.css";
 import { useAccount } from "wagmi";
-import Image from "next/image";
-import axios from "axios";
-
-import {
-  getBalanceOf,
-  getTokenTokenIdsByIndexes,
-  getTokenURIs,
-} from "../blockchain/contracts/nft/nft.view";
+import { getNftListOf } from "../blockchain/contracts/nft/nft.view.ether";
 import { useEffect, useState } from "react";
+import PrivilageList from "../components/privilage.list";
+import WalletEmpty from "../components/wallet.empty";
 
 export default function PrivilagePage() {
-  const { address } = useAccount();
-  const { balance, balanceOK } = getBalanceOf(address);
-  const { tokens } = getTokenTokenIdsByIndexes(address, balance);
-  const { uris } = getTokenURIs(tokens);
   const [nftData, setNftData] = useState([]);
+  const { address, isConnected } = useAccount();
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (uris.length > 0) {
-      getTokenImages(uris);
+    if (address !== undefined) {
+      getNftList(address);
     }
-  }, [uris.length]);
+    if (!isConnected) {
+      setNftData([]);
+    }
+  }, [address, isConnected]);
 
-  async function getTokenImages(uris = []) {
-    if (uris.length <= 0) return [];
-    const data = await Promise.all(
-      uris.map(async (uri) => await axios.get(uri))
-    );
-    const nft = data.map((d) => d.data);
-
-    setNftData(nft);
+  async function getNftList(owner) {
+    const nftList = await getNftListOf(owner);
+    nftList.length <= 0 ? setNftData([]) : setNftData(nftList);
   }
+
+  if (!isConnected)
+    return (
+      <div>
+        <PrivilageHeader />
+        <PleaseConnectWallet />
+      </div>
+    );
 
   return (
     <div>
       <PrivilageHeader />
-      <NftContainer>
-        <NftImage></NftImage>
-      </NftContainer>
-      {/* <div name="nft-container" className={styles.nftContainer}>
-        {nftData.length <= 0 ? (
-          <div>Nothing</div>
-        ) : (
-          nftData.map((nft, index) => (
-            <NftImage key={index} image={nft.image} />
-          ))
-        )}
-      </div> */}
+      {nftData.length > 0 ? (
+        <>
+          <NftContainer>
+            <div className={styles.listContainer}>
+              <h2>ไก่ในเล้าของคุณ 🐔</h2>
+              <NftImageList images={nftData} />
+            </div>
+          </NftContainer>
+          <PrivilageTitle />
+
+          <NftContainer>
+            <PrivilageList />
+          </NftContainer>
+        </>
+      ) : (
+        <WalletEmpty />
+      )}
     </div>
   );
-}
-
-function NftContainer() {
-  return <div></div>;
-}
-
-function NftImage({ image }) {
-  return (
-    <div name="image-wrapper" className={styles.imageBox}>
-      <Image src={image} width={150} height={150}></Image>
-    </div>
-  );
-}
-
-function PrivilageTitle() {
-  return <div></div>;
-}
-
-function PrivilageContainer() {
-  return <div></div>;
-}
-
-function PrivilageItem() {
-  return <div></div>;
 }

@@ -1,0 +1,21 @@
+.container {
+  max-width: 300px;
+  border: 1px solid black;
+  padding: 10px;
+  box-shadow: 4px 4px 0px orange;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  color: orangered;
+}
+
+.item {
+  padding: 2px;
+}
+
+.itemTitle {
+  font-weight: bold;
+}

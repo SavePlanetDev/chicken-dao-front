@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 10px;
+  border: 1px solid black;
+  box-shadow: 3px 3px 0px orange;
+}
