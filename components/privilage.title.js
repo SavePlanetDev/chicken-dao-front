@@ -5,7 +5,7 @@ export default function PrivilageTitle() {
   // console.log(datated);
   return (
     <div>
-      <div className={styles.bannerbox}>
+      <div className={styles.bannerbox2}>
         <div style={{ position: "relative", top: "27%" }}>
           มีไก่ก็มีสิทธิ์​ ไม่มีไก๊ ? อดดด ! เฉพาะชาวไก่
         </div>

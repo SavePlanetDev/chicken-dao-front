@@ -50,7 +50,6 @@ export default function PrivilagePage() {
             </div>
           </NftContainer>
           <PrivilageTitle />
-
           <NftContainer>
             <PrivilageList />
           </NftContainer>
