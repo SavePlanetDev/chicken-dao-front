@@ -7,6 +7,8 @@ import { getTokenURI } from "../blockchain/contracts/nft/nft.view";
 import CountdownTimer from "./countdown";
 import { useAccount, useProvider } from "wagmi";
 import Button from "./button";
+import Link from "next/link";
+import button from "../styles/Button.module.css";
 
 import {
   EventBidded,
@@ -147,6 +149,21 @@ export default function Body({ props }) {
           </span>
         </div>
       </div>
+      <div className={styles.marketbox}>
+        
+          
+        <Link href="https://app.freecity.finance/collection/chickendaonft?id=63beb9a6501ed7006e5a3e80">
+          <div className={button.container}>
+            <div className={button.content}><span>จะขายไก๊ !!! 👉</span></div>
+          </div>
+              
+            
+        </Link>
+          
+          
+        
+      </div>
+      
 
       <div className={styles.bitbot}>
         <form onSubmit={handleSubmit}>

@@ -31,6 +31,14 @@
   width: 435px;
   border-style: none;
 }
+.marketbox {
+  position: relative;
+  display: flex;
+  top: 15%;
+  left: 15%;
+  color: rgb(255, 255, 255);
+  border-style: none;
+}
 
 .tedbox2 {
   position: absolute;
@@ -286,6 +294,15 @@
     width: 460px;
     border-style: none;
   }
+  .marketbox {
+    position: relative;
+    display: flex;
+    top: 25%;
+    left: 5%;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    width: 200px;
+  }
   .tedbox2 {
     position: absolute;
     display: flex;
@@ -462,6 +479,17 @@
     width: 420px;
     border-style: none;
   }
+  .marketbox {
+    position: relative;
+    display: flex;
+    top: 10%;
+    left: 3%;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    height: 60px;
+    width: 200px;
+  }
+  
   .tedbox2 {
     position: absolute;
     display: flex;
@@ -668,6 +696,16 @@
     height: 50px;
     width: 320px;
     border-style: none;
+  }
+  .marketbox {
+    position: relative;
+    display: flex;
+    top: 14%;
+    left: 4%;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    height: 60px;
+    width: 200px;
   }
   .tedbox2 {
     position: absolute;
@@ -879,6 +917,16 @@
     width: 340px;
     border-style: none;
   }
+  .marketbox {
+    position: relative;
+    display: flex;
+    top: 7%;
+    left: 35%;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    height: 60px;
+    width: 200px;
+  }
   .tedbox2 {
     position: absolute;
     display: flex;
@@ -1078,6 +1126,16 @@
     width: 310px;
     border-style: none;
   }
+  .marketbox {
+    position: relative;
+    display: flex;
+    top: 7%;
+    left: 28%;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    height: 60px;
+    width: 200px;
+  }
   .tedbox2 {
     position: absolute;
     display: flex;
@@ -1276,6 +1334,16 @@
     height: 44px;
     width: 251px;
     border-style: none;
+  }
+  .marketbox {
+    position: relative;
+    display: flex;
+    top: 9%;
+    left: 35%;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    height: 60px;
+    width: 200px;
   }
   .tedbox2 {
     position: absolute;
