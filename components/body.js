@@ -149,20 +149,6 @@ export default function Body({ props }) {
           </span>
         </div>
       </div>
-      <div className={styles.marketbox}>
-        
-          
-        <Link href="https://app.freecity.finance/collection/chickendaonft?id=63beb9a6501ed7006e5a3e80">
-          <div className={button.container}>
-            <div className={button.content}><span>จะขายไก๊ !!! 👉</span></div>
-          </div>
-              
-            
-        </Link>
-          
-          
-        
-      </div>
       
 
       <div className={styles.bitbot}>

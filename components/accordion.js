@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AccordionUI from "./accor";
+import Link from "next/link";
 
 const Accordion = () => {
   const [Index, setIndex] = useState(false);
@@ -34,6 +35,39 @@ const Accordion = () => {
       question: "50 Dev : 50 Treasury",
       answer:
         "เพื่อให้โปรเจคดำเนินต่อไปได้ ในแต่ละช่วงเวลา จึงมีการแบ่งรายได้จากการประมูล 50 % ไปเข้า core team สำหรับประทังชีวิต ให้สามารถพัฒนาโปรเจคส่วนต่างๆ ต่อไปได้ หากไม่มีการ Vote และระหว่างที่ DAO กำลังพัฒนาไป และอีก 50 % เข้าไปที่ treasury เพื่อให้คอมมูนิตี้บริหารจัดการต่อไป",
+    },
+    {
+      id: 6,
+      question: "ข้อมูล ไก๊ไก่", 
+      answer:
+      <div>
+          <div>
+            <Link href="https://www.bkcscan.com/address/0x94465c3A4a3b0622C69e31058583A993e524Efa1">
+              Treasury : 0x94465c3A4a3b0622C69e31058583A993e524Efa1
+            </Link>
+          </div>
+          <div>
+            <Link href="https://www.bkcscan.com/address/0xd47C8C73730A0241d3453251227E41b16AC1E37B">
+            Auction : 0xd47C8C73730A0241d3453251227E41b16AC1E37B
+            </Link> 
+          </div>
+          <div>
+            <Link href="https://www.bkcscan.com/address/0x6d121Be2c3DF2C89091756605C654259DeDfdAa6">
+              NFT : 0x6d121Be2c3DF2C89091756605C654259DeDfdAa6
+            </Link>
+          </div>
+      </div>
+      ,
+        
+    },
+    {
+      id: 7,
+      question: "จะขายไก๊ !!! 👉", 
+      answer:
+      <div><Link href="https://app.freecity.finance/collection/chickendaonft?id=63beb9a6501ed7006e5a3e80">
+      https://app.freecity.finance/collection/chickendaonft?id=63beb9a6501ed7006e5a3e80
+    </Link>
+        </div>,
     },
   ];
 
