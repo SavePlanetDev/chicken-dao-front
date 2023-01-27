@@ -7,6 +7,17 @@
   /* box-shadow: 4px 4px 0px orangered; */
 }
 
+.tokenName {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+  z-index: 100;
+  padding: 3px;
+  background-color: #ff2244;
+  color: white;
+  box-shadow: 2px 2px 0px black;
+}
+
 @media screen and (min-width: 750px) {
   .imageBox {
     width: 200px;

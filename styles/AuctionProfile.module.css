@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: rgba(51, 51, 51, 0.1);
+  align-items: center;
+  justify-content: center;
+}
+
+.listContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media only screen and (max-width: 475px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    background-color: burlywood;
+  }
+
+  .listContainer {
+    flex-direction: column;
+  }
+
+  .listTitle {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .listDesc {
+    color: orangered;
+    font-size: 20px;
+  }
+
+  .listSubDesc {
+    font-size: 10px;
+  }
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 4px 4px 0px orangered;
+}
+
+.listTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.listDesc {
+  color: orangered;
+  font-size: 25px;
+}
+
+.listSubDesc {
+  font-size: 15px;
+}

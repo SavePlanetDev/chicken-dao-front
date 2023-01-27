@@ -3,7 +3,6 @@ import PleaseConnectWallet from "../components/please.connnect.wallet";
 import NftContainer from "../components/nftcontainer";
 import NftImageList from "../components/nftImageList";
 import PrivilageTitle from "../components/privilage.title";
-import PrivilageCard from "../components/privilage.card";
 import styles from "../styles/Privilage.module.css";
 import { useAccount } from "wagmi";
 import { getNftListOf } from "../blockchain/contracts/nft/nft.view.ether";
@@ -11,7 +10,15 @@ import { useEffect, useState } from "react";
 import PrivilageList from "../components/privilage.list";
 import WalletEmpty from "../components/wallet.empty";
 
-export default function PrivilagePage() {
+import { ethers } from "ethers";
+import { bitkub_mainnet } from "../blockchain/chain";
+import * as auctionAbi from "../blockchain/contracts/auction/auction.abi";
+import * as executorAbi from "../blockchain/contracts/executor/executor.abi";
+import { parseBidsData } from "../blockchain/utils/bids.parser";
+import { AuctionProfile } from "../components/auction.profile";
+
+export default function PrivilagePage(props) {
+  console.log(props);
   const [nftData, setNftData] = useState([]);
   const { address, isConnected } = useAccount();
   const [isLoading, setLoading] = useState(false);
@@ -43,6 +50,7 @@ export default function PrivilagePage() {
       <PrivilageHeader />
       {nftData.length > 0 ? (
         <>
+          <AuctionProfile auctions={props.all} />
           <NftContainer>
             <div className={styles.listContainer}>
               <h2>ไก่ในเล้าของคุณ 🐔</h2>
@@ -59,4 +67,44 @@ export default function PrivilagePage() {
       )}
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const provider = new ethers.providers.JsonRpcProvider(
+    bitkub_mainnet.rpcUrls.default
+  );
+
+  const aucitonContract = new ethers.Contract(
+    auctionAbi.address,
+    auctionAbi.abi,
+    provider
+  );
+
+  // //isAuctionPaused
+  const paused = await aucitonContract.paused();
+
+  //latest auction information
+  const lastestBid = await aucitonContract.getLatestBid();
+  const parsed = parseBidsData([lastestBid]);
+  const latest = parsed[0];
+
+  //all auctions
+  const allBids = await aucitonContract.getAllBids();
+  const parsedAllBids = parseBidsData(allBids);
+
+  //treasury balance
+  const balance = await provider.getBalance(executorAbi.address);
+  const balanceEth = ethers.utils.formatEther(balance);
+
+  // console.log("regenerate");
+
+  return {
+    props: {
+      latest,
+      all: parsedAllBids,
+      treasury: balanceEth,
+      paused,
+    },
+    revalidate: 10,
+  };
 }

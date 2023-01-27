@@ -4,7 +4,7 @@ import styles from "../styles/Header.module.css";
 
 export default function PrivilageHeader() {
   return (
-    <div>
+    <div style={{ boxShadow: "0px 3px 3px rgba(0,0,0,0.3)" }}>
       <title>Chicken-DAO</title>
       <div className={styles.logo}>
         <Link href="/">

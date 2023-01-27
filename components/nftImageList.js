@@ -7,7 +7,9 @@ export default function NftImageList({ images }) {
       {images == null ? (
         <div>Nothing</div>
       ) : (
-        images.map((nft, index) => <NftImage key={index} image={nft.image} />)
+        images.map((nft, index) => {
+          return <NftImage key={index} data={nft} />;
+        })
       )}
     </div>
   );
