@@ -1,0 +1,6 @@
+export const config = {
+  dBtcAddress: "0xBfB0CAC38E1Dcf2B8022f1eeC9d939C63Bb39650",
+  treasuryAddress: "0x94465c3A4a3b0622C69e31058583A993e524Efa1",
+  digAddress: "0x1265AF05ce0b5b2fFEd3E9F3c45D47fe3Dc7B5B2",
+  nextDigAddress: "0xf46aDfC0c68F1cB3867908125d07C04E184F2F5F",
+};
