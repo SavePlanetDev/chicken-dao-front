@@ -290,7 +290,7 @@
     left: 5%;
     color: rgb(255, 255, 255);
     background-color: #fd0f0f;
-    height: 60px;
+    height: 90px;
     width: 460px;
     border-style: none;
   }
@@ -320,9 +320,10 @@
     align-items: center;
   }
   .tedtext {
+    line-height: 1.05;
     text-align: center;
     position: relative;
-    left: 15%;
+    left: 0;
   }
   .imgposition {
     position: absolute;
@@ -471,11 +472,11 @@
   .tedbox {
     position: relative;
     display: flex;
-    top: 10%;
+    top: 20%;
     left: 3%;
     color: rgb(255, 255, 255);
     background-color: #fd0f0f;
-    height: 50px;
+    height: 60px;
     width: 420px;
     border-style: none;
   }
@@ -489,7 +490,7 @@
     height: 60px;
     width: 200px;
   }
-  
+
   .tedbox2 {
     position: absolute;
     display: flex;
@@ -693,7 +694,7 @@
     left: 4%;
     color: rgb(255, 255, 255);
     background-color: #fd0f0f;
-    height: 50px;
+    height: 60px;
     width: 320px;
     border-style: none;
   }
@@ -719,13 +720,15 @@
     background-color: #fdb20f;
     font-style: normal;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 25px;
     line-height: 36px;
     align-items: center;
   }
   .tedtext {
+    line-height: 1.05;
     text-align: center;
     position: relative;
+    left: 0;
   }
   .imgchecken {
     position: relative;
@@ -944,9 +947,10 @@
     align-items: center;
   }
   .tedtext {
+    line-height: 1.05;
     text-align: center;
     position: relative;
-    left: 50px;
+    left: 0;
   }
   .imgposition {
     position: absolute;
@@ -1153,9 +1157,9 @@
     align-items: center;
   }
   .tedtext {
+    line-height: 1.05;
     text-align: center;
     position: relative;
-    left: 50px;
   }
   .imgposition {
     position: absolute;
@@ -1362,9 +1366,10 @@
     align-items: center;
   }
   .tedtext {
+    line-height: 1.05;
     text-align: center;
     position: relative;
-    left: 34px;
+    left: 0px;
   }
   .imgposition {
     position: absolute;

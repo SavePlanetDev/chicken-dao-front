@@ -5,10 +5,8 @@ import { PlaceBid, settle } from "../blockchain/contracts/auction/auction.call";
 import { ethers } from "ethers";
 import { getTokenURI } from "../blockchain/contracts/nft/nft.view";
 import CountdownTimer from "./countdown";
-import { useAccount, useProvider } from "wagmi";
+import { useAccount } from "wagmi";
 import Button from "./button";
-import Link from "next/link";
-import button from "../styles/Button.module.css";
 
 import {
   EventBidded,
@@ -19,9 +17,11 @@ import { EventSetBaseUri } from "../blockchain/contracts/nft/nft.event";
 import axios from "axios";
 
 import LoadingPage from "./loading";
+import { getdBtcBalanceOf } from "../blockchain/contracts/erc20/erc20.view";
 
 export default function Body({ props }) {
   const minimum = 2;
+  const dbtc = getdBtcBalanceOf();
   const { address } = useAccount();
   const [canSettle, setCanSettle] = useState(false);
   const [img, setImg] = useState(null);
@@ -144,12 +144,13 @@ export default function Body({ props }) {
       <div className={styles.tedbox}>
         <div className={styles.tedbox2}>
           <span className={styles.tedtext}>
-            {" "}
-            Treasury : {`${props.treasury} KUB`}{" "}
+            Treasury :{" "}
+            {`${props.treasury} KUB
+            + ${dbtc.data[2]} dBtc
+            `}
           </span>
         </div>
       </div>
-      
 
       <div className={styles.bitbot}>
         <form onSubmit={handleSubmit}>

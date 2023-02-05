@@ -61,6 +61,7 @@ export default function PrivilagePage(props) {
           <NftContainer>
             <PrivilageList />
           </NftContainer>
+          <div style={{ marginBottom: "50px" }}></div>
         </>
       ) : (
         <WalletEmpty />
