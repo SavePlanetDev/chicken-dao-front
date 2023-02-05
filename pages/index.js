@@ -9,6 +9,7 @@ import { bitkub_mainnet } from "../blockchain/chain";
 import * as auctionAbi from "../blockchain/contracts/auction/auction.abi";
 import * as executorAbi from "../blockchain/contracts/executor/executor.abi";
 import { parseBidsData } from "../blockchain/utils/bids.parser";
+import Advertise from "../components/advertise";
 
 export default function Home(props) {
   return (
@@ -20,6 +21,7 @@ export default function Home(props) {
         </div>
         <div>
           <Banner />
+          <Advertise />
           <Footer />
         </div>
       </div>

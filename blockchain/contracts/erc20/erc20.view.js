@@ -1,10 +1,11 @@
 import { ERC20ABI } from "./abi";
 import { config } from "./config";
+import { ethers } from "ethers";
 
 import { useContractReads } from "wagmi";
 
 function getdBtcBalanceOf() {
-  const { data, isSuccess, isError } = useContractReads({
+  const { data, isSuccess, isError, isFetched, isIdle } = useContractReads({
     contracts: [
       {
         address: config.dBtcAddress,
@@ -20,13 +21,26 @@ function getdBtcBalanceOf() {
       },
       {
         address: config.dBtcAddress,
-        ERC20ABI,
+        abi: ERC20ABI,
         functionName: "balanceOf",
         args: [config.treasuryAddress],
       },
     ],
   });
-  const dBtcData = data.length <= 0 ? [] : data.map((d) => d.toString());
+
+  if (!data) {
+    return {
+      data: [],
+      balanceOK: false,
+    };
+  }
+
+  const dBtcData =
+    data.length <= 0
+      ? []
+      : data.map((d) =>
+          parseFloat(ethers.utils.formatEther(d.toString())).toFixed(9)
+        );
 
   return {
     data: dBtcData,

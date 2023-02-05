@@ -17,12 +17,22 @@ export default function DigMonitor() {
       {/* {loading && <span>List: Loading...</span>} */}
       {!loading && snapshots && (
         <>
-          <PrivilageCard title={"Dig Monitor"}>
+          <PrivilageCard
+            title={`Dig Monitor [${snapshots.val().state.status}]`}
+          >
             <CardItem
               title={"lastUpdate: "}
               content={new Date(snapshots.val().lastUpdate).toLocaleString(
                 "en-th"
               )}
+            />
+            <CardItem
+              title={"Mine #: "}
+              content={`${snapshots.val().state.mineNo}`}
+            />
+            <CardItem
+              title={"Status: "}
+              content={`${snapshots.val().state.status}`}
             />
             <CardItem2
               title={"pendingReward: "}
