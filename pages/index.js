@@ -10,6 +10,7 @@ import * as auctionAbi from "../blockchain/contracts/auction/auction.abi";
 import * as executorAbi from "../blockchain/contracts/executor/executor.abi";
 import { parseBidsData } from "../blockchain/utils/bids.parser";
 import Advertise from "../components/advertise";
+import Explain from "../components/explain";
 
 export default function Home(props) {
   return (
@@ -23,6 +24,7 @@ export default function Home(props) {
           <Banner />
           <Advertise />
           <Footer />
+          <Explain />
         </div>
       </div>
     </div>
