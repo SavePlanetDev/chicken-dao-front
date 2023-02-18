@@ -243,7 +243,7 @@ export default function Body({ props }) {
           <div type="submit" className={styles.imgbackbockr}>
             <div>
               {img == undefined ? (
-                <img src="checknf.png" className={styles.imgposition} />
+                <img src="checknf2.png" className={styles.imgposition} />
               ) : (
                 <img src={img} className={styles.imgposition} />
               )}

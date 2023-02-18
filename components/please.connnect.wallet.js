@@ -1,5 +1,5 @@
 import Image from "next/image";
-import chick from "../public/checknf.png";
+import chick from "../public/checknf2.png";
 import styles from "../styles/PleaseConnectWallet.module.css";
 
 export default function PleaseConnectWallet() {
