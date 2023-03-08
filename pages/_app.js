@@ -27,7 +27,7 @@ const myTheme = merge(darkTheme(), {
 });
 
 const { chains, provider } = configureChains(
-  [ bitkub_mainnet],
+  [bitkub_mainnet],
   [publicProvider()]
 );
 

@@ -1,21 +1,21 @@
-import PrivilageHeader from "../components/privilage.header";
-import PleaseConnectWallet from "../components/please.connnect.wallet";
-import NftContainer from "../components/nftcontainer";
-import NftImageList from "../components/nftImageList";
-import PrivilageTitle from "../components/privilage.title";
-import styles from "../styles/Privilage.module.css";
+import PrivilageHeader from "../../components/privilage.header";
+import PleaseConnectWallet from "../../components/please.connnect.wallet";
+import NftContainer from "../../components/nftcontainer";
+import NftImageList from "../../components/nftImageList";
+import PrivilageTitle from "../../components/privilage.title";
+import styles from "../../styles/Privilage.module.css";
 import { useAccount } from "wagmi";
-import { getNftListOf } from "../blockchain/contracts/nft/nft.view.ether";
+import { getNftListOf } from "../../blockchain/contracts/nft/nft.view.ether";
 import { useEffect, useState } from "react";
-import PrivilageList from "../components/privilage.list";
-import WalletEmpty from "../components/wallet.empty";
+import PrivilageList from "../../components/privilage.list";
+import WalletEmpty from "../../components/wallet.empty";
 
 import { ethers } from "ethers";
-import { bitkub_mainnet } from "../blockchain/chain";
-import * as auctionAbi from "../blockchain/contracts/auction/auction.abi";
-import * as executorAbi from "../blockchain/contracts/executor/executor.abi";
-import { parseBidsData } from "../blockchain/utils/bids.parser";
-import { AuctionProfile } from "../components/auction.profile";
+import { bitkub_mainnet } from "../../blockchain/chain";
+import * as auctionAbi from "../../blockchain/contracts/auction/auction.abi";
+import * as executorAbi from "../../blockchain/contracts/executor/executor.abi";
+import { parseBidsData } from "../../blockchain/utils/bids.parser";
+import { AuctionProfile } from "../../components/auction.profile";
 
 export default function PrivilagePage(props) {
   console.log(props);
