@@ -1,10 +1,9 @@
 import { useAccount } from "wagmi";
-import Connectwallet from "../../components/connectwallet";
 import PleaseConnectWallet from "../../components/please.connnect.wallet";
-import lpHeaderModule from "../../styles/launchpad/LpHeader.module.css";
-import lpContainerModule from "../../styles/launchpad/LpContainer.module.css";
-import lpProjectList from "../../styles/launchpad/LpProjectList.module.css";
+import LpContainer from "../../components/launchpad/project.container";
+import LpProjectList from "../../components/launchpad/proejct.list";
 import LpProjectCard from "../../components/launchpad/project.card";
+import LpHeader from "../../components/launchpad/header";
 import LpProjectPlaceHolderCard from "../../components/launchpad/project.card.placeholder";
 
 import cardBanner from "../../public/bodybackground.png";
@@ -38,23 +37,6 @@ function LaunchPad() {
           <LpProjectPlaceHolderCard />
         </LpProjectList>
       </LpContainer>
-    </div>
-  );
-}
-
-function LpContainer({ children }) {
-  return <div className={lpContainerModule.container}>{children}</div>;
-}
-
-function LpProjectList({ children }) {
-  return <div className={lpProjectList.container}>{children}</div>;
-}
-
-function LpHeader() {
-  return (
-    <div className={lpHeaderModule.container}>
-      <div className={lpHeaderModule.title}>🐔 บ่อนไก่ - The Launch Pad</div>
-      <Connectwallet />
     </div>
   );
 }
