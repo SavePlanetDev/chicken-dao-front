@@ -4,7 +4,11 @@ import PleaseConnectWallet from "../../components/please.connnect.wallet";
 import lpHeaderModule from "../../styles/launchpad/LpHeader.module.css";
 import lpContainerModule from "../../styles/launchpad/LpContainer.module.css";
 import lpProjectList from "../../styles/launchpad/LpProjectList.module.css";
-import lpProjectCard from "../../styles/launchpad/LpProjectCard.module.css";
+import LpProjectCard from "../../components/launchpad/project.card";
+import LpProjectPlaceHolderCard from "../../components/launchpad/project.card.placeholder";
+
+import cardBanner from "../../public/bodybackground.png";
+import cardAvatar from "../../public/checknf2.png.png";
 
 function LaunchPad() {
   const { address, isConnected } = useAccount();
@@ -22,7 +26,16 @@ function LaunchPad() {
       <LpHeader />
       <LpContainer>
         <LpProjectList>
-          <LpProjectCard />
+          <LpProjectCard
+            bannerImage={cardBanner}
+            avatarImage={cardAvatar}
+            title="สุ่มไก่"
+            description="เมื่อมีไก่ ! ก็ต้องมีสุ่มไก๊ มา mint สุ่มไก่ไปกันเลย ไก่ 1 ตัว ต่อ สุ่ม 1 สุ่ม"
+            totalsupply="จนกว่าเวลาจะหมด"
+            website="chicken-dao.xyz"
+          />
+          <LpProjectPlaceHolderCard />
+          <LpProjectPlaceHolderCard />
         </LpProjectList>
       </LpContainer>
     </div>
@@ -42,48 +55,6 @@ function LpHeader() {
     <div className={lpHeaderModule.container}>
       <div className={lpHeaderModule.title}>🐔 บ่อนไก่ - The Launch Pad</div>
       <Connectwallet />
-    </div>
-  );
-}
-
-function LpProjectCard() {
-  return (
-    <div className={lpProjectCard.container}>
-      <div className={lpProjectCard.titleBox}>
-        <div className={lpProjectCard.circle}></div>
-      </div>
-      <div className={lpProjectCard.contentBox}>
-        <div className={lpProjectCard.contentTitle}>สุ่มไก่</div>
-        <div className={lpProjectCard.description}>
-          โปรเจคลึกลับ สุ่มไก่ ! เฉพาะคนไก่ๆ mint ได้ตามราคาประมูล 1 wallet ต่อ
-          1 ครั้ง
-        </div>
-        <div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              paddingRight: "10px",
-              paddingLeft: "10px",
-            }}
-          >
-            <span>Total Supply:</span> จนกว่าจะหมดเวลา
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              paddingRight: "10px",
-              paddingLeft: "10px",
-            }}
-          >
-            <span>Website:</span> chicken-dao.xyz
-          </div>
-        </div>
-        <div style={{ paddingTop: "10px", display: "flex" }}>
-          <button className={lpProjectCard.button}>เปิดสุ่ม</button>
-        </div>
-      </div>
     </div>
   );
 }
