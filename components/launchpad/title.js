@@ -9,7 +9,7 @@ export default function LpTitle() {
                               </div>
                               </div>
                               <div style={{ display: "flex" }}>
-                                        <img src="../LPbanner.png" width="100%"></img>
+                                        <img src="../LPbanner2.png" width="100%"></img>
                               </div>
                     </div>
           
