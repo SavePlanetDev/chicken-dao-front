@@ -8,6 +8,8 @@ function LpProjectCard({
   description,
   totalsupply,
   website,
+  addr,
+  owner,
 }) {
   return (
     <div className={lpProjectCard.container}>
@@ -26,6 +28,18 @@ function LpProjectCard({
           </div>
           <div className={lpProjectCard.listItem}>
             <span>Website:</span> {website}
+          </div>
+          <div className={lpProjectCard.listItem}>
+            <span>addr:</span>{" "}
+            {`${addr ? addr.slice(0, 6) : "0x000"} ... ${
+              addr ? addr.slice(38) : "0000"
+            } `}
+          </div>
+          <div className={lpProjectCard.listItem}>
+            <span>owner:</span>{" "}
+            {`${owner ? owner.slice(0, 6) : "0x000"} ... ${
+              owner ? owner.slice(38) : "0000"
+            } `}
           </div>
         </div>
         <div className={lpProjectCard.buttonBox}>
