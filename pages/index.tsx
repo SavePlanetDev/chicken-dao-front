@@ -12,7 +12,9 @@ import { parseBidsData } from "../blockchain/utils/bids.parser";
 import Advertise from "../components/advertise";
 import Explain from "../components/explain";
 
-export default function Home(props) {
+import { Props } from "../interfaces";
+
+export default function Home(props: Props) {
   return (
     <div>
       <div>
@@ -66,7 +68,7 @@ export async function getStaticProps() {
       // all: parsedAllBids,
       treasury: balanceEth,
       paused,
-    },
+    } as Props,
     revalidate: 10,
   };
 }
