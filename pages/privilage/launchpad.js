@@ -6,7 +6,7 @@ import LpProjectList from "../../components/launchpad/proejct.list";
 import LpProjectCard from "../../components/launchpad/project.card";
 import LpHeader from "../../components/launchpad/header";
 import LpProjectPlaceHolderCard from "../../components/launchpad/project.card.placeholder";
-
+import LpTitle from "../../components/launchpad/title";
 import cardBanner from "../../public/bodybackground.png";
 import cardAvatar from "../../public/checknf2.png.png";
 
@@ -19,6 +19,7 @@ function LaunchPad() {
     return (
       <div>
         <LpHeader />
+        <LpTitle/>
         <PleaseConnectWallet />
       </div>
     );
@@ -26,6 +27,7 @@ function LaunchPad() {
   return (
     <div>
       <LpHeader />
+      <LpTitle/>
       <LpContainer>
         {nftsLoading || nfts.length <= 0 ? (
           <>
