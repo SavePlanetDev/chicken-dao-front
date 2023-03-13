@@ -5,5 +5,7 @@ yarn.lock
 package-lock.json
 backup
 
+.DS_Store
+
 *.env
 *.env.local
