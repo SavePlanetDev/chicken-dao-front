@@ -1,7 +1,7 @@
 import lpProjectList from "../../styles/launchpad/LpProjectList.module.css";
 
 type ProjectListProps = {
-  children: JSX.Element;
+  children: JSX.Element[] | JSX.Element;
 };
 
 function LpProjectList({ children }: ProjectListProps) {

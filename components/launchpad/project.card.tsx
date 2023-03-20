@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import lpProjectCard from "../../styles/launchpad/LpProjectCard.module.css";
 
 type ProjectCardProps = {
   title: string;
-  bannerImage: string;
-  avatarImage: string;
+  bannerImage: string | StaticImageData;
+  avatarImage: string | StaticImageData;
   description: string;
   totalsupply: string;
   website: string;

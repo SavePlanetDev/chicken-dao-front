@@ -6,15 +6,14 @@ import merge from "lodash.merge";
 import {
   getDefaultWallets,
   RainbowKitProvider,
-  Theme,
-  cssStringFromTheme,
-  lightTheme,
   darkTheme,
 } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
 import { bitkub_mainnet } from "../blockchain/chain";
 import { AppProps } from "next/app";
+
+import { trpc } from "../trpc/utils/trpc";
 
 const myTheme = merge(darkTheme(), {
   colors: {
@@ -43,7 +42,7 @@ const wagmiClient = createClient({
   provider,
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const [showChild, setShowChild] = useState(false);
   useEffect(() => {
     setShowChild(true);
@@ -64,6 +63,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </WagmiConfig>
     );
   }
-}
+};
 
-export default MyApp;
+export default trpc.withTRPC(MyApp);

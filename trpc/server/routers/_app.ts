@@ -1,19 +1,25 @@
-import { z } from "zod";
 import { procedure, router } from "../trpc";
-import { Context } from "../context";
+import {
+  NewProjectDTO,
+  NewUserDTO,
+  addNewUser,
+  addNewProject,
+  fetchAllProjects,
+} from "../services";
 
-export const appRouter = router<Context>({
-  hello: procedure
-    .input(
-      z.object({
-        text: z.string(),
-      })
-    )
-    .query(({ input }) => {
-      return {
-        greeting: `hello ${input.text}`,
-      };
-    }),
+export const appRouter = router({
+  addNewProject: procedure.input(NewProjectDTO).mutation(async ({ input }) => {
+    const result = await addNewProject(input);
+    return result;
+  }),
+  addNewUser: procedure.input(NewUserDTO).mutation(async ({ input }) => {
+    const result = await addNewUser(input);
+    return result;
+  }),
+  projects: procedure.query(async () => {
+    const result = await fetchAllProjects();
+    return result;
+  }),
 });
 
 export type AppRouter = typeof appRouter;

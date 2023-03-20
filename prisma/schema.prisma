@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./database.sqlite"
+}
+
+model Project {
+  address          String    @id @unique
+  name             String    @default("your nft name")
+  ownerId          String
+  description      String
+  logoUrl          String?   @default("na")
+  avatarUrl        String?   @default("na")
+  websiteUrl       String?
+  facebookUrl      String?
+  discordUrl       String?
+  discordInviteUrl String?
+  twitterUrl       String?
+  likes            Int       @default(0)
+  owner            User      @relation(fields: [ownerId], references: [address])
+  comments         Comment[]
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime?
+}
+
+model Comment {
+  id        Int       @id @default(autoincrement())
+  projectId String
+  owner     String
+  content   String
+  likes     Int       @default(0)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+  project   Project   @relation(fields: [projectId], references: [address])
+}
+
+model User {
+  address   String    @id @unique
+  name      String    @default("na")
+  avatarUrl String
+  role      String    @default("USER")
+  projects  Project[]
+}

@@ -5,21 +5,21 @@ import LpContainer from "../../components/launchpad/project.container";
 import LpProjectList from "../../components/launchpad/proejct.list";
 import LpProjectCard from "../../components/launchpad/project.card";
 import LpHeader from "../../components/launchpad/header";
-import LpProjectPlaceHolderCard from "../../components/launchpad/project.card.placeholder";
 import LpTitle from "../../components/launchpad/title";
 import cardBanner from "../../public/bodybackground.png";
 import cardAvatar from "../../public/checknf2.png.png";
+import { trpc } from "../../trpc/utils/trpc";
 
 function LaunchPad() {
+  const nfts = trpc.projects.useQuery().data;
   const { address, isConnected } = useAccount();
-  const { nfts, nftsLoading } = useGetAllNfts();
-  console.log(nfts);
+  // const { nfts, nftsLoading } = useGetAllNfts();
 
   if (!isConnected)
     return (
       <div>
         <LpHeader />
-        <LpTitle/>
+        <LpTitle />
         <PleaseConnectWallet />
       </div>
     );
@@ -27,25 +27,26 @@ function LaunchPad() {
   return (
     <div>
       <LpHeader />
-      <LpTitle/>
+      <LpTitle />
       <LpContainer>
-        {nftsLoading || nfts.length <= 0 ? (
+        {nfts?.length! <= 0 ? (
           <>
             <Loading />
           </>
         ) : (
           <LpProjectList>
-            {nfts.length ? (
+            {nfts?.length ? (
               nfts.map((nft, index) => (
                 <LpProjectCard
+                  key={index}
                   bannerImage={cardBanner}
                   avatarImage={cardAvatar}
-                  title={nft.name}
-                  description={nft.desc}
-                  totalsupply={nft.supply}
+                  title={"Project Kai"}
+                  description={nft.description}
+                  totalsupply={"200"}
                   website="chicken-dao.xyz"
-                  addr={nft.asset}
-                  owner={nft.owner}
+                  addr={nft.address}
+                  owner={nft.ownerId}
                 />
               ))
             ) : (
