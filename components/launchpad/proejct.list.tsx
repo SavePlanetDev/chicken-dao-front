@@ -1,6 +1,10 @@
 import lpProjectList from "../../styles/launchpad/LpProjectList.module.css";
 
-function LpProjectList({ children }) {
+type ProjectListProps = {
+  children: JSX.Element;
+};
+
+function LpProjectList({ children }: ProjectListProps) {
   return <div className={lpProjectList.container}>{children}</div>;
 }
 

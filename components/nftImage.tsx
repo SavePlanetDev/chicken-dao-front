@@ -6,14 +6,14 @@ import {
   tokenNameVariants,
 } from "../framer/nftImage.framer";
 
-export default function NftImage({ data }) {
+export default function NftImage({ data }: any) {
   return (
     <motion.div
       variants={imageContainerVariants}
       initial="hidden"
       animate="visible"
       whileHover="hover"
-      name="image-wrapper"
+      id="image-wrapper"
       className={styles.imageBox}
     >
       <Image src={data.image} alt="chicker image" fill></Image>

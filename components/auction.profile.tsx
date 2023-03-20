@@ -36,8 +36,11 @@ export function AuctionProfile({ auctions = [] }) {
 }
 
 function getHiLowBid(auctions = []) {
+  console.log(auctions);
   if (auctions.length <= 0) return null;
-  const sorted = auctions.sort((a, b) => b.amounts - a.amounts);
+  const sorted = auctions.sort(
+    (a: { amounts: number }, b: { amounts: number }) => b.amounts - a.amounts
+  ) as number[];
   return { highest: sorted[0], lowest: sorted[sorted.length - 1] };
 }
 
@@ -48,7 +51,7 @@ function getSumAmounts(auctions = []) {
 }
 
 function getAvg(auctions = []) {
-  if (auctions.legnth <= 0) return 0;
+  if (auctions.length <= 0) return 0;
   const sum = getSumAmounts(auctions);
   const avg = sum / auctions.length;
   return avg;

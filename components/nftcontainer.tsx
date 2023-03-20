@@ -1,8 +1,12 @@
 import styles from "../styles/nftContainer.module.css";
 
-export default function NftContainer({ children }) {
+export type NftContainerProps = {
+  children: JSX.Element;
+};
+
+export default function NftContainer({ children }: NftContainerProps) {
   return (
-    <div name="nft-container" className={styles.nftContainer}>
+    <div id="nft-container" className={styles.nftContainer}>
       {children}
     </div>
   );

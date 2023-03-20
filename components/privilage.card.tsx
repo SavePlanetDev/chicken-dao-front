@@ -1,12 +1,20 @@
 import styles from "../styles/PrivilageCard.module.css";
 
-export default function PrivilageCard({ title = "????", children }) {
+export type PrivilageCardProps = {
+  title: string;
+  children: JSX.Element;
+};
+
+export default function PrivilageCard({
+  title = "????",
+  children,
+}: PrivilageCardProps) {
   return (
-    <div name="card-container" className={styles.container}>
-      <div name="card-title" className={styles.title}>
+    <div id="card-container" className={styles.container}>
+      <div id="card-title" className={styles.title}>
         {title}
       </div>
-      <div name="card-content" clasName={styles.content}>
+      <div id="card-content" className={styles.content}>
         {children}
       </div>
     </div>

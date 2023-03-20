@@ -38,7 +38,7 @@ function getdBtcBalanceOf() {
   const dBtcData =
     data.length <= 0
       ? []
-      : data.map((d) =>
+      : data.map((d: any) =>
           parseFloat(ethers.utils.formatEther(d.toString())).toFixed(9)
         );
 

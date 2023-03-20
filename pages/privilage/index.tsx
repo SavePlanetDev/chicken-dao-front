@@ -16,9 +16,9 @@ import * as auctionAbi from "../../blockchain/contracts/auction/auction.abi";
 import * as executorAbi from "../../blockchain/contracts/executor/executor.abi";
 import { parseBidsData } from "../../blockchain/utils/bids.parser";
 import { AuctionProfile } from "../../components/auction.profile";
+import { Bid, Props } from "../../interfaces";
 
-export default function PrivilagePage(props) {
-  console.log(props);
+export default function PrivilagePage(props: Props) {
   const [nftData, setNftData] = useState([]);
   const { address, isConnected } = useAccount();
   const [isLoading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ export default function PrivilagePage(props) {
     }
   }, [address, isConnected]);
 
-  async function getNftList(owner) {
+  async function getNftList(owner: string) {
     const nftList = await getNftListOf(owner);
     nftList.length <= 0 ? setNftData([]) : setNftData(nftList);
   }
@@ -91,7 +91,7 @@ export async function getStaticProps() {
 
   //all auctions
   const allBids = await aucitonContract.getAllBids();
-  const parsedAllBids = parseBidsData(allBids);
+  const parsedAllBids: Bid[] = parseBidsData(allBids);
 
   //treasury balance
   const balance = await provider.getBalance(executorAbi.address);
@@ -105,7 +105,7 @@ export async function getStaticProps() {
       all: parsedAllBids,
       treasury: balanceEth,
       paused,
-    },
+    } as Props,
     revalidate: 10,
   };
 }

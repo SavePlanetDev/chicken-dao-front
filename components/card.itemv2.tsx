@@ -1,5 +1,6 @@
 import styles from "../styles/PrivilageCard.module.css";
-export default function CardItem2({ title, content }) {
+import { CardItemProps } from "./card.item";
+export default function CardItem2({ title, content }: CardItemProps) {
   return (
     <div className={styles.item}>
       <div>

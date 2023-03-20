@@ -9,7 +9,12 @@ const defaultRemainingTime = {
   days: "00",
 };
 
-function CountdownTimer({ endtimeMs, setCanSettle }) {
+export type CountdownTimerProps = {
+  endtimeMs: number;
+  setCanSettle: Function;
+};
+
+function CountdownTimer({ endtimeMs, setCanSettle }: CountdownTimerProps) {
   const [remainingTime, setRemainingTime] = useState(defaultRemainingTime);
 
   useEffect(() => {
@@ -21,7 +26,7 @@ function CountdownTimer({ endtimeMs, setCanSettle }) {
   }, [endtimeMs]);
 
   //update remaining time var
-  function updateRemainingTime(ms, setCanSattle) {
+  function updateRemainingTime(ms: number, setCanSattle: Function) {
     setRemainingTime(getRemainingTimeUntilMsTimestamp(ms, setCanSattle));
   }
 
@@ -47,7 +52,10 @@ function CountdownTimer({ endtimeMs, setCanSettle }) {
   );
 }
 
-function getRemainingTimeUntilMsTimestamp(timestampMs, setCanSettle) {
+function getRemainingTimeUntilMsTimestamp(
+  timestampMs: number,
+  setCanSettle: Function
+) {
   const timestampDayjs = dayjs(timestampMs * 1000);
   const nowDayjs = dayjs();
 
@@ -69,27 +77,33 @@ function getRemainingTimeUntilMsTimestamp(timestampMs, setCanSettle) {
   };
 }
 
-function getRemainingSeconds(newDayjs, timestampDayjs) {
+function getRemainingSeconds(
+  newDayjs: dayjs.Dayjs,
+  timestampDayjs: dayjs.Dayjs
+) {
   const seconds = timestampDayjs.diff(newDayjs, "seconds") % 60;
   return padWithZeros(seconds, 2);
 }
 
-function getRemainingMinutes(newDayjs, timestampDayjs) {
+function getRemainingMinutes(
+  newDayjs: dayjs.Dayjs,
+  timestampDayjs: dayjs.Dayjs
+) {
   const mintutes = timestampDayjs.diff(newDayjs, "minutes") % 60;
   return padWithZeros(mintutes, 2);
 }
 
-function getRemainingHours(newDayjs, timestampDayjs) {
+function getRemainingHours(newDayjs: dayjs.Dayjs, timestampDayjs: dayjs.Dayjs) {
   const hours = timestampDayjs.diff(newDayjs, "hours") % 60;
   return padWithZeros(hours, 2);
 }
 
-function getRemainingDays(newDayjs, timestampDayjs) {
+function getRemainingDays(newDayjs: dayjs.Dayjs, timestampDayjs: dayjs.Dayjs) {
   const days = timestampDayjs.diff(newDayjs, "days") % 24;
   return padWithZeros(days, 2);
 }
 
-function padWithZeros(number, minLength) {
+function padWithZeros(number: number, minLength: number) {
   const numberString = number.toString();
   if (numberString.length >= minLength) return numberString;
   return "0".repeat(minLength - numberString.length) + numberString;

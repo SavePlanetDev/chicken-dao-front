@@ -19,7 +19,7 @@ import axios from "axios";
 import LoadingPage from "./loading";
 import { getdBtcBalanceOf } from "../blockchain/contracts/erc20/erc20.view";
 
-export default function Body({ props }) {
+export default function Body({ props }: any) {
   const minimum = 2;
   const dbtc = getdBtcBalanceOf();
   const { address } = useAccount();
@@ -32,7 +32,7 @@ export default function Body({ props }) {
   const [currentBidder, setCurrentBidder] = useState(props.latest.bidder);
 
   const [bid, setBid] = useState(0);
-  const { placeBid, placeBidError } = PlaceBid(bid);
+  const { placeBid, placeBidError } = PlaceBid();
   const { settleAuction, settleError } = settle();
   const uri = getTokenURI(props.latest.tokenId);
 
@@ -48,7 +48,7 @@ export default function Body({ props }) {
         "เซต base uri จากการ load getTokenUri hook: \n",
         uri.tokenURI
       );
-      parseTokenUri(uri.tokenURI);
+      parseTokenUri(uri.tokenURI as string);
     }
 
     if (bidded) {
@@ -61,7 +61,7 @@ export default function Body({ props }) {
 
     if (canSettle && settled) {
       // console.log("หมดเวลา สามารถที่จะ settle ได้", { currentBid, canSettle });
-      setCurrentBid(0);
+      setCurrentBid("0");
       setCanSettle(false);
     }
 
@@ -72,7 +72,7 @@ export default function Body({ props }) {
       //   end,
       // });
       parseTokenUri(baseUri);
-      setCurrentTokenId(tokenId);
+      setCurrentTokenId(tokenId.toString());
       setCurrentTimer(end);
       setSettled(false);
       setLoading(false);
@@ -83,8 +83,8 @@ export default function Body({ props }) {
       // console.log("baseURI-old", baseUri.tokenURI);
       // console.log("baseURI", baseUri);
       setCurrentTimer(end);
-      setCurrentTokenId(tokenId);
-      if (baseUri != false) {
+      setCurrentTokenId(tokenId.toString());
+      if (baseUri != "") {
         parseTokenUri(baseUri);
       }
     }
@@ -107,7 +107,7 @@ export default function Body({ props }) {
     settleError,
   ]);
 
-  async function parseTokenUri(tokenUri) {
+  async function parseTokenUri(tokenUri: string) {
     if (tokenUri == "ipfs:://") return null;
     const response = await axios.get(tokenUri);
     const { image } = response.data;
@@ -115,17 +115,17 @@ export default function Body({ props }) {
     return image;
   }
 
-  function handleBid(fn, e) {
+  function handleBid(fn: Function, e: any) {
     const { value } = e.target;
     fn(value);
   }
 
-  function handleSubmit(e) {
+  function handleSubmit(e: any) {
     e.preventDefault();
     if (bid != null && bid >= parseFloat(bidAmount) + minimum) {
       setLoading(true);
       e.target.reset();
-      placeBid({
+      placeBid!({
         recklesslySetUnpreparedOverrides: {
           value: ethers.utils.parseEther(bid.toString()),
         },
@@ -136,7 +136,7 @@ export default function Body({ props }) {
   function handleSettle() {
     setLoading(true);
     setCurrentBid(0);
-    settleAuction();
+    settleAuction!();
   }
 
   return (
@@ -240,7 +240,7 @@ export default function Body({ props }) {
       </div>
       <div className={styles.imgchecken}>
         <div className={styles.imgbackbocky}>
-          <div type="submit" className={styles.imgbackbockr}>
+          <div className={styles.imgbackbockr}>
             <div>
               {img == undefined ? (
                 <img src="checknf2.png" className={styles.imgposition} />

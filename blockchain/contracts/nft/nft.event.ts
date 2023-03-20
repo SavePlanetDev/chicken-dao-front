@@ -3,7 +3,7 @@ import { useState } from "react";
 import { abi, address } from "./nft.abi";
 
 export function EventSetBaseUri() {
-  const [baseUri, setBaseUri] = useState(false);
+  const [baseUri, setBaseUri] = useState("");
 
   useContractEvent({
     address,

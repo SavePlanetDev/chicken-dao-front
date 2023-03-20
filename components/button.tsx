@@ -1,7 +1,11 @@
 import button from "../styles/Button.module.css";
 import Link from "next/link";
 
-export default function Button({ children }) {
+export type ButtonProps = {
+  children: JSX.Element;
+};
+
+export default function Button({ children }: ButtonProps) {
   return (
     <Link href="/privilage">
       <div className={button.container}>

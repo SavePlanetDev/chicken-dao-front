@@ -12,7 +12,7 @@ import { parseBidsData } from "../blockchain/utils/bids.parser";
 import Advertise from "../components/advertise";
 import Explain from "../components/explain";
 
-import { Props } from "../interfaces";
+import { Bid, Props } from "../interfaces";
 
 export default function Home(props: Props) {
   return (
@@ -48,8 +48,9 @@ export async function getStaticProps() {
   const paused = await aucitonContract.paused();
 
   //latest auction information
-  const lastestBid = await aucitonContract.getLatestBid();
+  const lastestBid: Bid[] = await aucitonContract.getLatestBid();
   const parsed = parseBidsData([lastestBid]);
+  // console.log(parsed);
   const latest = parsed[0];
 
   // //all auctions

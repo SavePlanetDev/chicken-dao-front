@@ -1,6 +1,20 @@
 import React from "react";
 
-const AccordionUI = ({ title, children, Id, Index, setIndex }) => {
+type AccordianUIProps = {
+  title: string;
+  children: JSX.Element;
+  Id: number;
+  Index: number;
+  setIndex: number;
+};
+
+const AccordionUI = ({
+  title,
+  children,
+  Id,
+  Index,
+  setIndex,
+}: AccordianUIProps) => {
   return (
     <div className="body">
       <div className="accordion">

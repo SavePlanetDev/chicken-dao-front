@@ -1,6 +1,17 @@
 import Image from "next/image";
 import lpProjectCard from "../../styles/launchpad/LpProjectCard.module.css";
 
+type ProjectCardProps = {
+  title: string;
+  bannerImage: string;
+  avatarImage: string;
+  description: string;
+  totalsupply: string;
+  website: string;
+  addr: string;
+  owner: string;
+};
+
 function LpProjectCard({
   title,
   bannerImage,
@@ -10,7 +21,7 @@ function LpProjectCard({
   website,
   addr,
   owner,
-}) {
+}: ProjectCardProps) {
   return (
     <div className={lpProjectCard.container}>
       <div className={lpProjectCard.titleBox}>

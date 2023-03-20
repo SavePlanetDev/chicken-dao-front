@@ -14,6 +14,7 @@ import {
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
 import { bitkub_mainnet } from "../blockchain/chain";
+import { AppProps } from "next/app";
 
 const myTheme = merge(darkTheme(), {
   colors: {
@@ -42,7 +43,7 @@ const wagmiClient = createClient({
   provider,
 });
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false);
   useEffect(() => {
     setShowChild(true);

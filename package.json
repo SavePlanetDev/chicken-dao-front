@@ -35,6 +35,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/lodash.merge": "^4.6.7",
     "@types/react": "18.0.28",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",

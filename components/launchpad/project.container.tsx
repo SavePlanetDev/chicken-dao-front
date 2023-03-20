@@ -1,6 +1,10 @@
 import lpContainerModule from "../../styles/launchpad/lpContainer.module.css";
 
-function LpContainer({ children }) {
+type ContainerProps = {
+  children: JSX.Element;
+};
+
+function LpContainer({ children }: ContainerProps) {
   return <div className={lpContainerModule.container}>{children}</div>;
 }
 
